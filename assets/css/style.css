@@ -1,0 +1,70 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+/* 
+
+ROBOTO SERIF
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+
+.roboto-serif-<uniquifier> {
+    font-family: "Roboto Serif", serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100,
+    "GRAD" 0;
+} 
+
+RED HAT DISPLAY
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 300 to 900
+
+.red-hat-display-<uniquifier> {
+    font-family: "Red Hat Display", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+}
+*/
+
+/* PRIMARY COLORS */
+/* 
+{color:#133A41}
+{color:#428390}
+{color:#69C9D0}
+
+{color:#1E1E1E}
+{color:#AFAFAF}
+{color:#D9D9D9}
+
+{color:#F5F5F5}
+{color:#FFFFFF} 
+*/
+
+/* SECUNDARY COLORS */
+/* 
+{color:#5A3A3F}
+{color:#E0A072}
+{color:#ECB58E}
+
+{color:#D7B788}
+{color:#EED6BA}
+{color:#F9EEE4}
+
+{color:#EE1D52}
+{color:#2C7669} 
+*/
+
+/* LOGIN */
+.col-6{
+    
+}
+
+
+.imagem-princ{
+    width: 100px;
+}
