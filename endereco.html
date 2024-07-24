@@ -14,25 +14,31 @@
         }
         body {
             font-family: "Inter", sans-serif;
-            font-weight: 20px;
+            font-weight:300;
+            font-size: 20px;
         }
-        .container {
+        #navbar {
+            display: flex;
+            flex-direction: column;
             height: 100vh;
             width: 313px;
             background-color: #133A41;
             color: #ffffff;
-            display: flex;
-            flex-direction: column;;
         }
         #logo img {
             max-width: 100%;
             height: auto;
         }
         #user_menu {
-            margin-top: 20px;
             display: flex;
             flex-direction: column;
             margin-left: 40px;
+        }
+        .user_config {
+            margin-bottom: 10px;
+            margin-left: 15px;
+            font-size: 16px;
+            border-left: 2px solid white;
         }
         .icon_user {
             display: flex;
@@ -40,11 +46,13 @@
             margin-bottom: 10px;
         }
         .btn {
+            padding: 15px;
             cursor: pointer;
             margin-bottom: 10px;
         }
         .btn:hover {
-            text-decoration: underline;
+            opacity: 60%;
+            transition: 0.5s;
         }
         a{
             color: #ffffff;
@@ -56,18 +64,20 @@
 
 </head>
 <body>
-
-    <div class="container">
+    <nav id="navbar">
         <div id="logo"><img src="logo.jpg" alt="Logo Promel"></div>
 
+    
         <div id="user_menu">
-            <div class="icon_user inter-font"><img src="Group.svg" id="icon_user" style="margin-right: 10px;">Minha Conta</div>
-            <a href=""><p class="btn">-- Perfil</p></a>
-            <a href=""><p class="btn">-- Endereço</p></a>
-            <a href=""><p class="btn">-- Trocar Senha</p></a>
-            <a href=""><p class="btn">-- Histórico</p></a>
+            <div class="icon_user"><img src="Group.svg" style="margin-right: 10px;">Minha Conta</div>
+            <div class="user_config">
+                <a href=""><p class="btn">-- Perfil</p></a>
+                <a href=""><p class="btn">-- Endereço</p></a>
+                <a href=""><p class="btn">-- Trocar Senha</p></a>
+                <a href=""><p class="btn">-- Histórico</p></a>
+            </div>
         </div>
-    </div>
+    </nav>
 
 </body>
 </html>
