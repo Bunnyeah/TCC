@@ -9,57 +9,54 @@
     <title>Configurações da Conta</title>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
 
-            <nav id="navbar">
-                <div id="logo"><img src="logo.jpg" alt="Logo Promel"></div>
 
-                <div id="user_menu">
-                    <div class="icone"><img src="./assets/imgs/Group.svg" style="margin-right: 10px;">Minha Conta</div>
+    <nav id="navbar">
+        <div id="logo"><img src="logo.jpg" alt="Logo Promel"></div>
+
+        <div id="user_menu">
+            <div class="icone"><img src="./assets/imgs/Group.svg" style="margin-right: 10px;">Minha Conta</div>
         
-                    <div id="user_pages">
-                        <div class="linha"><div class="seta"></div><a href=""><p class="botao pagatual">Perfil</p></a></div>
-                        <div class="linha"><div class="seta"></div><a href=""><p class="botao">Endereço</p></a></div>
-                        <div class="linha"><div class="seta"></div><a href=""><p class="botao">Trocar Senha</p></a></div>
-                        <div class="linha"><div class="seta"></div><a href=""><p class="botao">Histórico</p></a></div>
-                    </div>
-                </div>
-            </nav>
+            <div id="user_pages">
+                <div class="linha"><div class="seta"></div><a href=""><p class="botao pagatual">Perfil</p></a></div>
+                <div class="linha"><div class="seta"></div><a href=""><p class="botao">Endereço</p></a></div>
+                <div class="linha"><div class="seta"></div><a href=""><p class="botao">Trocar Senha</p></a></div>
+                <div class="linha"><div class="seta"></div><a href=""><p class="botao">Histórico</p></a></div>
+            </div>
+        </div>
+    </nav>
 
-        <div class="col-9">
-            <h3 id="title">Configurações da Conta</h3>
-            <form class="row" method="login.html" action="GET">
-                <div class="col-5">
-                    <div class="mb-3">
-                        <label for="nome" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="nome" name="nome">
+    <div class="container">
+            <div class="col-12">
+                <h3 class="my-5" id="title">Configurações da Conta</h3>
+                <form class="row" action="login.html" method="GET">
+                    <div class="col-7 mt-3">
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="nome" name="nome">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="senha" name="senha" placeholder="insira seu email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input type="number" class="form-control" id="senha" name="senha" >
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="senha" name="senha" placeholder="insira seu email">
+                    <div id="img_perfil" class="col-4 mb-3 ml-3">
+                        <img src="./assets/imgs/img_perfil.png">
+                        <button id="fotoperfil">Escolher arquivo</button>
                     </div>
-                    <div class="mb-3">
-                        <label for="telefone" class="form-label">Telefone</label>
-                        <input type="number" class="form-control" id="senha" name="senha" >
-                    </div>
-                </div>
-                <div id="img_perfil" class="col-3 mb-3">
-                    <img src="./assets/imgs/img_perfil.png">
-                    <button>Escolher arquivo</button>
-                    <p>Nenhum arquivo selecionado</p>
-                    </div>
-                </div>
-                
+            </div>
                 <div class="mb-3">
                     <label for="another_info" class="form-label">Outras Informações</label>
-                    <input type="text" class="form-control" id="senha" name="senha">
+                    <input id="outrasinfo" type="text" class="form-control" id="senha" name="senha">
                 </div>
                 <div class="mb-3">
-                    <a href=""><button type="button" id="btn" class="btn">Salvar todas as alterações</button></a>
+                    <a href=""><button type="button " id="btn" class="btn">Salvar todas as alterações</button></a>
                 </div>       
             </form>
-        </div>
     </div>
 
 
