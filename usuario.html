@@ -29,7 +29,7 @@
     <div class="container">
             <div class="col-12">
                 <h3 class="my-5" id="title">Configurações da Conta</h3>
-                <form class="row" action="login.html" method="GET">
+                <form enctype="multipart/form-data" class="row" action="login.html" method="GET">
                     <div class="col-7 mt-3">
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome</label>
@@ -37,31 +37,29 @@
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="senha" name="senha" placeholder="insira seu email">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="insira seu email">
                         </div>
                         <div class="mb-3">
                             <label for="telefone" class="form-label">Telefone</label>
-                            <input type="number" class="form-control" id="senha" name="senha" >
+                            <input type="number" class="form-control" id="telefone" name="telefone">
                         </div>
                     </div>
                     <div id="img_perfil" class="col-4 mb-3 ml-3">
                         <img src="./assets/imgs/img_perfil.png">
-                        <button id="fotoperfil">Escolher arquivo</button>
+                        <input type="file" id="fotoperfil">
+                        <!-- https://www.youtube.com/watch?v=ae83c8Zpoxo -->
                     </div>
             </div>
+            <div class="mb-3">
+                <label for="another_info" class="form-label">Outras Informações</label>
+                <textarea id="another_info" class="form-control" name="info" rows="3" style="resize: none;"></textarea>
+            </div>            
+            
                 <div class="mb-3">
-                    <label for="another_info" class="form-label">Outras Informações</label>
-                    <input id="outrasinfo" type="radio" class="col-10 form-control" id="senha" name="senha">
-                </div>
-                <div class="mb-3">
-                    <a href=""><button type="button " id="btn" class="btn mt-3">Salvar todas as alterações</button></a>
+                    <a href=""><button type="button" id="btn" class="btn mt-3">Salvar todas as alterações</button></a>
                 </div>       
             </form>
     </div>
 
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
