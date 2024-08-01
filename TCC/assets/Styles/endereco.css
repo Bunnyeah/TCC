@@ -1,0 +1,52 @@
+/*? Base */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+* {margin: 0; padding: 0; box-sizing: border-box;}
+
+body {font-family: "Inter", sans-serif; font-size: 20px;}
+
+a{color: #ffffff; text-decoration: none;}
+
+/*? NAVBAR START */
+#navbar {
+    display: flex;
+    flex-direction: column;
+    background-color: #133A41;
+    color: #ffffff;
+    height: 100vh;
+    width: 313px;
+    padding: 0;
+}
+#logo img {max-width: 100%; height: auto;}
+
+#user_menu {margin-left: 40px;}
+
+#user_pages {margin-left: 15px; font-size: 16px; border-left: 3px solid hsl(0, 0%, 80%); height: 197px;}
+
+.icone {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.botao {
+    padding: 15px;
+    cursor: pointer;
+    margin-bottom: 4px;
+    margin-left: 15px;
+}.botao:hover {
+    opacity: 60%; 
+    transition: 0.5s;
+}
+
+.pagatual{font-weight: bold;}
+
+.seta{
+    position: relative;
+    width: 20px; 
+    height: 0px; 
+    left: 0px; 
+    top: 27px;
+    border: 1px hsl(0, 0%, 80%) solid;  
+}
+/*? NAVBAR END */
+
