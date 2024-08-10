@@ -63,3 +63,14 @@ RED HAT DISPLAY
 .imagem-princ{
     width: 100px;
 }
+
+input[type=file]{
+    /* Remove a visualização */
+    display: none;
+}
+
+#teste {
+    height: 48px;
+    width: 100%;
+    background-color: rgb(250, 33, 33);
+}
