@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+}
+
+header{
+    position: relative;
+    background-color: #133A41;
+    height: 25vh;
+}
+
+button img{
+height: 8vh;
+width: 4vw;
+}
+
+button a{
+    background-color: #133A41;
+    color: white;
+    border-radius: 5px;
+    border: transparent;
+    text-decoration: none;
+
+}
+button{
+    background-color: #133A41;
+    color: white;
+    border-radius: 5px;
+    border: transparent;
+
+}
+#categorias{
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    position: absolute;
+    bottom: 0;
+}
+
+.botao-principal {
+    display: block;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+.botao-principal img{
+    height: 50px;
+}
+
+
+.lista-botoes {
+    display: none;
+    position: absolute;
+    padding: 10px
+}
+
+
+.botao-principal:hover .lista-botoes {
+    display: block;
+    
+}
+
