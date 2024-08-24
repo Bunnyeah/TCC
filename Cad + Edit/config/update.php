@@ -18,7 +18,7 @@ $stmt->execute();
                 $imageFileType = strtolower(pathinfo($_FILES["fotoperfil"]["name"], PATHINFO_EXTENSION));
 
                 // Define o novo nome do arquivo
-                $new_file_name = $userId . "." . "jpeg";
+                $new_file_name = $ID_cliente . "." . "jpeg";
                 $target_file = $target_dir . $new_file_name;
 
                 // Verifica se o arquivo é uma imagem

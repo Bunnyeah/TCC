@@ -71,7 +71,7 @@
             <!-- Outras Informações -->
             <div class="mb-3">
                 <label for="another_info" class="form-label">Outras Informações</label>
-                <textarea id="another_info" class="form-control" name="info" rows="3" style="resize: none;"><?=$cliente->Telefone;}?></textarea>
+                <textarea id="another_info" class="form-control" name="info" rows="3" style="resize: none;"><?=$cliente->Info;}?></textarea>
             </div>
 
             <!-- Submit -->
