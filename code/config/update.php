@@ -3,8 +3,19 @@ require_once '../connection/connection.php';
 
 extract($_POST);
 
+session_start();
+if((!isset ($_SESSION["email"]) == true) and (!isset ($_SESSION["senha"]) == true))
+{
+    $emailuser = $_SESSION["email"];
+    $senhauser = $_SESSION["senha"];
+} else{
+    header("Location: ../usuario-login.php");
+}
 
-$sql = "UPDATE cliente SET Nome=:nome ,Email=:email ,Telefone=:telefone ,Info=:info WHERE ID_cliente = 1";
+
+
+$sql = "UPDATE cliente SET Nome=:nome ,Email=:email ,Telefone=:telefone ,Info=:info 
+WHERE :email = $emailuser and :senha = $senhauser";
 $stmt = $conn->prepare($sql);
 $stmt->bindValue(':nome', $nome);
 $stmt->bindValue(':email', $email);
@@ -41,7 +52,7 @@ $stmt->bindValue(':info', $info);
                                 echo("O arquivo ". htmlspecialchars($new_file_name) . " foi enviado com sucesso.");
                                 $stmt->execute();
                                 $conn = null;
-                                header("Location: ../config - usuario.php");
+                                header("Location: ../config-usuario.php");
 
                             } else {
                                 echo("Desculpe, houve um erro ao enviar seu arquivo.");

@@ -17,12 +17,8 @@
                 <div id="form" class="col-md-6 col-sm-12">
                     <h3 class="my-5" style="padding-left: 10vw;">Cadastro de usuário</h3>
                     <div class="col-10" style="padding-left: 10vw;">
-                    <form id="formcad" enctype="multipart/form-data" class="row" action="./config/cadastrar.php" method="POST">
+                    <form id="formcad" enctype="multipart/form-data" class="row" action="./config/login.php" method="POST">
                         <div class="col-12 mt-3">
-                            <div class="mb-3">
-                                <label for="nome" class="form-label">Nome</label>
-                                <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome de usuário" required>
-                            </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="text" class="form-control" id="email" name="email" placeholder="insira seu email" required>
@@ -31,15 +27,11 @@
                                 <label for="senha" class="form-label">Senha</label>
                                 <input type="password" class="form-control" id="senha" name="senha" placeholder="Insira sua senha" required>
                             </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Confirmar Senha</label>
-                                <input type="password" class="form-control" id="confirmsenha" name="confirmsenha" placeholder="Confirme sua senha" required>
-                            </div>
                         </div>
 
                         <!-- Submit -->
                         <div class="mb-3" id="buttonsubmit">
-                            <a id="link" href="./usuario-login.php">Já possuo cadastro</a>
+                            <a id="link" href="./usuario-cadastro.php">Ainda não possuo cadastro</a>
                             <button type="submit" id="submit">></button>
                         </div>
                     </form>
