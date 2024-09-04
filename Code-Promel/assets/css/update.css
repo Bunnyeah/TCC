@@ -1,0 +1,167 @@
+/*? Base */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+* {margin: 0; padding: 0; box-sizing: border-box;}
+
+body {font-family: "Comfortaa", sans-serif; font-size: 1rem}
+
+a{color: #ffffff; text-decoration: none;}
+
+/*? NAVBAR START */
+    #navbar {
+        display: flex;
+        flex-direction: column;
+        background-color: #133A41;
+        color: #ffffff;
+        height: 100vh;
+        width: 20vw;
+        padding: 0;
+        position: fixed;
+        font-family: "Inter", sans-serif;
+        font-size:1rem ;    
+    }
+    #logo img {max-width: 100%; height: auto;}
+
+    #user_menu {margin-left: 3vw;} /*! O traçado vertical (|) */
+
+    #user_pages {
+        margin-left: 0.8vw; 
+        border-left: 0.4vh hsl(0, 0%, 80%) solid;
+        align-items: last baseline;
+        display: grid;
+        justify-content:start;
+    }
+
+    .title{
+        font-size: 1.5rem;
+    }
+
+    .pagatual{font-weight: bold;}
+
+    .icone {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2vh;
+    }
+
+    .botao {
+        position: relative;
+        cursor: pointer;
+        padding: 1vh;
+        top: 60%;
+    }.seta{
+        position: relative;
+        width: 1vw;
+        border: 0.2vh hsl(0, 0%, 80%) solid;
+        background-color: hsl(0, 0%, 80%);
+    }.linha{
+        position: relative;
+        display: flex;
+        align-items: end;
+    }
+/*? NAVBAR END */
+
+
+.container{
+    position: absolute;
+    left:24vw;
+    max-width: calc(100vw - 24vw);
+}
+
+#submit{
+    height: 5vh;
+    border-radius: 15px;
+    background-color: #428390;
+    color: #ffffff;
+    margin-left: 0;
+    font-size: 1rem;
+}
+#another_info{
+    height: 22vh;
+}
+input{
+    height: 5.5vh;
+}
+
+#img_perfil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+        /* background-image: url(/assets/imgs/img_perfil.png);
+        Função de JS, depois que o usuário adicionar uma imagem, o .style deste background será alterado para /uploads/$userId.$userExtension */
+}#img_perfil img{
+    max-height: 100%;
+    width: 17vh;
+    height: 17vh;
+    margin-bottom: 1vh;
+    border-radius: 100%;
+}
+#title {
+    font-size: 2rem;
+}
+input[type=file]{
+    /* Remove a visualização */
+    display: none;
+}
+
+#inputFile {
+    height: 5vh;
+    width: 50%;
+    border-radius: 50px;
+    background-color: #D9D9D9;
+    border: 1px #657781 solid;
+    font-size: 0.9rem;
+}
+
+
+
+
+@media (max-width: 767px){
+    #navbar {
+        width: 50vw;
+        z-index: 1;
+        position: absolute;
+        transition: 0.5s;
+    }
+    .aberto{
+        transform: translateX(-100%);
+        visibility: visible;        
+    }
+    .seta{
+        width: 10%;
+    }
+
+    #title{display: none;}
+
+    .container{
+        z-index: 0;
+        position: absolute;
+        left:2vw;
+        max-width: 96vw;
+    }
+
+    #mobileNavbar{
+        width: 100vw;
+        height: 5vh;
+        background-color: #133A41;
+    }
+
+    #submit{width: 100%;}
+
+    .toggle span{
+        position: absolute;
+        margin-left: 1vh;
+        width: 35px;
+        height: 0.5vh;
+        background: white;
+        border-radius: 4px;
+    }.toggle span:nth-child(1){
+        top: 1vh;
+    }.toggle span:nth-child(2){
+        top: 2vh;
+    }.toggle span:nth-child(3){
+        top: 3vh;
+    }
+}

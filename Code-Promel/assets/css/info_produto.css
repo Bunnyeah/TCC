@@ -1,0 +1,145 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Comfortaa", sans-serif;
+}
+
+/* INFORMAÇÕES PRODUTOS */
+/* Header -  Menu*/
+#menu{
+    background:#133A41;
+    display: flex;
+    height: 18vh;
+}
+
+/* logo */
+#logo{
+    margin-left: 5vh;
+}
+#logo img {max-width: 100%; height: auto;}
+
+/* barra de pesquisa */
+#text_buscar{
+    margin-top: 7.5vh;
+    margin-left: 4vw;
+    border-radius: 50px;
+    padding: 20px;
+    height: 4vh; /* vh -> altera de acordo com a ALTURA da interface */
+    width: 60vw; /* vw -> altera de acordo com a LARGURA da interface */
+    border-style: none;
+}
+
+#img_buscar{
+    margin-top: 7vh;
+    height:26px;
+    width:33.31px;
+}
+
+/* icone "conta" & icone "carrinho"  */
+#icone_menu{
+    margin-top: 7.8vh;
+    margin-left: 5vw;
+    height:34px;
+    width:34px;
+}
+
+/* Main - Conteúdo */
+#avaliacao{
+    display: flex;
+    flex-direction: row;
+}
+
+#rs{
+    font-size: 10px;    
+}
+
+#div_img_prod{
+    padding: 2vh;
+    border: 1vh #AFAFAF;
+    border-radius: 5px;
+}
+
+#img_produto{
+    height: 415;
+    max-width: auto;
+}
+
+#valor_produto{
+    display: block;
+    flex-direction: row;
+}
+
+#btn{
+    color: #133A41;
+    background-color: antiquewhite;
+    border: 0vh;
+    padding: 1vh;
+}
+
+#btn1{
+    color: #FFFFFF;
+    background-color: #428390;
+    border: 0vh;
+    padding: 1vh;
+}
+
+/* Footer - Rodapé */
+footer{
+    color: #FFFFFF;
+    background-color: #133A41;
+}
+
+#alinhar{
+    display: flex;
+    margin-left: 5%;
+}
+
+/* contatos */
+#title_fot{
+    padding: 20px;
+    margin-left: 10vh;
+    font-size: 16px;
+
+}
+
+#div_txt{
+    margin-left: 10vh;
+    display: flex;
+    font-size: 10px;
+    padding: 5px;
+}
+
+/* informações gerais --> OBS: id/alterações q possuem repetição por ser do mesmo estilo anterior n se encotra separado */ 
+#link_fot{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+/* informações pagamento --> OBS:a mesma coisa ocorre aqui */
+#linha{
+    width: 100px;
+    margin-left: 10vh;
+    align-items: center;
+}
+
+#icone_fot{
+    margin-right:10px;
+    height:auto;
+    width:17.5px;
+}
+
+#formas_pag{
+    margin-right:10px;
+    height:auto;
+    max-width:50px;
+}
+
+.copy{
+    padding: 20px;
+    font-size: 10px;
+    text-align:center;
+}
