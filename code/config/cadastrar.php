@@ -4,36 +4,28 @@ require_once '../connection/connection.php';
 
 extract($_POST);
 
-// // Validação Celular
-// function celular($telefone){
-//     $telefone = trim(str_replace('/', '', str_replace(' ', '', str_replace('-', '', str_replace(')', '', str_replace('(', '', $telefone))))));
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $senha_hash = password_hash($senha, PASSWORD_BCRYPT);
 
-//     $regexCel = '/[0-9]{2}[6789][0-9]{3,4}[0-9]{4}/';
-//     if (preg_match($regexCel, $telefone)) {
-//         return true;
-//     }else{
-//         return false;
 
-//     }
-// }
+    if($confirmsenha == $senha){
+        $sqlInsert = "INSERT INTO cliente VALUES(0,:nome,:email,NULL,:senha,NULL,NULL,NULL)";
+    
+        $stmt = $conn->prepare($sqlInsert);
+        $stmt->bindValue(':nome', $nome);
+        $stmt->bindValue(':email', $email);
+        $stmt->bindValue(':senha', $senha_hash);
 
-if($confirmsenha == $senha){
-    $sqlInsertUsuario = "INSERT INTO cliente VALUES(0,:nome,:email,NULL,:senha,NULL,NULL,NULL)";
-
-    $stmt = $conn->prepare($sqlInsertUsuario);
-    $stmt->bindValue(':nome', $nome);
-    $stmt->bindValue(':email', $email);
-    // $stmt->bindValue(':telefone', $telefone);
-    $stmt->bindValue(':senha', $senha);
-    $stmt->execute();
-    ?>
-    <script>alert('Usuário cadastrado com sucesso')</script>
-    <meta http-equiv="refresh" content="0; url=../usuario-cadastro.php">
-    <?php
-}else{
-        ?>
-        <script>alert('As senhas não coincidem')</script>
-        <meta http-equiv="refresh" content="0; url=../usuario-cadastro.php">
-    <?php
+        if ($stmt->execute()) {
+            echo "Usuário criado com sucesso";
+            header("Location: ../login.php");
+        } else {
+            echo "Erro: " . $conn->errorInfo();
+        }
+    }else{
+        echo('As senhas não coincidem');
+    }
 }
-    ?>
+$conn = null;
+
+?>
