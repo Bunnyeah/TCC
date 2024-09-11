@@ -1,0 +1,404 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+/* 
+
+ROBOTO SERIF
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+
+.roboto-serif-<uniquifier> {
+    font-family: "Roboto Serif", serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100,
+    "GRAD" 0;
+} 
+
+RED HAT DISPLAY
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 300 to 900
+
+.red-hat-display-<uniquifier> {
+    font-family: "Red Hat Display", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+}
+*/
+
+/* PRIMARY COLORS */
+/* 
+{color:#133A41}
+{color:#428390}
+{color:#69C9D0}
+
+{color:#1E1E1E}
+{color:#AFAFAF}
+{color:#D9D9D9}
+
+{color:#F5F5F5}
+{color:#FFFFFF} 
+*/
+
+/* SECUNDARY COLORS */
+/* 
+{color:#5A3A3F}
+{color:#E0A072}
+{color:#ECB58E}
+
+{color:#D7B788}
+{color:#EED6BA}
+{color:#F9EEE4}
+
+{color:#EE1D52}
+{color:#2C7669} 
+*/
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* HOME PAGE */
+/* Header -  Menu*/
+#menu{
+    background:#133A41;
+    display: flex;
+    height: 18vh;
+}
+
+/* logo */
+#logo{
+    margin-left: 5vh;
+}
+#logo img {max-width: 100%; height: auto;}
+
+/* barra de pesquisa */
+#text_buscar{
+    margin-top: 7.5vh;
+    margin-left: 4vw;
+    border-radius: 50px;
+    padding: 20px;
+    height: 4vh; /* vh -> altera de acordo com a ALTURA da interface */
+    width: 60vw; /* vw -> altera de acordo com a LARGURA da interface */
+    border-style: none;
+
+    background-image:url(../imgs/icons/pesquisa.svg);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 4vh;
+}
+
+
+/* icone "conta" & icone "carrinho"  */
+#icone_menu{
+    margin-top: 7.8vh;
+    margin-left: 5vw;
+    height:34px;
+    width:34px;
+}
+
+/* 3 setas */
+#group{
+    margin-left: 5vw;
+    height:34px;
+    width:34px;
+}
+
+/* banners */
+
+#banner1{
+    width: 90vw;
+    height: 40vh;
+}
+
+#banner2{
+    width: 90vw;
+    height: 40vh;
+}
+
+
+/* Header -  Catalogo de itens*/
+#menu_itens{
+    background-color: #133A41; 
+    padding: 1vh;
+}
+
+#menu_itens>a{
+    text-align: center;
+    padding: 4vw;
+    text-decoration: none;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+#seta{
+    height:20px;
+}
+
+/* Main - Conteúdo */
+#alinhando{
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(#2C7669, #FFFFFF);
+}
+
+#caixa1{
+    color: #5A3A3F;
+    background-color: #ffffff;
+    font-size: 20px;
+    display: flex;    
+    flex-direction: column;
+    text-align: center;
+    padding: 40px;
+    margin: 80px;
+}
+
+/* produtos fitness */
+#cor_fit{
+    background-color: #E0A072 ;
+    display: flex;
+    padding: 150px;
+}
+
+/* saúde */
+#cor_saude{
+    background-color: #69C9D0 ;
+    display: flex;
+    padding: 150px;
+}
+
+/* beleza */
+#cor_beleza{
+    background-color: #5A3A3F ;
+    display: flex;
+    padding: 150px;
+}
+
+/* Produtos Mais Populares */
+#title{
+    margin-left: 5%;
+    background-color: #428390;
+    width: 280px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 4px;
+    margin-bottom: 2%;
+    color: #FFFFFF;
+    font-size: 24px;
+}
+
+#populares{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* Todas as Categorias */
+#title_categ{
+    margin-left: 5%;
+    background-color: #E0A072;
+    width: 16%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 20px;
+    padding: 4px;
+    margin-bottom: 2%;
+}
+
+/* Footer - Rodapé */
+footer{
+    color: #FFFFFF;
+    background-color: #133A41;
+}
+
+#alinhar{
+    display: flex;
+    margin-left: 5%;
+}
+
+/* contatos */
+#title_fot{
+    padding: 20px;
+    margin-left: 10vh;
+    font-size: 16px;
+
+}
+
+#div_txt{
+    margin-left: 10vh;
+    display: flex;
+    font-size: 10px;
+    padding: 5px;
+}
+
+/* informações gerais --> OBS: id/alterações q possuem repetição por ser do mesmo estilo anterior n se encotra separado */ 
+#link_fot{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+/* informações pagamento --> OBS:a mesma coisa ocorre aqui */
+#linha{
+    width: 100px;
+    margin-left: 10vh;
+    align-items: center;
+}
+
+#icone_fot{
+    margin-right:10px;
+    height:auto;
+    width:17.5px;
+}
+
+#formas_pag{
+    margin-right:10px;
+    height:auto;
+    max-width:50px;
+}
+
+.copy{
+    padding: 20px;
+    font-size: 10px;
+    text-align:center;
+}
+
+/* LOGIN */
+.imagem-princ{
+    width: 100px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0;
+    top: 60px; 
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown-content.show {display: block;}
+
+#seta_menor{
+    width: 3vw;
+    height: 3vh;
+}
+
+#local_fisico{
+    background-color: whitesmoke;
+
+    margin-left: 14px;
+    margin-right: 14px;
+}
+
+#img_inst{
+    width: 3vw;
+    height: 3vh;
+    display: inline;
+    color: white;
+}
+
+#img_wpp{
+    width: 3vw;
+    height: 3vh;
+    display: inline;
+}
+
+#img_ttk{
+    width: 3vw;
+    height: 3vh;
+    display: inline;
+}
+
+#img_cred{
+    width: 3vw;
+    height: 3vh;
+    display: inline;
+}
+
+#img_deb{
+    width: 3vw;
+    height: 3vh;
+    display: inline;
+}
+
+#img_pix{
+    width: 3vw;
+    height: 3vh;
+    display: inline;
+}
+
+#img_shp{
+    width: 3vw;
+    height: 3vh;
+    display: inline;
+}
+
+#img_ml{
+    width: 3vw;
+    height: 3vh;
+    display: inline;
+}
+
+#img_fc{
+    width: 3vw;
+    height: 3vh;
+    display: inline;
+}
+
+/* #endereco_fisico{
+    margin-left: 455px;
+}
+
+#telefone_fisico{
+    
+    margin-left: 455px;
+}
+
+#horario_fisico{
+    
+    margin-left: 455px;
+} */
+
+#contatos_lista{
+    list-style: none;
+}
+
+#informacoes_lista{
+    list-style: none;
+}
+
+#formas_pag_lista{
+    list-style: none;
+}
+
+#outras_plataformas_lista{
+    list-style: none;
+}
+
+
+
