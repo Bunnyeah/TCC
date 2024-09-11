@@ -60,6 +60,10 @@ a{color: #ffffff; text-decoration: none;}
         display: flex;
         align-items: end;
     }
+    #kitar{
+        position: fixed;
+        bottom: 0;
+    }
 /*? NAVBAR END */
 
 
@@ -83,7 +87,6 @@ a{color: #ffffff; text-decoration: none;}
 input{
     height: 5.5vh;
 }
-
 #img_perfil{
     display: flex;
     justify-content: center;
@@ -123,9 +126,10 @@ input[type=file]{
         font-size: 1rem;
     }
     #navbar {
+        margin-top: 5vh;
         width: 50vw;
         z-index: 1;
-        position: absolute;
+        position: fixed;
         transition: 0.5s;
         font-size: 0.8rem;
         white-space: nowrap;
@@ -141,13 +145,15 @@ input[type=file]{
     #title{display: none;}
 
     .container{
-        z-index: 0;
-        position: absolute;
+        position: relative;
+        z-index: -1;
         left:2vw;
         max-width: 96vw;
     }
 
     #mobileNavbar{
+        z-index: 0;
+        position: fixed;
         width: 100vw;
         height: 5vh;
         background-color: #133A41;
@@ -155,6 +161,9 @@ input[type=file]{
 
     #submit{width: 100%;}
 
+    .toggle{
+        z-index: 1;
+    }
     .toggle span{
         position: absolute;
         margin-left: 1vh;

@@ -47,7 +47,7 @@
                 <div class="linha"><div class="seta"></div><a class="botao" href="#"><p>Trocar Senha</p></a></div>
                 <div class="linha"><div class="seta"></div><a class="botao" href="#"><p>Histórico</p></a></div>
             </div>
-            <div id="kitar"><a href="./config/logout.php"><p>Sair</p></a></div>
+            <div id="kitar"><a href="./config/logout.php"><p style="color: rgb(255, 0, 0);">Sair</p></a></div>
         </div>
     </nav>
 
