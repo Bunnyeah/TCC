@@ -1,0 +1,46 @@
+.container{
+    position: absolute;
+    left:24vw;
+    max-width: calc(100vw - 24vw);
+}
+.quadrado{
+    position: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image{
+    width: 74vw;
+    height: 50vh;
+    margin-bottom: 20vh;
+}.image img{
+    width: 100%;
+    height: 100%;
+}
+#submit{    
+    height: 5vh;
+    border-radius: 15px;
+    background-color: #428390;
+    color: #ffffff;
+    margin-left: 0;
+    font-size: 1rem;
+}
+input{
+    height: 5.5vh;
+}
+
+#title {
+    font-size: 2rem;
+}
+
+@media (max-width: 767px){
+    #title{display: none;}
+
+    .container{
+        position: relative;
+        z-index: -1;
+        left:2vw;
+        max-width: 96vw;
+    }
+
+    #submit{width: 100%;}
+}
