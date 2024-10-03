@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Home Page</title>
+</head>
+<body>
+    <!-- MENU -->
+    <header>
+        <nav id="menu">
+            <!-- logo -->
+                <img src="./assets/imgs/logo/logo (2).jpg" alt="Logo Armazém Brasil" id="logo">
+
+            <!-- barra de pesquisa -->
+            <div>
+              <input id=text_buscar type="search" placeholder="Buscar...">
+            </div>
+
+
+            <!-- icone "conta" -->
+                <a href="./endereco.html"><img src="./assets/imgs/icons/conta.svg" id="icone_menu"></a>
+
+            <!-- icone "carrinho" -->
+                <a href="./assets/Estoque/Estoque.php"><img src="./assets/imgs/icons/carrinho.svg" id="icone_menu"></a>
+        </nav>
+        
+        <!-- Catalogo -->
+        <div class="header_menu">
+          <ul>
+              <li>Todos
+                  <ul class="dropdown">
+                      <li>Produto 1</li>
+                      <li>Produto 2</li>
+                      <li>Produto 3</li>
+                  </ul>
+              </li>
+              <li>Fitoterápicos
+                  <ul class="dropdown">
+                      <li>Fitoterápico 1</li>
+                      <li>Fitoterápico 2</li>
+                      <li>Fitoterápico 3</li>
+                  </ul>
+              </li>
+              <li>Nutracêuticos
+                  <ul class="dropdown">
+                      <li>Nutracêutico 1</li>
+                      <li>Nutracêutico 2</li>
+                      <li>Nutracêutico 3</li>
+                  </ul>
+              </li>
+              <li>Nutrição Esportiva
+                  <ul class="dropdown">
+                      <li>Suplemento 1</li>
+                      <li>Suplemento 2</li>
+                      <li>Suplemento 3</li>
+                  </ul>
+              </li>
+              <li>Fragrâncias
+                  <ul class="dropdown">
+                      <li>Fragrância 1</li>
+                      <li>Fragrância 2</li>
+                      <li>Fragrância 3</li>
+                  </ul>
+              </li>
+              <li>Mel
+                  <ul class="dropdown">
+                      <li>Mel 1</li>
+                      <li>Mel 2</li>
+                      <li>Mel 3</li>
+                  </ul>
+              </li>
+          </ul>
+      </div>
+    </header>
+
+    <!-- CONTEÚDO -->
+    <main>
+        <!--Carrossel - Slider-->
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./assets/imgs/decorativo/1.png" class="d-block w-100" id="banner1">
+              </div>
+              <div class="carousel-item">
+                <img src="./assets/imgs/decorativo/2.png" class="d-block w-100" alt="banner2">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+        <!-- Categorias Extras -->
+        <div id="alinhando">
+          <div id="caixa1">
+            <p>Produtos Fitness</p>
+            <div id="cor_fit">
+              <img src="">
+            </div>
+          </div>
+
+          <div id="caixa1">
+            <p>Saúde</p>
+            <div id="cor_saude">
+              <img src="">
+            </div>
+          </div>
+
+          <div id="caixa1">
+            <p>Beleza</p>
+            <div id="cor_beleza">
+              <img src="">
+            </div>
+          </div>
+        </div>
+
+        <!-- Produtos Mais Populares -->
+        <div>
+          <p id="title">Mais Populares</p>
+          
+          <div id="populares">
+          <!-- produto 1 -->
+              <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top">
+                <div class="card-body" id="produtos">
+                  <p class="card-title">R$ 30,00</p>
+                  <p class="card-text">Ômega 3 Perfect Care 1000Mg</p>
+                  <button><a href="./paginas/info_produto.html" class="btn btn-primary">Comprar</a></button>
+                </div>
+              </div>
+
+            <!-- produto 1 -->
+            <div class="card" style="width: 18rem;">
+              <img src="..." class="card-img-top">
+              <div class="card-body" id="produtos">
+                <p class="card-title">R$ 30,00</p>
+                <p class="card-text">Ômega 3 Perfect Care 1000Mg</p>
+                <button><a href="#" class="btn btn-primary">Comprar</a></button>
+              </div>
+            </div>
+
+            <!-- produto 1 -->
+            <div class="card" style="width: 18rem;">
+              <img src="..." class="card-img-top">
+              <div class="card-body" id="produtos">
+                <p class="card-title">R$ 30,00</p>
+                <p class="card-text">Ômega 3 Perfect Care 1000Mg</p>
+                <button><a href="#" class="btn btn-primary">Comprar</a></button>
+              </div>
+            </div>
+
+            <!-- produto 1 -->
+            <div class="card" style="width: 18rem;">
+              <img src="..." class="card-img-top">
+              <div class="card-body" id="produtos">
+                <p class="card-title">R$ 30,00</p>
+                <p class="card-text">Ômega 3 Perfect Care 1000Mg</p>
+                <button><a href="#" class="btn btn-primary">Comprar</a></button>
+              </div>
+            </div>
+
+            <!-- produto 1 -->
+            <div class="card" style="width: 18rem;">
+              <img src="..." class="card-img-top">
+              <div class="card-body" id="produtos">
+                <p class="card-title">R$ 30,00</p>
+                <p class="card-text">Ômega 3 Perfect Care 1000Mg</p>
+                <button><a href="#" class="btn btn-primary">Comprar</a></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Informações Categorias -->
+        <!-- "menu categorias" -->
+        <div>
+          
+        </div>
+        <div class="container-fluid">
+          <div class="row">
+            <!-- Video Tik Tok -->
+            <div class="col-6" id="video">
+              <video src=""></video>
+            </div>
+            <!-- informações sobre oq é a categoria e seus beneficios -->
+            <div  class="col-6" id="txt">
+              <p></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Localização do Estabelecimento Físico -->
+        <div id="local_fisico">
+          <div id="icon_mapa_loc">
+            <img src="./assets/imgs/icons/location_map.svg" alt="icone Mapa" id="map_icon">
+            <div id="enderecos">
+              <div id="img_maps">
+                <a href="https://www.google.com.br/maps/place/Rua+Coronel+Arruda+Botelho,+291+-+Vila+Ferriello,+Boituva+-+SP,+18550-000/@-23.284528,-47.6746072,17z/data=!3m1!4b1!4m6!3m5!1s0x94c5e233186b3045:0x30e6e10682358a93!8m2!3d-23.2845329!4d-47.6720323!16s%2Fg%2F11crv8pvp8?entry=ttu&g_ep=EgoyMDI0MTAwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank"><img src="./assets/imgs/decorativo/img_maps.png" alt="imagem com link do google maps" id="map_img"></a>
+          <p id="endereco_fisico">
+            Endereço: Rua Coronel Arruda Botelho, 291 - Centro, Boituva - SP, 18550-000
+          </p>
+          <p id="telefone_fisico">
+            Telefone: (15) 3316-5606
+          </p>
+          <p id="horario_fisico">
+            Horário de funcionamento: Aberto ⋅ Fecha às 19:00<img src="./assets/imgs/icons/seta_baixo_preta.svg" id="seta_menor">
+          </p>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+      
+       <!-- Seta Lateral -->
+       <div class="seta_lateral" onclick="toggleMenu()">></div>
+
+       <!-- Menu Lateral -->
+       <div class="seta_lateral_menu" id="setaMenu">
+           <ul>
+               <li>Opção 1</li>
+               <li>Opção 2</li>
+               <li>Opção 3</li>
+               <li>Opção 4</li>
+           </ul>
+       </div>
+   
+       <script>
+           function toggleMenu() {
+               var menu = document.getElementById('setaMenu');
+               menu.classList.toggle('show');
+           }
+       </script>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3" id="itens_icns">
+            <h4>Contatos</h4>
+            <ul id="contatos_lista">
+              <li><img src="./assets/imgs/icons/instagram.svg" alt="icone instagram" id="img_inst"> Instagram</li>
+              <li><img src="./assets/imgs/icons/whatsapp.svg" alt="icone whatapp" id="img_wpp"></i> Whatsapp</li>
+              <li><img src="./assets/imgs/icons/tiktok.svg" alt="icone TikTok" id="img_ttk"></i></i> TikTok</li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h4>Conheça-nos</h4>
+            <ul id="informacoes_lista">
+              <li>Sobre a Loja</li>
+              <li>Sobre o Cliente</li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h4>Formas de Pagamento</h4>
+            <ul id="formas_pag_lista">
+              <li><img src="./assets/imgs/formas_pagamento/img_mastercard.png" alt="icone Cartao de Credito" id="img_cred"> Cartão de Crédito</li>
+              <li><img src="./assets/imgs/formas_pagamento/img_cartao_visa.png" alt="icone Cartao Debito" id="img_deb"> Cartão de Débito</li>
+              <li><img src="./assets/imgs/formas_pagamento/pix_logo.jpeg" alt="icone Pix" id="img_pix"> Pix</li>
+              <li>Boleto Bancário</li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h4>Outras Plataformas</h4>
+            <ul id="outras_plataformas_lista">
+              <li><img src="./assets/imgs/plataformas_compra/shoppe.png" alt="icone Shopee" id="img_shp"> Shopee</li>
+              <li><img src="./assets/imgs/plataformas_compra/mercado_livre.png" alt="icone Mercado Livre" id="img_ml"> Mercado Livre</li>
+              <li><img src="./assets/imgs/icons/facebook.svg" alt="icone Facebook" id="img_fc"> Facebook</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <p class="text-center">© 2024 Armazém Brasil - Desenvolvido por Davi Natan Bianchi, Edisom Coelho Junior, Nicolas Moro Mota e Vitor Melendes Diardina. Todos os direitos reservados</p>
+          </div>
+        </div>
+      </div>
+      <p id="cookie-valor"></p>
+    </footer>
+
+    <script src="./paginas/cookies.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
