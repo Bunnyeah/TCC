@@ -1,0 +1,4 @@
+- Responsividade
+- API Correios
+- Melhorar o carrinho (TEM que ser um select produtos selecionável)
+- Corrigir erros (maior parte são de linkagens)
