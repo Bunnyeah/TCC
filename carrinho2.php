@@ -254,6 +254,7 @@ $PPs = $stmt->fetchAll(PDO::FETCH_OBJ);
                     <th>Preço Unitário</th>
                     <th>Quantidade</th>
                     <th>Valor Total</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -267,6 +268,7 @@ $PPs = $stmt->fetchAll(PDO::FETCH_OBJ);
                                 </div>
                             </td>
                             <td class="price"><?php echo number_format($pp->Preco_Und, 2, ',', '.'); ?> R$</td>
+                            <td class="quantity"><?php echo htmlspecialchars($pp->Qtd_produtos)?></td>
                             <td class="price"><?php echo number_format($pp->Valor_Total, 2, ',', '.'); ?> R$</td>
                         </tr>
                     <?php endforeach; ?>
