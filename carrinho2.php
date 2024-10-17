@@ -270,6 +270,9 @@ $PPs = $stmt->fetchAll(PDO::FETCH_OBJ);
                             <td class="price"><?php echo number_format($pp->Preco_Und, 2, ',', '.'); ?> R$</td>
                             <td class="quantity"><?php echo htmlspecialchars($pp->Qtd_produtos)?></td>
                             <td class="price"><?php echo number_format($pp->Valor_Total, 2, ',', '.'); ?> R$</td>
+                            <td class="actions">
+                                <button method="DELETE">&#128465;</button>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else : ?>
