@@ -1,0 +1,592 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+/* 
+ROBOTO SERIF
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+
+.roboto-serif-<uniquifier> {
+    font-family: "Roboto Serif", serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100,
+    "GRAD" 0;
+} 
+
+RED HAT DISPLAY
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 300 to 900
+
+.red-hat-display-<uniquifier> {
+    font-family: "Red Hat Display", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+}
+*/
+
+/* PRIMARY COLORS */
+/* 
+{color:#133A41}
+{color:#428390}
+{color:#69C9D0}
+
+{color:#1E1E1E}
+{color:#AFAFAF}
+{color:#D9D9D9}
+
+{color:#F5F5F5}
+{color:#FFFFFF} 
+*/
+
+/* SECUNDARY COLORS */
+/* 
+{color:#5A3A3F}
+{color:#E0A072}
+{color:#ECB58E}
+
+{color:#D7B788}
+{color:#EED6BA}
+{color:#F9EEE4}
+
+{color:#EE1D52}
+{color:#2C7669} 
+*/
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* HOME PAGE */
+/* Header -  Menu*/
+#redes{
+    background-color: #172B2F;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-left: 2vw;
+}
+
+#redes>img{
+    margin-left: 1vw;
+}
+
+#menu{
+    background:#133A41;
+    display: flex;
+    height: auto;
+    flex-direction: row;
+}
+
+/* logo */
+#logo{
+    margin-left: 5vh;
+}
+#logo img {max-width: 100%; height: auto;}
+
+/* barra de pesquisa */
+#text_buscar{
+    margin-top: 7.5vh;
+    margin-right: 4vw;
+    border-radius: 50px;
+    padding: 20px;
+    height: 4vh; /* vh -> altera de acordo com a ALTURA da interface */
+    width: 60vw; /* vw -> altera de acordo com a LARGURA da interface */
+    border-style: none;
+
+    background-image:url(../imgs/icons/search.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 4vh;
+}
+
+
+/* icone "conta" & icone "carrinho"  */
+#icone_menu{
+    margin-top: 7.8vh;
+    margin-left: 5vw;
+    height:34px;
+    width:34px;
+}
+
+#icone_menu2{
+    margin-top: 4.8vh;
+    margin-left: 5vw;
+    height:34px;
+    width:34px;
+}
+
+
+/* banners */
+#banner1{max-width: 100%; height: auto;}
+#banner2{max-width: 100%; height: auto;}
+
+/* <div class="endereco-container">
+<div id="endereco-image">
+  <div id="local"><img src="./assets/imgs/icons/location.svg>
+</div>
+<div class="endereco-items">
+  <p>Endereço: Rua Coronel Arruda Botelho,291 - Centro Boituva - SP,18550-000</p>
+  <p>Telefone: (15)3316-5606</p>
+  <p>Horario de Funcionamento: Aberto as 08:00 Fecha as 19:00 <img src="./assets/imgs/icons/seta_baixo_preta.svg" alt="setinha" id="setinha"></p>
+</div>
+<div id="div_img">
+  <a href=""><img src="./assets/imgs/decorativo/maps_home.png" alt="Localização"></a>
+</div>
+</div> */
+
+
+.endereco-container {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.endereco-container>div {
+    display: flex;
+    flex-direction: column;
+}
+.endereco-items{
+    justify-content: space-around;
+    align-items: start;
+    width: 40%;
+}
+#endereco-image{
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+}
+#div_img{
+    width: 50%;
+}
+/* Main - Conteúdo */
+#caixa1{
+    color: #5A3A3F;
+    background-color: #ffffff;
+    font-size: 20px;
+    display: flex;    
+    flex-direction: column;
+    text-align: center;
+    padding: 2vw;
+    margin: 5vw;
+}
+
+/* produtos fitness */
+#cor_fit{
+    background-color: #E0A072 ;
+    display: flex;
+    padding: 20vh 10vw;
+}
+
+/* saúde */
+#cor_saude{
+    background-color: #69C9D0 ;
+    display: flex;
+    padding: 20vh 10vw;
+}
+
+/* beleza */
+#cor_beleza{
+    background-color: #5A3A3F ;
+    display: flex;
+    padding: 20vh 10vw;
+}
+
+/* Produtos Mais Populares */
+#title{
+    margin-left: 5%;
+    background-color: #428390;
+    width: 280px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 4px;
+    margin-bottom: 2%;
+    color: #FFFFFF;
+    font-size: 24px;
+}
+
+#populares{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* Todas as Categorias */
+#title_categ{
+    margin-left: 5%;
+    background-color: #E0A072;
+    width: 16%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 20px;
+    padding: 4px;
+    margin-bottom: 2%;
+}
+
+/* Footer - Rodapé */
+footer{
+    color: #FFFFFF;
+    background-color: #133A41;
+}
+
+#alinhar{
+    display: flex;
+    margin-left: 5%;
+}
+
+/* contatos */
+#title_fot{
+    padding: 20px;
+    margin-left: 10vh;
+    font-size: 16px;
+
+}
+
+#div_txt{
+    margin-left: 10vh;
+    display: flex;
+    font-size: 10px;
+    padding: 5px;
+}
+
+/* informações gerais --> OBS: id/alterações q possuem repetição por ser do mesmo estilo anterior n se encotra separado */ 
+#link_fot{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+/* informações pagamento --> OBS:a mesma coisa ocorre aqui */
+#linha{
+    width: 100px;
+    margin-left: 10vh;
+    align-items: center;
+}
+
+#formas_pag{
+    margin-right:10px;
+    height:auto;
+    max-width:50px;
+}
+
+.copy{
+    padding: 20px;
+    font-size: 10px;
+    text-align:center;
+}
+
+/* LOGIN */
+.imagem-princ{
+    width: 100px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0;
+    top: 60px; 
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown>a>li>img{
+    padding-right: 1vw; 
+
+}
+
+.dropdown>a>li{
+    background-color: #FFFFFF;
+    color: black;
+}
+
+.dropdown>a{text-decoration: none;}
+
+.dropdown-content a:hover {background-color: #FFFFFF;}
+
+.dropdown-content.show {display: block;}
+
+#seta_menor{
+    width: 3vw;
+    height: 3vh;
+}
+
+#alinhar_divs{
+    display: flex;
+    flex-direction: row;
+    padding-left: 2vw;
+}
+
+#alinhar_divs>div{
+    padding-left: 8vw;
+}
+
+#alinhar_divs>div>h4{
+    text-align: center;
+}
+
+#hr_align{
+    padding-bottom: 1vh;
+}
+
+#contatos_lista{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+#contatos_lista>a>img{padding-bottom: 1vw;}
+
+#informacoes_lista{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+#informacoes_lista>a>img{padding-bottom: 1vw;}
+
+#formas_pag_lista{
+    display: flex;
+    flex-direction: row;
+}
+
+#formas_pag_lista>img{padding-right: 1vw; margin-left: 1vw; margin-right: 1vw;}
+
+#outras_lista{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#outras_lista>a{padding-bottom: 1vw;}
+
+#cookie-valor{
+    display: none;
+}
+
+    .endereco-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .endereco-item {
+    margin-bottom: 10px;
+}
+
+    .endereco-item input{
+    display: none;
+}
+
+    .endereco-item label {
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 250px;
+    
+}
+
+.endereco-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+    #setinha{
+        width: 15px;
+        height: 15px;
+    }
+
+    .header_menu {
+        display: flex;
+        justify-content: space-around;
+        background-color: #133A41;
+        padding: 15px 0;
+    }
+
+    .header_menu ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+
+    .header_menu li {
+        display: inline-block;
+        color: white;
+        padding: 10px 20px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .header_menu li:hover {
+        background-color: #3e4f55;
+    }
+
+    
+    .dropdown {
+        display: none;
+        position: absolute;
+        background-color: #133A41;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+        z-index: 1;
+        top: 100%;
+        left: 0;
+        min-width: 180px;
+    }
+
+    .dropdown li {
+        display: block;
+        padding: 10px;
+        background-color: #1a2b33;
+    }
+
+    .dropdown li:hover {
+        background-color: #2e3c42;
+    }
+
+    
+    .header_menu li:hover .dropdown {
+        display: block;
+    }
+
+    .seta_lateral {
+        position: fixed;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #8c8c8c;
+        padding: 15px;
+        cursor: pointer;
+        color: white;
+        font-size: 24px;
+        border-radius: 0 5px 5px 0;
+        z-index: 2;
+    }
+
+    /* Menu lateral */
+    .seta_lateral_menu {
+        position: fixed;
+        left: -200px; /* Fora da tela inicialmente */
+        top: 0;
+        width: 10vw;
+        height: 100%;
+        background-color: #133A41;
+        padding-top: 50px;
+        transition: left 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .seta_lateral_menu ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .seta_lateral_menu li {
+        padding: 15px;
+        color: white;
+        border-bottom: 1px solid #444;
+        cursor: pointer;
+    }
+
+    .seta_lateral_menu li:hover {
+        background-color: #2e3c42;
+    }
+
+    /* Mostrar menu lateral */
+    .seta_lateral_menu.show {
+        left: 0;
+    }
+
+    #div_img {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #div_img>a>img{max-width: 100%; height: 10vh;}
+
+    #outras_lista a{
+        text-decoration: none;
+        color: white;
+        display: flex;
+        align-items:center;
+        
+    }
+
+        .header_conta {
+            display: flex;
+            justify-content: space-around;
+            background-color: #133A41;
+            padding: 15px 0;
+        }
+    
+        .header_conta ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+        }
+    
+        .header_conta li {
+            display: inline-block;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            position: relative;
+        }
+    
+        .header_conta li:hover {
+            background-color: #3e4f55;
+        }
+    
+        
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #133A41;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            top: 100%;
+            left: 0;
+            min-width: 180px;
+        }
+    
+        .dropdown li {
+            display: block;
+            padding: 10px;
+            background-color: #1a2b33;
+        }
+    
+        .dropdown li:hover {
+            background-color: #2e3c42;
+        }
+        
+        .header_conta li:hover .dropdown {
+            display: block;
+        }

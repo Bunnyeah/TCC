@@ -1,0 +1,283 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Comfortaa", sans-serif;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* INFORMAÇÕES PRODUTOS */
+/* Header -  Menu*/
+#menu{
+    background:#133A41;
+    display: flex;
+    height: 18vh;
+}
+
+/* logo */
+#logo{
+    margin-left: 5vh;
+}
+#logo img {max-width: 100%; height: auto;}
+
+/* barra de pesquisa */
+#text_buscar{
+    margin-top: 7.5vh;
+    margin-left: 4vw;
+    border-radius: 50px;
+    padding: 20px;
+    height: 4vh; /* vh -> altera de acordo com a ALTURA da interface */
+    width: 60vw; /* vw -> altera de acordo com a LARGURA da interface */
+    border-style: none;
+
+    background-image:url(../imgs/icons/pesquisa.svg);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 4vh;
+}
+
+#img_buscar{
+    margin-top: 7vh;
+    height:26px;
+    width:33.31px;
+}
+
+/* icone "conta" & icone "carrinho"  */
+#icone_menu{
+    margin-top: 7.8vh;
+    margin-left: 5vw;
+    height:34px;
+    width:34px;
+}
+
+#icone_menu2{
+    margin-top: 4.8vh;
+    margin-left: 5vw;
+    height:34px;
+    width:34px;
+}
+
+/* Main - Conteúdo */
+#avaliacao{
+    display: flex;
+    flex-direction: row;
+}
+
+#rs{
+    font-size: 10px;    
+}
+
+#div_img_prod{
+    padding: 2vh;
+    border: 1vh #AFAFAF;
+    border-radius: 5px;
+}
+
+#img_produto{
+    height: 415;
+    max-width: auto;
+}
+
+#valor_produto{
+    display: block;
+    flex-direction: row;
+}
+
+#btn{
+    color: #133A41;
+    background-color: antiquewhite;
+    border: 0vh;
+    padding: 1vh;
+}
+
+#btn1{
+    color: #FFFFFF;
+    background-color: #428390;
+    border: 0vh;
+    padding: 1vh;
+}
+
+/* Footer - Rodapé */
+footer{
+    color: #FFFFFF;
+    background-color: #133A41;
+}
+
+
+
+/* contatos */
+
+
+
+
+/* informações gerais --> OBS: id/alterações q possuem repetição por ser do mesmo estilo anterior n se encotra separado */ 
+#link_fot{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+/* informações pagamento --> OBS:a mesma coisa ocorre aqui */
+#linha{
+    width: 100px;
+    margin-left: 10vh;
+    align-items: center;
+}
+
+#icone_fot{
+    margin-right:10px;
+    height:auto;
+    width:17.5px;
+}
+
+#formas_pag{
+    margin-right:10px;
+    height:auto;
+    max-width:50px;
+}
+
+.copy{
+    padding: 20px;
+    font-size: 10px;
+    text-align:center;
+}
+
+.titulo{
+    background-color: burlywood;
+}
+
+#contatos_lista{
+    list-style: none;
+}
+
+#informacoes_lista{
+    list-style: none;
+}
+
+#formas_pag_lista{
+    list-style: none;
+}
+
+#outras_plataformas_lista{
+    list-style: none;
+}
+
+#img_inst{
+    width: 3vw;
+    height: 3vh;
+    display: inline;
+    color: white;
+}
+
+#img_wpp{
+    width: 3vw;
+    height: 3vh;
+    display: inline;
+}
+
+#img_ttk{
+    width: 3vw;
+    height: 3vh;
+    display: inline;
+}
+
+#img_cred{
+    width: 3vw;
+    height: 3vh;
+    display: inline;
+}
+
+#img_deb{
+    width: 3vw;
+    height: 3vh;
+    display: inline;
+}
+
+#img_pix{
+    width: 3vw;
+    height: 3vh;
+    display: inline;
+}
+
+#img_shp{
+    width: 3vw;
+    height: 3vh;
+    display: inline;
+}
+
+#img_ml{
+    width: 3vw;
+    height: 3vh;
+    display: inline;
+}
+
+#img_fc{
+    width: 3vw;
+    height: 3vh;
+    display: inline;
+}
+
+#icone_menu2{
+    margin-top: 4.8vh;
+    margin-left: 5vw;
+    height:34px;
+    width:34px;
+}
+
+.header_conta {
+    display: flex;
+    justify-content: space-around;
+    background-color: #133A41;
+    padding: 15px 0;
+}
+
+.header_conta ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.header_conta li {
+    display: inline-block;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.header_conta li:hover {
+    background-color: #3e4f55;
+}
+
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #133A41;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+}
+
+.dropdown li {
+    display: block;
+    padding: 10px;
+    background-color: #1a2b33;
+}
+
+.dropdown li:hover {
+    background-color: #2e3c42;
+}
+
+
+.header_conta li:hover .dropdown {
+    display: block;
+}

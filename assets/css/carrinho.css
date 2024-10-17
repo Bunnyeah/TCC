@@ -1,0 +1,93 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* HOME PAGE */
+/* Header -  Menu*/
+#menu{
+    background:#133A41;
+    display: flex;
+    height: 18vh;
+}
+
+/* logo */
+#logo{
+    margin-left: 5vh;
+}
+#logo img {max-width: 100%; height: auto;}
+
+/* barra de pesquisa */
+#text_buscar{
+    margin-top: 7.5vh;
+    margin-left: 4vw;
+    border-radius: 50px;
+    padding: 20px;
+    height: 4vh; /* vh -> altera de acordo com a ALTURA da interface */
+    width: 60vw; /* vw -> altera de acordo com a LARGURA da interface */
+    border-style: none;
+
+    background-image:url(../imgs/icons/pesquisa.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 4vh;
+}
+
+/* icone "conta" & icone "carrinho"  */
+#icone_menu{
+    margin-top: 7.8vh;
+    margin-left: 5vw;
+    height:34px;
+    width:34px;
+}
+
+/* Header -  Catalogo de itens*/
+#menu_itens{
+    background-color: #133A41; 
+    padding: 1vh;
+    align-items: center;
+    text-align: center;
+}
+
+#menu_itens>a{
+    text-align: center;
+    padding: 4vw;
+    text-decoration: none;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+#seta{max-width:100%; height:1rem;}
+
+
+#guia{
+    display: flex;
+    flex-direction: row;
+    border: 3px solid #D9D9D9;
+    margin: 2vh;
+}
+
+#guia>p{
+    padding-left: 3vw;
+}
+
+
+#info_prodts{
+    display: flex;
+    flex-direction: row;
+    border: 3px solid #D9D9D9;
+    margin: 2vh;
+}
+
+
+th.paDireita{
+    display: flex;
+    justify-content: end;
+}
+

@@ -1,0 +1,386 @@
+#other_pages{
+    padding-top: 4vh;
+}
+
+#other_pages>a{
+    display: flex;
+    flex-direction: row;
+    padding-left: 0.5vw;
+    padding-top: 2vh;
+}
+
+#other_pages>a>img{
+    padding-right: 1vw;
+}
+
+#sair{
+    position: fixed; /*! Aqui*/
+    bottom: 0;
+}
+
+#sair>a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#sair>a>img{
+    padding-right: 1vw ;
+    padding-bottom: 2.5vh;
+}
+
+
+#text_buscar{
+margin: 4vh 2vw;
+padding: 20px;
+height: 8vh;
+width: 70vw; 
+border-style: none;
+font-size: 14px;
+max-height: 6vh;
+
+background-image: url("../../imgs/icons/pesquisa.svg");
+background-repeat: no-repeat;
+background-position: 98%; /*! Aqui*/
+background-size: 25px;
+}
+
+/* MAIN */
+
+#containertotal{
+position: absolute; /*! Aqui*/
+overflow-y: auto;
+left: 22vw;
+color: #1e1e1e;
+}
+#icon_btn_adm{max-width: 100%; height: 25px; padding-right: 20px;}
+
+/* fazer aquele bagulho de quando for diminuindo o tamanho da tela fazer com que o texto suma */
+#botoes{
+margin: 0vh 1vw;
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: space-around;
+max-width: 100%;
+}
+.button{
+padding: 1vh;
+color: #ffffff;
+border: none;
+border-radius: 25px;
+margin-left: 20px;
+padding-left: 2vw;
+padding-right: 3vw;
+
+position: relative; /*! Aqui*/
+top: 0;
+background-color: #dddddd;
+transition: all.2s ease-in-out;
+}
+
+.button:hover{
+top: -4px;
+box-shadow: 0 6px 9px #b4b4b4 ;
+}
+
+
+/* cores dos botoes */
+#btn1{background-color: #69C9D0;}
+#btn2{background-color: #428390;}
+#btn3{background-color: #5A3A3F;}
+#btn4{background-color: #E0A072;}
+
+
+input, textarea{
+border: none ;
+padding: 1vh;
+background-color: #F5F5F5;
+width: 90%;
+}
+
+#containertotal{
+max-width: 75vw;
+left: 22vw;
+color: #1e1e1e;
+}
+
+#icon_btn_adm{max-width: 100%; height: 25px; padding-right: 20px; }
+
+#botao_add{
+text-align: center;
+display: flex;
+flex-direction: row;
+padding-left: 1vw;
+padding-right: 1vw;    
+border-radius: 35px;
+padding-top: 2vh;
+margin-bottom: 2vh;
+border-style: none;
+background-color: #428390;
+color: #ffffff;
+margin-left: 62vw;
+}
+
+#botao_add>#aumentar{
+padding-right: 1vw;
+font-size: 18px;
+}
+
+#all_produtos{
+background-color: #EBEBEB;
+padding: 2vh;
+max-width: 100%;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-around;
+}
+
+#all_produts>#produto{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+}
+
+#produto{
+margin: 0;
+height: 28vh;
+max-height: 28vh;
+width: 40%;
+display: flex;
+flex-direction: row;    
+background-color: #ffffff;
+margin-right: 5vw;
+margin-bottom: 5vh;
+}
+
+#info_prodt{padding-top: 2vh;}
+
+#all_info>p{
+padding: 1vh;
+color: #ffffff;
+font-size: 0.8rem;
+margin-bottom: 1vh;
+}
+
+.linhabaixo{
+max-width: 90%;
+display: flex;
+flex-direction: wrap;
+justify-content: space-between;
+align-items: center;
+}
+
+#all_info>#txt1{background-color: #428390;}
+#all_info>#txt2{background-color: #5A3A3F;}
+#all_info>#txt3{background-color: #E0A072; margin-bottom: 1vh;}
+
+#valores{
+margin: 0;
+padding: 0;
+}
+
+#valores{color: #428390;}
+
+.centralizar{
+display: flex;
+justify-content: center; /* Centraliza horizontalmente */
+padding-right: 5vw;
+}
+
+#valores>button{
+width:5vw;
+background-color: #428390; 
+border-radius: 25px; 
+border: none;
+color: #ffffff;
+}
+
+#produto{
+top: -4px;
+box-shadow: 0 6px 9px #b4b4b4;
+}
+
+#img_prodt_div{
+margin: 0;
+/* border: 1px solid #AFAFAF;  */
+text-align: center;
+height: 100%;
+width: 25vh;
+background-color: #ffffff;
+}
+
+#img_prodt{width: auto; height: 100%; max-width: 100%;}
+
+#info_prodt{
+padding-right: 1vh;
+background-color: #ffffff;
+}
+
+#info_prodt>#txt{
+margin-top: 2vh;
+padding-left: 3vh;
+}
+
+#addproduto{
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+position: absolute; /*! Aqui*/
+display: none;
+align-items: center;
+justify-content: center;
+}
+#formaddproduto{
+border: solid #AFAFAF 1px;
+border-radius: 25px;
+background-color: white;
+height: 60vh;
+width: 50vw;
+display: flex;
+flex-direction: wrap;
+flex-wrap: nowrap;
+align-items: center;
+justify-content: space-around;
+}
+#addproduto input{
+border: solid #AFAFAF 1px;
+height: 5vh;
+width: 20vw;
+}
+#addproduto textarea{
+border: solid #AFAFAF 1px;
+height: 10vh;
+width: 20vw;
+}
+
+#editproduto{
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+position: absolute; /*! Aqui*/
+display: none;
+align-items: center;
+justify-content: center;
+}
+#formeditproduto{
+border: solid #AFAFAF 1px;
+border-radius: 25px;
+background-color: white;
+height: 60vh;
+width: 50vw;
+display: flex;
+flex-direction: wrap;
+flex-wrap: nowrap;
+align-items: center;
+justify-content: space-around;
+}
+#editproduto input{
+border: solid #AFAFAF 1px;
+height: 5vh;
+width: 20vw;
+}
+#editproduto textarea{
+border: solid #AFAFAF 1px;
+height: 10vh;
+width: 20vw;
+}
+.inputs{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+}
+#txt4{color: #000; padding: 0; margin: 0; background-color: transparent;}
+
+.close {
+background: #606061;
+color: #FFFFFF;
+line-height: 25px;
+text-align: center;
+width: 24px;
+text-decoration: none;
+font-weight: bold;
+-webkit-border-radius: 12px;
+-moz-border-radius: 12px;
+border-radius: 12px;
+-moz-box-shadow: 1px 1px 3px #000;
+-webkit-box-shadow: 1px 1px 3px #000;
+box-shadow: 1px 1px 3px #000;
+}
+
+#img_perfil{
+width: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+
+}#img_perfil img{
+max-width: 100%;
+width: auto;
+height: 36.5vh;
+margin-bottom: 5vh;
+}
+
+input[type=file]{
+display: none;
+}
+
+#inputFile {
+display: none;
+height: 5vh;
+width: 100%;
+border-radius: 10px;
+background-color: #ffffff;
+border: 1px #657781 solid;
+font-size: 0.9rem;
+}
+
+.submit{
+margin-left: auto;
+height: 5vh;
+border-radius: 15px;
+background-color: #428390;
+color: #ffffff;
+font-size: 1rem;
+}
+
+@media (max-width: 767px){
+#containertotal{
+    position: relative; /*! Aqui*/
+    z-index: -1;
+    left:2vw;
+    max-width: 96vw;
+}
+
+#Title{display: none;}
+
+#submit{width: 100%;}
+
+#containertotal{
+    top: 7.5vh;
+}
+#img_perfil{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 25vh;
+
+}
+}
+
+#messageContainer{
+    display: block;
+    top: 10%;
+    width: 100%;
+    max-width: 70vw;
+    position: absolute;
+    margin-top: 20px;
+}
