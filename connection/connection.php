@@ -1,3 +1,3 @@
 <?php
-    $conn = new PDO('mysql:hostname=localhost;dbname=promel04','root','usbw');
+    $conn = new PDO('mysql:hostname=localhost;dbname=promel04','root','');
 ?>

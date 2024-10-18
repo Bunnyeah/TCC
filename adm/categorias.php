@@ -71,7 +71,7 @@ $categorias = $conn->fetchAll(PDO::FETCH_OBJ);
             <?php foreach ($categorias as $categoria){ ?>
                 <div class="categoria">
                     <p><?= $categoria->Nome?>
-                    <a href="#update" onclick="editcategoria(<?=$categoria->categoria_ID?>)"><img src="../assets/imgs/icons/editar_cat.svg"></a>
+                    <a href="#update"><img src="../assets/imgs/icons/editar_cat.svg"></a>
                     <a href="./functions_adm/deletar_cat.php?categoria_ID=<?= $categoria->categoria_ID ?>"><img src="../assets/imgs/icons/apagar_cat.svg"></a>
                     </p>
                 </div>
@@ -101,37 +101,13 @@ $categorias = $conn->fetchAll(PDO::FETCH_OBJ);
                     <a href="#close" title="Close" class="close">X</a>
                     <h2>Editar Categoria</h2>
                     <label for="Nome">Nome Novo</label> 
-                    <input type="text" placeholder="coloque o nome novo aqui" name="Nome" <?= $categoria->Nome?> required autocomplete="off">
-                    <input type="text" id="textcat" placeholder="coloque o nome novo aqui" name="nomeNovo" required autocomplete="off">
+                    <input type="text" id="textcat" placeholder="coloque o nome novo aqui" name="Nome" <?= $categoria->Nome?> required autocomplete="off">
                     <input type="hidden" name="Cor_Caixa" id="cor_categoria"> <!-- Campo oculto para cor -->
                     <input type="hidden" name="categoria_ID">
                     <a href="./functions_adm/editar_cat.php?categoria_ID=<?= $categoria->categoria_ID ?>"><button type="submit" id="botao_salvar">Salvar</button></a>
                 </div>
                 </form>
             </div>
-            <script>
-                function editcategoria(categoriaID) {
-                    console.log("Vou me matar")
-                    console.log("ID recebido:", categoriaID);
-
-                    fetch(`./functions_adm/editar_cat.php?id=${categoriaID}`)
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Erro na rede');
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            console.log("Dados do produto:", data);
-                            if (!data.error) {
-                                document.getElementById('textcat').value = $categoria_ID; // Preencher o ID do produto
-                                document.getElementById('categoriaID').value = data.Nome;
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Erro ao buscar os dados do produto:');
-                        });}
-            </script>
     
     <script src="../adm/functions_adm/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
