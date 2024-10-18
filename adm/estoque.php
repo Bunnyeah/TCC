@@ -42,7 +42,7 @@ $produtos = $conn->fetchAll(PDO::FETCH_OBJ);
                 <a href="./encomendas.php"> <img src="../assets/imgs/icons/encomendas.svg"><p>Encomendas</p></a>
             </div>           
 
-            <div id="sair"><a href="./config/logout.php"><img src="../assets/imgs/icons/logout.svg"><p>Sair</p></a></div>
+            <div id="sair"><a href="../config/logout.php"><img src="../assets/imgs/icons/logout.svg"><p>Sair</p></a></div>
         </div>
     </nav>
 
