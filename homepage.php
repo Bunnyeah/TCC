@@ -100,6 +100,7 @@ $produtos   = $stmt->fetchAll(PDO::FETCH_OBJ);
             <?php foreach ($produtos as $produto): ?>
                 <div class="col-6 col-md-4 mb-3"> <!-- Colunas com margem inferior -->
                     <div class="card" style="width: 100%;">
+                    <img src="assets/imgs/produtos/<?= $produto->imagem; ?>" alt="<?= $produto->Nome_produto; ?>">
                         <div class="card-body" id="produtos">
                             <p class="card-title">R$<?= number_format($produto->Preco_Und, 2, ',', '.'); ?> </p>
                             <p class="card-text"><?= $produto->Nome_produto; ?> </p>
