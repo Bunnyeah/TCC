@@ -60,9 +60,17 @@ a{color: #ffffff; text-decoration: none;}
         display: flex;
         align-items: end;
     }
-    #sair{
+    #sair>a{
         position: fixed;
         bottom: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-self: center;
+    }
+    #sair img{
+        padding-bottom:25%;
+        padding-right:25%;
     }
 /*? NAVBAR END */
 
