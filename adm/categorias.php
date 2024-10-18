@@ -101,10 +101,10 @@ $categorias = $conn->fetchAll(PDO::FETCH_OBJ);
                     <a href="#close" title="Close" class="close">X</a>
                     <h2>Editar Categoria</h2>
                     <label for="Nome">Nome Novo</label> 
-                    <input type="text" placeholder="coloque o nome novo aqui" name="nomeNovo" required autocomplete="off">
+                    <input type="text" placeholder="coloque o nome novo aqui" name="Nome" <?= $categoria->Nome?> required autocomplete="off">
                     <input type="hidden" name="Cor_Caixa" id="cor_categoria"> <!-- Campo oculto para cor -->
                     <input type="hidden" name="categoria_ID">
-                    <button type="submit" id="botao_salvar">Salvar</button>
+                    <a href="./functions_adm/editar_cat.php?categoria_ID=<?= $categoria->categoria_ID ?>"><button type="submit" id="botao_salvar">Salvar</button></a>
                 </div>
                 </form>
             </div>
