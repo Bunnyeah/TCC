@@ -30,8 +30,8 @@
                 <div class="linha"><div class="seta"></div><a class="botao" href="./alterarsenha.php"><p>Trocar Senha</p></a></div>
                 <div class="linha"><div class="seta"></div><a class="botao " href="./historico.php"><p>Histórico</p></a></div>
             </div>
-            <div id="sair"><a href="../config/logout.php"><p>Sair</p></a></div>
-        </div>
+            <div id="sair"><a href="../config/logout.php"><img src="../assets/imgs/icons/logoutbranco.svg"><p>Sair</p></a></div>
+            </div>
     </nav>
 
     <div class="container">
