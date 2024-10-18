@@ -12,11 +12,11 @@
     if ($stmt->rowCount() === 1) {
         $usuario = $stmt->fetch(PDO::FETCH_OBJ);
 
-                if($usuario->senha = "123" && $usuario->email = "adm@adm.com"){
-                    $_SESSION["loggedin"] = true;
-                    header("Location: ../adm/produtos.php");
-                }
-                else if (password_verify($senha, $usuario->Senha)) {
+                // if($usuario->senha = "123" && $usuario->email = "adm@adm.com"){
+                //     $_SESSION["loggedin"] = true;
+                //     header("Location: ../adm/produtos.php");
+                // }
+                if (password_verify($senha, $usuario->Senha)) {
                     session_start();
                     $_SESSION["loggedin"] = true;
                     $_SESSION["usuario"] = htmlspecialchars($usuario->Nome);
