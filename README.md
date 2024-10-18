@@ -2,3 +2,5 @@
 - API Correios
 - Melhorar o carrinho (TEM que ser um select produtos selecionável)
 - Corrigir erros (maior parte são de linkagens)
+- Alterar os inputs (Paiva mandou)
+- Arrumar centralização imagem produto

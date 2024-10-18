@@ -74,7 +74,7 @@
                 <!-- produto 1 -->
                 <div id="produto">
                     <div id="img_prodt_div" class="col-4">
-                        <img id="img_prodt" src="<?=$produtos->imagem?>">
+                        <img id="img_prodt" src="../assets/imgs/produtos/<?=$produtos->imagem?>">
                     </div>
                     <div id="info_prodt" class="col-8">
                     <div class="centralizar">

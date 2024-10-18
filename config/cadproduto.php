@@ -16,7 +16,8 @@ try{
     // Verifica se o arquivo foi enviado
     if (isset($_FILES["newprodutoimg"]) && file_exists($_FILES["newprodutoimg"]['tmp_name'])) {
         $imageFileType = strtolower(pathinfo($_FILES["newprodutoimg"]["name"], PATHINFO_EXTENSION));
-        $target_file = $target_dir . uniqid() . "." . $imageFileType; // UniqID pra diferenciar
+        $nomearquivo = uniqid() . "." . $imageFileType;
+        $target_file = $target_dir . $nomearquivo;
 
         // Verifica o tipo de arquivo
         if (!in_array($imageFileType, $allowed_types)) {
@@ -46,7 +47,7 @@ try{
     $stmt->bindValue(':Qtd_stock', htmlspecialchars($Qtd_stock));
     $stmt->bindValue(':Descricao', htmlspecialchars($Descricao));
     $stmt->bindValue(':Nome_produto', htmlspecialchars($Nome_produto));
-    $stmt->bindValue(':imagem', $target_file);
+    $stmt->bindValue(':imagem', $nomearquivo);
     $stmt->execute();
 
     $successMsg = "Perfil Atualizado";
