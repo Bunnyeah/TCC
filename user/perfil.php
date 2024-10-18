@@ -38,7 +38,7 @@
             <nav id="navbar">
                 <div id="logo"><a href="../homepage.php"><img src="../assets/imgs/logo.jpg" alt="Logo Promel"></a></div>
                 <div id="user_menu">
-                    <div class="icone title"><img src="../assets/imgs/Group.svg" style="margin-right: 10px;">Minha Conta</div>
+                    <div class="icone title"><img src="../assets/imgs/icons/Group.svg" style="margin-right: 10px;">Minha Conta</div>
                     <div id="user_pages">
                         <div class="linha"><div class="seta"></div><a class="botao pagatual" href="./perfil.php"><p>Perfil</p></a></div>
                         <div class="linha"><div class="seta"></div><a class="botao" href="./endereco.php"><p>Endereço</p></a></div>

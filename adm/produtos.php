@@ -114,8 +114,8 @@
         </div>
         <div class="inputs">
             <input class="form-control" type="text" id="nome_produto_add" name="Nome_produto" placeholder="Nome do produto" required><br>
-            <input class="form-control" type="number" id="preco_und_add" name="Preco_Und" placeholder="Preço Unitário" required><br>
-            <input class="form-control" type="number" id="qtd_stock_add" name="Qtd_stock" placeholder="Quantidade em estoque" required><br>
+            <input class="form-control" type="number" id="preco_und_add" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required><br>
+            <input class="form-control" type="number" id="qtd_stock_add" name="Qtd_stock" minlength="0" placeholder="Quantidade em estoque" required><br>
             <textarea class="form-control" id="descricao_add" name="Descricao" placeholder="Descrição" style="resize: none;" required></textarea><br>
             <button type="submit" class="submit">Salvar</button>
         </div>
