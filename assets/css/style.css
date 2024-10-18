@@ -546,54 +546,55 @@ footer{
         
     }
 
-        .header_conta {
-            display: flex;
-            justify-content: space-around;
-            background-color: #133A41;
-            padding: 15px 0;
-        }
+    .header_conta {
+        display: flex;
+        justify-content: space-around;
+        background-color: #133A41;
+        padding: 15px 0;
+    }
     
-        .header_conta ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            position: absolute;
-        }
+    .header_conta ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
     
-        .header_conta li {
-            display: inline-block;
-            color: white;
-            padding: 10px 20px;
-            cursor: pointer;
-            position: relative;
-        }
+    .header_conta li {
+        display: inline-block;
+        color: white;
+        padding: 10px 20px;
+        cursor: pointer;
+        position: relative;
+    }
     
-        .header_conta li:hover {
-            background-color: #3e4f55;
-        }
+    .header_conta li:hover {
+        background-color: #3e4f55;
+    }
     
-        
-        .dropdown {
-            display: none;
-            position: absolute;
-            background-color: #133A41;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
-            z-index: 1;
-            top: 100%;
-            left: 0;
-            min-width: 180px;
-        }
     
-        .dropdown li {
-            display: block;
-            padding: 10px;
-            background-color: #1a2b33;
-        }
+    .dropdown {
+        display: none;
+        position: absolute;
+        background-color: #133A41;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+        z-index: 1;
+        top: 100%;
+        left: 0;
+        min-width: 180px;
+    }
     
-        .dropdown li:hover {
-            background-color: #2e3c42;
-        }
-        
-        .header_conta li:hover .dropdown {
-            display: block;
-        }
+    .dropdown li {
+        display: block;
+        padding: 10px;
+        background-color: #1a2b33;
+    }
+    
+    .dropdown li:hover {
+        background-color: #2e3c42;
+    }
+    
+    
+    .header_conta li:hover .dropdown {
+        display: block;
+    }

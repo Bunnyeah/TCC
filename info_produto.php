@@ -2,7 +2,7 @@
 
 $corDeFundo = "burlywood";
 
-require_once "./assets/connect/connection.php";
+require_once "./connection/connection.php";
 
 // Obtém o ID do produto da URL
 $produtoId = $_GET['id'];
@@ -43,7 +43,7 @@ if ($produtoId) {
             <div class="header_conta">
               <ul>
                 <li><a href="./assets/imgs/icons/conta.svg">
-                  <img src="./assets/imgs/icons/conta.svg" alt="conta" id="icone_menu2">
+                  <img src="./assets/imgs/icons/Group.svg" alt="conta" id="icone_menu2">
                 </a>
                   <ul class="dropdown">
                       <li>login</li>
@@ -78,9 +78,65 @@ if ($produtoId) {
                         <hr>
 
                         <!-- Informações do Frete -->
-                        <div id="frete_info">
-                            <p>Frete para:</p>
-                        </div>
+                        <p>Selecione seu Estado para saber seu frete</p>
+    <form>
+        <label for="estado">Estado:</label>
+        <select id="estado">
+            <option value="">Selecione um estado</option>
+            <option value="1">Acre (AC)</option>
+            <option value="2">Alagoas (AL)</option>
+            <option value="3">Amapá (AP)</option>
+            <option value="4">Amazonas (AM)</option>
+            <option value="5">Bahia (BA)</option>
+            <option value="6">Ceará (CE)</option>
+            <option value="7">Distrito Federal (DF)</option>
+            <option value="8">Espírito Santo (ES)</option>
+            <option value="9">Goiás (GO)</option>
+            <option value="10">Maranhão (MA)</option>
+            <option value="11">Mato Grosso (MT)</option>
+            <option value="12">Mato Grosso do Sul (MS)</option>
+            <option value="13">Minas Gerais (MG)</option>
+            <option value="14">Pará (PA)</option>
+            <option value="15">Paraíba (PB)</option>
+            <option value="16">Paraná (PR)</option>
+            <option value="17">Pernambuco (PE)</option>
+            <option value="18">Piauí (PI)</option>
+            <option value="19">Rio de Janeiro (RJ)</option>
+            <option value="20">Rio Grande do Norte (RN)</option>
+            <option value="21">Rio Grande do Sul (RS)</option>
+            <option value="22">Rondônia (RO)</option>
+            <option value="23">Roraima (RR)</option>
+            <option value="24">Santa Catarina (SC)</option>
+            <option value="25">São Paulo (SP)</option>
+            <option value="26">Sergipe (SE)</option>
+            <option value="27">Tocantins (TO)</option>
+        </select>
+    </form>
+    <div id="resultado"></div>
+
+    <script>
+        // Gerar números aleatórios para cada estado
+        const estados = {};
+        for (let i = 1; i <= 27; i++) {
+            estados[i] = Math.floor(Math.random() * 27) + 1; // Números aleatórios de 1 a 100
+        }
+
+        // Função para exibir o valor correspondente ao estado selecionado
+        function mostrarValor() {
+            const estadoId = document.getElementById('estado').value;
+            const resultado = document.getElementById('resultado');
+
+            if (estadoId) {
+                const nomeEstado = document.getElementById('estado').options[document.getElementById('estado').selectedIndex].text;
+                resultado.textContent = `Valor para ${nomeEstado}: ${estados[estadoId]}`;
+            } else {
+                resultado.textContent = '';
+            }
+        }
+
+        // Adiciona o evento de mudança ao select
+        document.getElementById('estado').addEventListener('change', mostrarValor);
+    </script>
 
                         <!-- Quantidade em Estoque -->
                         <p>Quantidade em estoque: <?= $produto->Qtd_stock; ?></p>
@@ -108,7 +164,7 @@ if ($produtoId) {
 
                         <!-- Botões de Ação -->
                         <button id="btn" type="button" class="btn btn-primary">
-                            <img src="./assets/imgs/icons/carrinho1.svg"> Adicionar ao Carrinho
+                            <img src="./assets/imgs/icons/encomendas.svg"> Adicionar ao Carrinho
                         </button>
                         <button id="btn1" type="button" class="btn btn-primary">Comprar agora</button>
 
@@ -124,52 +180,56 @@ if ($produtoId) {
     </main>
 
     <!-- RODAPÉ -->
-    <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3" id="itens_icns">
-            <h4>Contatos</h4>
-            <ul id="contatos_lista">
-              <li><img src="./assets/imgs/icons/instagram.svg" alt="icone instagram" id="img_inst"> Instagram</li>
-              <li><img src="./assets/imgs/icons/whatsapp.svg" alt="icone whatapp" id="img_wpp"></i> Whatsapp</li>
-              <li><img src="./assets/imgs/icons/tiktok.svg" alt="icone TikTok" id="img_ttk"></i></i> TikTok</li>
-            </ul>
-          </div>
-          <div class="col-md-3">
-            <h4>Conheça-nos</h4>
-            <ul id="informacoes_lista">
-              <li>Sobre a Loja</li>
-              <li>Sobre o Cliente</li>
-            </ul>
-          </div>
-          <div class="col-md-3">
-            <h4>Formas de Pagamento</h4>
-            <ul id="formas_pag_lista">
-              <li><img src="./assets/imgs/formas_pagamento/img_mastercard.png" alt="icone Cartao de Credito" id="img_cred"> Cartão de Crédito</li>
-              <li><img src="./assets/imgs/formas_pagamento/img_cartao_visa.png" alt="icone Cartao Debito" id="img_deb"> Cartão de Débito</li>
-              <li><img src="./assets/imgs/formas_pagamento/pix_logo.jpeg" alt="icone Pix" id="img_pix"> Pix</li>
-              <li>Boleto Bancário</li>
-            </ul>
-          </div>
-          <div class="col-md-3">
-            <h4>Outras Plataformas</h4>
-            <ul id="outras_plataformas_lista">
-              <li><img src="./assets/imgs/plataformas_compra/shoppe.png" alt="icone Shopee" id="img_shp"> Shopee</li>
-              <li><img src="./assets/imgs/plataformas_compra/mercado_livre.png" alt="icone Mercado Livre" id="img_ml"> Mercado Livre</li>
-              <li><img src="./assets/imgs/icons/facebook.svg" alt="icone Facebook" id="img_fc"> Facebook</li>
-            </ul>
+    <footer class="footer"> 
+        <div id="alinhar_divs">
+          <div>
+              <h4>Contatos</h4>
+              <div id="contatos_lista">
+                <a href="https://www.instagram.com/promel_boituva/"><img src="./assets/imgs/icons/instagram.svg" alt="icone Instagram"></a>
+                <a href=""><img src="./assets/imgs/icons/whatsapp.svg" alt="icone Whatsapp"></a>
+                <a href="https://web.facebook.com/lojapromel/?_rdc=1&_rdr"><img src="./assets/imgs/icons/facebook.svg" alt="icone Facebook"></a>
+                </div>
+            </div>
+
+            <div>
+              <h4>Conheça-nos</h4>
+              <div id="informacoes_lista">
+                <p>Sobre a Loja</p>
+                <p>Sobre o Cliente</p>
+              </div>
+            </div>
+
+            <div>
+              <h4>Formas de Pagamento</h4>
+              <hr id="hr_align">
+              <div id="formas_pag_lista">
+                <img src="./assets/imgs/formas_pagamento/Metodo 01.png">
+                <img src="./assets/imgs/formas_pagamento/Metodo 02.png">
+                <img src="./assets/imgs/formas_pagamento/Metodo 03.png">
+                <img src="./assets/imgs/formas_pagamento/Metodo 04.png">
+              </div>
+              <p style="text-align: center;padding-top:2vh">Ou se preferir você pode pagar pela loja fisíca</p>
+            </div>
+
+            <div>
+              <h4>Outras Plataformas</h4>
+              <div id="outras_lista">
+                <a href=""><img src="./assets/imgs/outras_plataformas/shoppe.svg" alt="icone Shopee">Shopee</a>
+                <a href=""><img src="./assets/imgs/outras_plataformas/mercado_livre.svg" alt="icone Mercado Livre">Mercado Livre</a>
+                <a href=""><img src="./assets/imgs/outras_plataformas/tiktok.svg" alt="icone TikTok">TikTok</a>
+              </div>
+            </div>
           </div>
         </div>
+
         <div class="row">
           <div class="col-md-12">
             <hr>
-            <p class="text-center">© 2024 Armazém Brasil - Desenvolvido por Davi Natan Bianchi, Edisom Coelho Junior, Nicolas Moro Mota e Vitor Melendes Diardina. Todos os direitos reservados</p>
+            <p class="text-center" style="font-size: 14px">© 2024 Armazém Brasil - Desenvolvido por Davi Natan Bianchi, Edisom Coelho Junior, Nicolas Moro Mota e Vitor Melendes Diardina. Todos os direitos reservados</p>
           </div>
         </div>
       </div>
-      
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
