@@ -30,6 +30,12 @@ if ($produtoId) {
 
     <!-- MENU -->
     <header>
+    <div id="redes">      
+      <img src="./assets/imgs/icons/facebook.svg" alt="icone Facebook">      
+      <img src="./assets/imgs/outras_plataformas/tiktok.svg" alt="icone TikTok">
+      <img src="./assets/imgs/icons/instagram.svg" alt="icone Instagram">
+      <img src="./assets/imgs/icons/whatsapp.svg" alt="icone WhatsApp">
+      </div>
         <nav id="menu">
             <!-- logo -->
             <img src="./assets/imgs/logo/logo (2).jpg" alt="Logo Armazém Brasil" id="logo">
@@ -42,20 +48,19 @@ if ($produtoId) {
             <!-- icone "conta" -->
             <div class="header_conta">
               <ul>
-                <li><a href="./assets/imgs/icons/conta.svg">
-                  <img src="./assets/imgs/icons/Group.svg" alt="conta" id="icone_menu2">
-                </a>
+                  <a><li><img src="./assets/imgs/icons/Group.svg" alt="conta" id="icone_menu2"></a>
+  
                   <ul class="dropdown">
-                      <li>login</li>
-                      <li>favoritos</li>
-                      <li>sair</li>
+                    <a href="./login.php"><li><img src="./assets/imgs/icons/login.svg">Entrar/Login</li></a>
+                    <a href="./"><li><img src="./assets/imgs/icons/fav_verde.svg">Meus Favoritos</li></a>
+                    <a href=""><li><img src="./assets/imgs/icons/logout_verde.svg">Sair</li></a>
                   </ul>
               </li>
               </ul>
             </div>
 
             <!-- icone "carrinho" -->
-            <img src="./assets/imgs/icons/carrinho.svg" id="icone_menu">
+            <a href="./carrinho2.php"><img src="./assets/imgs/icons/carrinho.svg" id="icone_menu"></a>
         </nav>
     </header>
 

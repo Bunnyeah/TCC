@@ -20,7 +20,6 @@ if ($status !== '') {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -54,8 +53,8 @@ if ($status !== '') {
                 <div class="linha"><div class="seta"></div><a class="botao" href="alterarsenha.php"><p>Trocar Senha</p></a></div>
                 <div class="linha"><div class="seta"></div><a class="botao pagatual" href="./historico.php"><p>Histórico</p></a></div>
             </div>
-            <div id="sair"><a href="./config/logout.php"><p>Sair</p></a></div>
-        </div>
+                <div id="sair"><a href="../config/logout.php"><img src="../assets/imgs/icons/logoutbranco.svg"><p>Sair</p></a></div>
+            </div>
     </nav>
 
     <!-- Titulo -->
