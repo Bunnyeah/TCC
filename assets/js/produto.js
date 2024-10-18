@@ -64,7 +64,7 @@ function editproduto(produtoID) {
                 document.getElementById('delete').value = produtoID;
 
                 // Atualizar a imagem se necessário
-                imgperfilEdit.src = data.imagem || '../assets/imgs/logo.jpg'; // Caminho padrão se imagem não existir
+                imgperfilEdit.src = "../assets/imgs/produtos/" + data.imagem || '../assets/imgs/logo.jpg'; // Caminho padrão se imagem não existir
             } else {
                 alert(data.error);
                 messageContainer.classList.add("alert-danger"); //Desativar scrollbar
