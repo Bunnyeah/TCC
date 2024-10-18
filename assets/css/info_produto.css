@@ -185,9 +185,19 @@ footer{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    list-style: none;
 }
 
 #outras_lista>a{padding-bottom: 1vw;}
+
+#outras_lista a {
+    color: inherit; /* ou escolha a cor que você preferir */
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+#outras_lista a:hover {
+    text-decoration: underline; /* Opcional: adicione um sublinhado ao passar o mouse */
+}
 
 
 .titulo{
@@ -206,13 +216,7 @@ footer{
     list-style: none;
 }
 
-#outras_lista{
-    list-style: none;
-}
 
-#outras_lista>a{
-    list-style: none;
-}
 
 #icone_menu2{
     margin-top: 4.8vh;
@@ -273,3 +277,47 @@ footer{
 .header_conta li:hover .dropdown {
     display: block;
 }
+
+#redes{
+    background-color: #172B2F;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-left: 2vw;
+}
+
+#redes>img{
+    margin-left: 1vw;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0;
+    top: 60px; 
+    
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown>a>li>img{
+    padding-right: 1vw; 
+
+}
+
+.dropdown>a>li{
+    background-color: #FFFFFF;
+    color: black;
+}
+
+.dropdown>a{text-decoration: none;}
+
+.dropdown-content a:hover {background-color: #FFFFFF;}
+
+.dropdown-content.show {display: block;}
