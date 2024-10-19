@@ -65,7 +65,7 @@ if (isset($_GET['id'])) { //Aqui eu pego o Fetch pra usar o select e colocar ess
         if (isset($target_file)) {
             $stmt->bindValue(':imagem', $target_file);
         }
-        $stmt->bindValue(':produto_ID', htmlspecialchars($produto_ID)); // Sempre vincule o ID do produto
+        $stmt->bindValue(':produto_ID', htmlspecialchars($produto_ID)); // Jogo o ID de produto no form de formainvisivel pra pegar ele pelo post
         // var_dump($produto_ID, $Preco_Und, $Qtd_stock, $Descricao, $Nome_produto);
         $stmt->execute();
 

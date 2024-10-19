@@ -71,7 +71,7 @@ $categorias = $conn->fetchAll(PDO::FETCH_OBJ);
             <?php foreach ($categorias as $categoria){ ?>
                 <div class="categoria">
                     <p><?= $categoria->Nome?>
-                    <a href="#update"><img src="../assets/imgs/icons/editar_cat.svg"></a>
+                    <a href="#update" onclick="editcategoria(<?=$categoria->categoria_ID?>)"><img src="../assets/imgs/icons/editar_cat.svg"></a>
                     <a href="./functions_adm/deletar_cat.php?categoria_ID=<?= $categoria->categoria_ID ?>"><img src="../assets/imgs/icons/apagar_cat.svg"></a>
                     </p>
                 </div>
@@ -86,7 +86,7 @@ $categorias = $conn->fetchAll(PDO::FETCH_OBJ);
             <a href="#close" title="Close" class="close">X</a>
             <form id="form_categoria" action="./functions_adm/cadastrar_cat.php" method="POST">
                 <h2>Inserir nova Categoria</h2>
-                    <label for="Nome">Categoria</label> 
+                    <label for="nome_categoria">Categoria</label> 
                     <input type="text" placeholder="coloque o nome aqui" name="Nome"  id="nome_categoria" required autocomplete="off">
                     <input type="hidden" name="Cor_Caixa" id="cor_categoria"> <!-- Campo oculto para cor -->
                     <button type="submit" id="botao_inserir">Inserir</button>
@@ -100,16 +100,41 @@ $categorias = $conn->fetchAll(PDO::FETCH_OBJ);
                 <form id="form_categoria" action="./functions_adm/editar_cat.php" method="POST">
                     <a href="#close" title="Close" class="close">X</a>
                     <h2>Editar Categoria</h2>
-                    <label for="Nome">Nome Novo</label> 
-                    <input type="text" id="textcat" placeholder="coloque o nome novo aqui" name="Nome" <?= $categoria->Nome?> required autocomplete="off">
-                    <input type="hidden" name="Cor_Caixa" id="cor_categoria"> <!-- Campo oculto para cor -->
-                    <input type="hidden" name="categoria_ID">
-                    <a href="./functions_adm/editar_cat.php?categoria_ID=<?= $categoria->categoria_ID ?>"><button type="submit" id="botao_salvar">Salvar</button></a>
+                    <label for="edittextcat">Nome Novo</label> 
+                    <input type="text" id="edittextcat" name="Nome" required autocomplete="off">
+                    <!-- <input type="hidden" name="Cor_Caixa" id="cor_categoria"> Campo oculto para cor -->
+                    <input type="text" name="categoria_ID" id="editcategoriaid">
+                    <button type="submit" id="botao_salvar">Salvar</button></a>
                 </div>
                 </form>
             </div>
-    
+    <script>
+        function editcategoria(categoriaID) {
+
+    fetch(`./functions_adm/editar_cat.php?id=${categoriaID}`)
+        .then(response => {
+            // if (!response.ok) { //Só verificação de erro
+            //     throw new Error('Erro na rede');
+            // }
+            return response.json()
+        })
+        .then(data => {
+            console.log("Dados do produto:", data);
+
+            // Preencher os campos do formulário de edição
+            if (!data.error) {
+                console.log(data)
+                document.getElementById('edittextcat').value = data.Nome;
+                document.getElementById('editcategoriaid').value = data.categoria_ID;
+            } else {
+                alert(data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao buscar os dados do produto', error);
+        });
+}
+    </script>
     <script src="../adm/functions_adm/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

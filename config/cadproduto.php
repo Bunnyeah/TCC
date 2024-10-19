@@ -60,9 +60,9 @@ try{
     echo json_encode(['error' => "Erro ao atualizar o perfil: " . $e->getMessage()]);
 } catch (Exception $e) {
     ?><script>
-    const messageContainer = document.getElementById("messageContainer"); 
-    messageContainer.classList.add("alert-danger");
-    messageContainer.innerHTML = "Vai se foder";
+    // const messageContainer = document.getElementById("messageContainer"); 
+    // messageContainer.classList.add("alert-danger");
+    // messageContainer.innerHTML = "Vai se foder";
     </script><?php
 } finally {
     $conn = null;
