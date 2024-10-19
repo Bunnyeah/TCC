@@ -12,13 +12,12 @@ $categorias = $conn->fetchAll(PDO::FETCH_OBJ);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/adm/categorias.css">
+    <link rel="stylesheet" href="../assets/css/nav.css">
     <title>Categorias</title>
 </head>
 <body>
 
 
-    <!-- Navbar Padrão -->
-    <nav id="navbar">
     <!-- Navbar Mobile -->
     <nav id="mobileNavbar">
         <div class="toggle">
@@ -70,10 +69,9 @@ $categorias = $conn->fetchAll(PDO::FETCH_OBJ);
         <div class="all_categorias">
             <?php foreach ($categorias as $categoria){ ?>
                 <div class="categoria">
-                    <p><?= $categoria->Nome?>
-                    <a href="#update" onclick="editcategoria(<?=$categoria->categoria_ID?>)"><img src="../assets/imgs/icons/editar_cat.svg"></a>
-                    <a href="./functions_adm/deletar_cat.php?categoria_ID=<?= $categoria->categoria_ID ?>"><img src="../assets/imgs/icons/apagar_cat.svg"></a>
-                    </p>
+                    <p class="namecat"><?= $categoria->Nome?></p>
+                    <a class="edit" href="#update" onclick="editcategoria(<?=$categoria->categoria_ID?>)"><img src="../assets/imgs/icons/editar_cat.svg"></a>
+                    <a class="delete" href="./functions_adm/deletar_cat.php?categoria_ID=<?= $categoria->categoria_ID ?>"><img src="../assets/imgs/icons/apagar_cat.svg"></a>
                 </div>
             <?php
                 }
@@ -136,5 +134,6 @@ $categorias = $conn->fetchAll(PDO::FETCH_OBJ);
 }
     </script>
     <script src="../adm/functions_adm/script.js"></script>
+    <script src="../assets/js/mobileNavbar.js"></script>
 </body>
 </html>
