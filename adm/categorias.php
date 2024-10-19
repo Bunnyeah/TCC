@@ -103,7 +103,7 @@ $categorias = $conn->fetchAll(PDO::FETCH_OBJ);
                     <label for="edittextcat">Nome Novo</label> 
                     <input type="text" id="edittextcat" name="Nome" required autocomplete="off">
                     <!-- <input type="hidden" name="Cor_Caixa" id="cor_categoria"> Campo oculto para cor -->
-                    <input type="text" name="categoria_ID" id="editcategoriaid">
+                    <input type="hidden" name="categoria_ID" id="editcategoriaid">
                     <button type="submit" id="botao_salvar">Salvar</button></a>
                 </div>
                 </form>
