@@ -5,5 +5,5 @@
 - Alterar os inputs (Paiva mandou)
 - Arrumar centralização imagem produto
 - Salvar e list endereço
-- Edit categorias
 - Alterar senha
+- Integração com o Mercado Pago
