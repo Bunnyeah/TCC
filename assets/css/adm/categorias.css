@@ -202,6 +202,7 @@ input{
 }
 .namecat{
     width: 90%;
+    color: white;
 }
 
 .categoria img{max-width:100%; height:4vh;}
@@ -288,6 +289,7 @@ input{
             top: 6vh;
             left: 5vw;
             max-width: 100vw;
+            overflow-x: hidden;
         }
         #botoes{
             padding: 0;
@@ -352,5 +354,8 @@ input{
             align-items: center;
             justify-content: center;
             font-size: xx-large;
-        } 
+        }
+        .modalDialog > div{
+            width: 90vw;
+        }
     }
