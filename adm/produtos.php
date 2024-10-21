@@ -76,7 +76,7 @@
                         <img id="img_prodt" src="../assets/imgs/produtos/<?=$produtos->imagem?>">
                     </div>
                     <div id="info_prodt" class="col-8">
-                    <div class="centralizar">
+                    <div class="'centralizar'">
                         <p><?=$produtos->Nome_produto?></p>
                         <input class="form-control" type="number" name="produto_ID" value="<?=$produtos->produto_ID?>" style="display: none"; readonly>
                     </div>
