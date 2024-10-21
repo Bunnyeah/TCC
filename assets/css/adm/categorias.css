@@ -165,18 +165,17 @@ input{
 .botao_add{
     text-align: center;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: row; 
-    border-radius: 65px;
-    margin-bottom: 2vh;
-    padding-left: 1.5vw;
-    padding-right:1.5vw;
-    padding-top: 1vw;
-    padding-bottom: 1vw;
-
+    border-radius: 100%;
+    width: 3rem;
+    height: 3rem;
     border-style: none;
     background-color: #428390;
     color: #ffffff;
     /* margin-left: 62vw; */
+    margin-bottom: 2vh;
 }   
 
 .all_categorias{
@@ -263,6 +262,18 @@ input{
     .close:hover {
         background: #69C9D0;
     }
+    .paidocoisa{
+        display: flex;
+        justify-content: end;
+        align-items: end;
+    }
+    #coisa{
+        display: flex;
+        align-items: end;
+        justify-content: end;
+        width: fit-content;
+        height: fit-content;
+    }
 
     #abrir_pop>div>h2{
         font-size: 18px;
@@ -338,23 +349,8 @@ input{
             width: 10%;
         } */
         .botao_add{
-            /* border-radius: 65px;
-            margin-bottom: 2vh;
-            padding-left: 1.5vw;
-            padding-right:1.5vw;
-            padding-top: 1vw;
-            padding-bottom: 1vw; */
-            width: 15%;
-            height: 5vh;
-            border-style: none;
-            background-color: #428390;
-            color: #ffffff;
-            margin-left: 75vw;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: xx-large;
-        }
+            font-size: x-large;
+        }   
         .modalDialog > div{
             width: 90vw;
         }

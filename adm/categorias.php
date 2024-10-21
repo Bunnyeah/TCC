@@ -79,8 +79,9 @@ $categorias = $conn->fetchAll(PDO::FETCH_OBJ);
             <input type="search" placeholder="Procurar produtos..." id="text_buscar">
         </div>
 
-        <a href="#abrir"><button type="submit" class="botao_add">+</button></a>
-
+    <div class="paidocoisa">
+        <a href="#abrir" id="coisa"><button type="submit" class="botao_add">+</button></a>
+    </div>
         <!-- TODAS AS CATEGORIAS -->
         <div class="all_categorias">
             <?php foreach ($categorias as $categoria) { ?>
