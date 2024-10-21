@@ -116,7 +116,7 @@ RED HAT DISPLAY
 /* icone "conta" & icone "carrinho"  */
 #icone_menu{
     margin-top: 7.8vh;
-    margin-left: 5vw;
+    margin-left: 15vw;
     height:34px;
     width:34px;
 }
@@ -546,7 +546,9 @@ footer{
         
     }
 
-    .header_conta {
+    .header_conta { 
+        left: 80vw;
+        position: absolute;
         display: flex;
         justify-content: space-around;
         background-color: #133A41;

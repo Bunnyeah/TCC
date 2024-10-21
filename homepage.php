@@ -156,8 +156,9 @@ $produtos   = $stmt->fetchAll(PDO::FETCH_OBJ);
             <span>Horario de Funcionamento: Aberto as 08:00 Fecha as 19:00 <img src="./assets/imgs/icons/seta_baixo_preta.svg" alt="setinha" id="setinha"></span>
           </div>
           <div id="div_img">
-            <a href="https://www.google.com/maps/place/Rua+Coronel+Arruda+Botelho,+291+-+Vila+Ferriello,+Boituva+-+SP,+18550-000/@-23.284528,-47.6746072,17z/data=!3m1!4b1!4m6!3m5!1s0x94c5e233186b3045:0x30e6e10682358a93!8m2!3d-23.2845329!4d-47.6720323!16s%2Fg%2F11crv8pvp8?entry=ttu&g_ep=EgoyMDI0MTAxNS4wIKXMDSoASAFQAw%3D%3D"><img src="./assets/imgs/decorativo/maps_home.png" alt="Localização"></a>
-          </div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117214.65816763695!2d-47.91291218353377!3d-23.35353368235232
+            !2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c5e3f97216ab7d%3A0xb2de7e58cc205fad!2sLoja%20Promel%20Produtos%20Natur
+            ais!5e0!3m2!1spt-BR!2sbr!4v1729264585112!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>          </div>
         </div>
 
     </main>

@@ -5,7 +5,7 @@ require_once '../connection/connection.php';
 extract($_POST);
 extract($_FILES);
 
-try{
+// try{
     // Define constantes
     $target_dir = "../assets/imgs/produtos/";
     $file_size_limit = 2000000; // 2 MB
@@ -50,22 +50,18 @@ try{
     $stmt->bindValue(':imagem', $nomearquivo);
     $stmt->execute();
 
-    $successMsg = "Perfil Atualizado";
+    header("Location: ../adm/produtos.php");
+    // $successMsg = "Perfil Atualizado";
 
-    if ($successMsg) {
-        echo json_encode(['success' => $successMsg]);
-    }
+    // if ($successMsg) {
+    //     echo json_encode(['success' => $successMsg]);
+    // }
 
-} catch (PDOException $e) {
-    echo json_encode(['error' => "Erro ao atualizar o perfil: " . $e->getMessage()]);
-} catch (Exception $e) {
-    ?><script>
-    // const messageContainer = document.getElementById("messageContainer"); 
-    // messageContainer.classList.add("alert-danger");
-    // messageContainer.innerHTML = "Vai se foder";
-    </script><?php
-} finally {
-    $conn = null;
-}
+// } catch (PDOException $e) {
+//     echo json_encode(['error' => "Erro ao atualizar o perfil: " . $e->getMessage()]);
+// } catch (Exception $e) {
+// } finally {
+//     $conn = null;
+// }
 // unlink($filename)
 ?>

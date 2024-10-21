@@ -173,9 +173,9 @@ justify-content: space-between;
 align-items: center;
 }
 
-#all_info>#txt1{background-color: #428390;}
-#all_info>#txt2{background-color: #5A3A3F;}
-#all_info>#txt3{background-color: #E0A072; margin-bottom: 1vh;}
+#all_info>#txt1{background-color: #428390; color: white;}
+#all_info>#txt2{background-color: #5A3A3F; color: white;}
+#all_info>#txt3{background-color: #E0A072; margin-bottom: 1vh; color: white;}
 
 #valores{
 margin: 0;
@@ -185,9 +185,12 @@ padding: 0;
 #valores{color: #428390;}
 
 .centralizar{
+    white-space: nowrap;                  
+overflow: hidden; /* "overflow" value must be different from "visible" */
+    text-overflow: ellipsis;
 display: flex;
-justify-content: center; /* Centraliza horizontalmente */
 padding-right: 5vw;
+padding-left: 1%;
 }
 
 #valores>button{
@@ -289,6 +292,17 @@ border: solid #AFAFAF 1px;
 height: 10vh;
 width: 20vw;
 }
+.btn_edit{
+    background-color: #428390;
+    border: none;
+    border-radius: 2rem;
+    color: #FFFFFF;
+    padding: 1vh 1vw;
+}
+#delete{
+    background-color: #FFFFFF;
+    margin-right: 10vw;
+}
 .inputs{
 display: flex;
 flex-direction: column;
@@ -348,6 +362,8 @@ border-radius: 15px;
 background-color: #428390;
 color: #ffffff;
 font-size: 1rem;
+border: none;
+padding: 1vh 2vw;
 }
 
 @media (max-width: 767px){

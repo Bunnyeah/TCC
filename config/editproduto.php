@@ -26,7 +26,7 @@ if (isset($_GET['id'])) { //Aqui eu pego o Fetch pra usar o select e colocar ess
     extract($_POST);
     extract($_FILES);
 
-    try {
+    // try {
         $target_dir = "../assets/imgs/produtos/";
         $file_size_limit = 2000000; // 2 MB
         $allowed_types = ['jpg', 'jpeg', 'png'];
@@ -71,20 +71,22 @@ if (isset($_GET['id'])) { //Aqui eu pego o Fetch pra usar o select e colocar ess
         $stmt->bindValue(':produto_ID', htmlspecialchars($produto_ID)); // Sempre vincule o ID do produto
         // var_dump($produto_ID, $Preco_Und, $Qtd_stock, $Descricao, $Nome_produto);
         $stmt->execute();
+        header("Location: ../adm/produtos.php");
+            
 
-    if ($stmt->rowCount() > 0) {
-        echo json_encode(['success' => "Produto atualizado com sucesso"]);
-    } else {
-        echo json_encode(['error' => "Nenhuma alteracao feita"]);
-    }
+    // if ($stmt->rowCount() > 0) {
+    //     echo json_encode(['success' => "Produto atualizado com sucesso"]);
+    // } else {
+    //     echo json_encode(['error' => "Nenhuma alteracao feita"]);
+    // }
 
-    } catch (PDOException $e) {
-        echo json_encode(['error' => "Erro ao atualizar o produto: " . $e->getMessage()]);
-    } catch (Exception $e) {
-        echo json_encode(['error' => $e->getMessage()]);
-    } finally {
-        $conn = null;
-    }
+    // } catch (PDOException $e) {
+    //     echo json_encode(['error' => "Erro ao atualizar o produto: " . $e->getMessage()]);
+    // } catch (Exception $e) {
+    //     echo json_encode(['error' => $e->getMessage()]);
+    // } finally {
+    //     $conn = null;
+    // }
 } else {
     echo json_encode(['error' => 'Método de requisição não suportado']);
     $conn = null;

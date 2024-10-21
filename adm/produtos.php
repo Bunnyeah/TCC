@@ -86,7 +86,7 @@
                             <input id="txt3" value="Quantia Vendidas <?=$produtos->Qnt_vend?>"readonly></input>
                             <div class="linhabaixo">
                                 <input id="txt4" value="Estoque: <?=$produtos->Qtd_stock?>"readonly></input>
-                                <button onclick="editproduto(<?=$produtos->produto_ID?>)">Editar</button>
+                                <button onclick="editproduto(<?=$produtos->produto_ID?>)" class="btn_edit">Editar</button>
                             </div>
                         </div>
                     </div>
@@ -131,7 +131,7 @@
                 <input type="file" id="editprodutoimg" name="editprodutoimg">
                 <button type="button" id="inputFileEdit" class="d-none">Escolher imagem</button>
             </label>
-            <input type="number" onclick="deleteproduto(<?=$produtos->produto_ID?>)" id="delete" class="submit btn" style="background-color: red !important;" readonly></input>
+            <p type="text" onclick="deleteproduto(<?=$produtos->produto_ID?>)" id="delete" class="submit btn" style="color: red !important;" readonly>deletar produto</p>
 
         </div>
         <div class="inputs">
