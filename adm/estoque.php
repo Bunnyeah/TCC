@@ -42,7 +42,7 @@ $produtos = $conn->fetchAll(PDO::FETCH_OBJ);
                 <a href="./encomendas.php"> <img src="../assets/imgs/icons/encomendas.svg"><p>Encomendas</p></a>
             </div>           
 
-            <div id="sair"><a href="../config/logout.php"><img src="../assets/imgs/icons/logoutbranco.svg"><p>Sair</p></a></div>
+            <div id="sair"><a href="../config/logout.php"><img src="../assets/imgs/icons/logout.svg"><p>Sair</p></a></div>
         </div>
     </nav>
 
@@ -66,21 +66,19 @@ $produtos = $conn->fetchAll(PDO::FETCH_OBJ);
     <div id="all_produts">
         <?php foreach ($produtos as $produto){ ?>
             <div id="produto">
-            <div id="img_prodt_div" class="col-4">
-                <img id="img_prodt" src="../assets/imgs/produtos/WhatsApp Image 2024-03-20 at 15.38.44.jpeg">
-            </div>
-            <div id="info_prodt" class="col-8">
-                <p id="txt"><?= $produto->Nome_produto ?></p>
-                <p id="txt">R$ <?= $produto->Preco_Und ?></p>
-
-                <!-- quantidade no estoque -->
-                <p id="estoque">Estoque: <?= $produto->Qtd_stock ?> itens</p>
-            </div>
-            <?php
-                }
-            ?>
-        </div>
-
+                    <div id="img_prodt_div" class="col-4">
+                        <img id="img_prodt" src="../assets/imgs/produtos/<?=$produto->imagem?>">
+                    </div>
+                    <div id="info_prodt" class="col-8">
+                        <p id="txt"><?= $produto->Nome_produto ?></p>
+                        <p id="txt">R$ <?= $produto->Preco_Und ?></p>
+                        <!-- quantidade no estoque -->
+                        <p id="estoque">Estoque: <?= $produto->Qtd_stock ?> itens</p>
+                    </div>
+                </div>
+        <?php
+        }
+        ?>
     <!-- DIV QUE ACABA O "ALL PRODUTS"(ele organiza todos os produtos de dois em dois quebrando quando acontece isso)   -->
     </div>
 

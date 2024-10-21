@@ -70,7 +70,6 @@
                     $lista = [];
                 }
             foreach($lista as $produtos){ ?>
-                <!-- produto 1 -->
                 <div id="produto">
                     <div id="img_prodt_div" class="col-4">
                         <img id="img_prodt" src="../assets/imgs/produtos/<?=$produtos->imagem?>">
