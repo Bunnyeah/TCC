@@ -11,7 +11,7 @@ produto.imagem, produto.Nome_Produto, produto.Preco_Und, pedido.Qtd_produtos, pe
         INNER JOIN cliente ON pedido.fk_cliente_ID = cliente.cliente_ID
         WHERE cliente.cliente_ID = :cliente_ID"; 
 $stmt = $conn->prepare($sqlListarTudo);
-$stmt->bindParam(':cliente_ID', $_SESSION["cliente_ID"]);
+$stmt->bindParam(':cliente_ID', $_SESSION["idusuario"]);
 $stmt->execute();
 
 // Verificar se a consulta foi bem-sucedida
@@ -55,6 +55,7 @@ $PPs = $stmt->fetchAll(PDO::FETCH_OBJ);
         }
 
         table {
+            padding:0 !important;
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
@@ -62,23 +63,36 @@ $PPs = $stmt->fetchAll(PDO::FETCH_OBJ);
             border: 1px solid #dee2e6;
         }
 
-        thead {
+        .thead {
             background-color: #f8f9fa;
             border-bottom: 2px solid #dee2e6;
         }
-
-        thead th {
-            padding: 15px;
+        
+        .thead th {
+            padding-top: 15px;
+            padding-bottom: 15px;
             text-align: left;
             font-weight: bold;
             color: #6c757d;
+            margin-left: 5vh;
+            margin-right: 5vh;
+            justify-content: center;
+        }
+        #img_name,#price-place,#quantity-place{
+            max-width: 20%;
+            width: 20%;
+        }
+        .thead th{
+            display: flex;
+            width: 20%;
+            max-width:20%;
         }
 
         tbody tr {
             border-bottom: 1px solid #dee2e6;
             display: flex;
             justify-content: space-between;
-            padding: 20px 0;
+            /* padding: 20px 0; */
         }
 
         tbody td {
@@ -86,6 +100,7 @@ $PPs = $stmt->fetchAll(PDO::FETCH_OBJ);
             align-items: center;
             justify-content: center;
             padding: 15px;
+            width: 20%;
         }
 
         .product {
@@ -205,13 +220,16 @@ $PPs = $stmt->fetchAll(PDO::FETCH_OBJ);
         }
 
         tfoot .actions-footer button {
-            padding: 10px 20px;
+            padding: 1.5vh 3.5vh;
             background-color: #17a2b8;
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            left: 80vw;
+            position: absolute;
+            display: flex;
         }
 
         tfoot .actions-footer button:hover {
@@ -248,28 +266,27 @@ $PPs = $stmt->fetchAll(PDO::FETCH_OBJ);
     </header>
     <div class="container">
         <table>
-            <thead>
-                <tr>
+            <tbody>
+                <tr class="thead">
                     <th>Produtos</th>
                     <th>Preço Unitário</th>
                     <th>Quantidade</th>
                     <th>Valor Total</th>
                     <th>Ações</th>
                 </tr>
-            </thead>
-            <tbody>
+
                 <?php if (!empty($PPs)) : ?>
                     <?php foreach ($PPs as $pp) : ?>
-                        <tr>
-                            <td class="product">
-                                <img src="<?php echo htmlspecialchars($pp->imagem); ?>" alt="Imagem do Produto">
-                                <div class="product-details">
-                                    <h2><?php echo htmlspecialchars($pp->Nome_Produto); ?></h2>
-                                </div>
+                        <tr class="tbody">
+                            <td class="product" id="img_name">
+                                <img src="./assets/imgs/produtos/<?php echo htmlspecialchars($pp->imagem); ?>" alt="Imagem do Produto">
+                                    <div class="product-details">
+                                        <h2><?php echo htmlspecialchars($pp->Nome_Produto); ?></h2>
+                                    </div>
                             </td>
-                            <td class="price"><?php echo number_format($pp->Preco_Und, 2, ',', '.'); ?> R$</td>
-                            <td class="quantity"><?php echo htmlspecialchars($pp->Qtd_produtos)?></td>
-                            <td class="price"><?php echo number_format($pp->Valor_Total, 2, ',', '.'); ?> R$</td>
+                            <td class="price" id="price-place"><?php echo number_format($pp->Preco_Und, 2, ',', '.'); ?> R$</td>
+                            <td class="quantity" id="quantity-place"><?php echo htmlspecialchars($pp->Qtd_produtos)?></td>
+                            <td class="price" id="price-place"><?php echo number_format($pp->Valor_Total, 2, ',', '.'); ?> R$</td>
                             <td class="actions">
                                 <button method="DELETE">&#128465;</button>
                             </td>
@@ -284,10 +301,12 @@ $PPs = $stmt->fetchAll(PDO::FETCH_OBJ);
             <tfoot>
             <tr>
                 <td class="select-all">
-                    <label><input type="checkbox">Selecionar Tudo (0)</label>
+                    <!-- por enquanto, não ira ter o selecionar tudo -->
+                    <!-- <label><input type="checkbox">Selecionar Tudo (0)</label> -->
                 </td>
                 <td class="actions-footer" colspan="3">
                     <span class="total-price">Total: R$ 0,00</span>
+
                     <button>Continuar</button>
                 </td>
             </tr>
