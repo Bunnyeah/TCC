@@ -422,10 +422,17 @@ footer{
     align-items: center;
 }
 
+#popdivares{
+    margin: 4vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 #all_card{
     border: 1px solid #AFAFAF;
     width: 17.5%;
     margin: 0 1%;
+    height: 50%;
 
 }
 .card{
@@ -553,6 +560,16 @@ footer{
 
     #div_img>a>img{max-width: 100%;}
 
+    #produtos button{
+        border-style: none;
+        width: 100%;
+        background-color: #133A41;
+
+    }
+    #produtos>button>a{
+        color: white;
+        text-decoration: none;
+    }
     #outras_lista a{
         text-decoration: none;
         color: white;

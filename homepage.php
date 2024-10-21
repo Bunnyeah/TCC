@@ -105,7 +105,7 @@ $produtos   = $stmt->fetchAll(PDO::FETCH_OBJ);
                         <div class="card-body" id="produtos">
                             <p class="card-title">R$<?= number_format($produto->Preco_Und, 2, ',', '.'); ?> </p>
                             <p class="card-text"><?= $produto->Nome_produto; ?> </p>
-                            <button><a href="./info_produto.php?id=<?= $produto->produto_ID; ?>" class="btn btn-primary">Comprar</a></button>
+                            <button class="btn btn-primary"><a href="./info_produto.php?id=<?= $produto->produto_ID; ?>">Comprar</a></button>
                         </div>
                   </div>
             <?php endforeach; ?>
