@@ -47,10 +47,9 @@ background-size: 25px;
 }
 
 /* MAIN */
-
 #containertotal{
 position: absolute; /*! Aqui*/
-overflow-y: auto;
+overflow: hidden;
 left: 22vw;
 color: #1e1e1e;
 }
@@ -101,6 +100,7 @@ width: 90%;
 }
 
 #containertotal{
+overflow: hidden;
 max-width: 75vw;
 left: 22vw;
 color: #1e1e1e;
@@ -129,6 +129,7 @@ font-size: 18px;
 }
 
 #all_produtos{
+overflow: auto;
 background-color: #EBEBEB;
 padding: 2vh;
 max-width: 100%;
@@ -232,7 +233,7 @@ top: 0;
 bottom: 0;
 left: 0;
 right: 0;
-position: absolute; /*! Aqui*/
+position: fixed; /*! Aqui*/
 display: none;
 align-items: center;
 justify-content: center;
@@ -265,7 +266,7 @@ top: 0;
 bottom: 0;
 left: 0;
 right: 0;
-position: absolute; /*! Aqui*/
+position: fixed; /*! Aqui*/
 display: none;
 align-items: center;
 justify-content: center;

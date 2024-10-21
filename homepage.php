@@ -98,16 +98,16 @@ $produtos   = $stmt->fetchAll(PDO::FETCH_OBJ);
         <p id="title">Mais Populares</p>
         <div id="popdivares" class="row">
             <?php foreach ($produtos as $produto): ?>
-                <div class="col-6 col-md-4 mb-3"> <!-- Colunas com margem inferior -->
-                    <div class="card" style="width: 100%;">
-                    <img src="assets/imgs/produtos/<?= $produto->imagem; ?>" alt="<?= $produto->Nome_produto; ?>">
+                <div id="all_card" class="mb-3"> <!-- Colunas com margem inferior -->
+                    <div class="card">
+                      <img id="img_produt" src="assets/imgs/produtos/<?= $produto->imagem; ?>">
+                    </div>
                         <div class="card-body" id="produtos">
                             <p class="card-title">R$<?= number_format($produto->Preco_Und, 2, ',', '.'); ?> </p>
                             <p class="card-text"><?= $produto->Nome_produto; ?> </p>
                             <button><a href="./info_produto.php?id=<?= $produto->produto_ID; ?>" class="btn btn-primary">Comprar</a></button>
                         </div>
-                    </div>
-                </div>
+                  </div>
             <?php endforeach; ?>
         </div>
 

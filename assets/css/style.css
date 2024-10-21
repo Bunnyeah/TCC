@@ -422,6 +422,21 @@ footer{
     align-items: center;
 }
 
+#all_card{
+    border: 1px solid #AFAFAF;
+    width: 17.5%;
+    margin: 0 1%;
+
+}
+.card{
+    margin: 2%;
+    border: 0;
+}
+.row>*{
+    padding: 0;
+}
+
+#img_produt{max-width: 100%; height: 40vh;}
 
     #setinha{
         width: 15px;

@@ -71,13 +71,13 @@ if ($produtoId) {
                 <div class="col-6">
                     <div id="div_img_prod">
                         <?php if ($produto): ?>
-                            <img id="img_produto" src="./assets/imgs/produtos/image-removebg-preview (2).png" alt="<?= $produto->Nome_produto; ?>">
+                            <img id="img_produto" src="./assets/imgs/produtos/<?=$produto->imagem?>">
                         </div>
                     </div>
 
                     <div class="col-6">
                         <!-- Valor do Produto -->
-                         <hr>
+                        <hr>
                         <h1 class="titulo p-2"><?= $produto->Nome_produto; ?></h1>
                         <a id="rs">R$</a><?= number_format($produto->Preco_Und, 2, ',', '.'); ?>
                         <hr>

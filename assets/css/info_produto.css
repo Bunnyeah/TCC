@@ -80,10 +80,10 @@
 }
 
 #img_produto{
-    height: 415;
-    max-width: auto;
+    max-height: 90vh;
+    width: 45vw;
+    height: auto;
 }
-
 #valor_produto{
     display: block;
     flex-direction: row;
