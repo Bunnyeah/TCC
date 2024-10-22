@@ -38,7 +38,7 @@ if ($produtoId) {
       </div>
         <nav id="menu">
             <!-- logo -->
-            <img src="./assets/imgs/logo/logo (2).jpg" alt="Logo Armazém Brasil" id="logo">
+            <a href="./homepage.php"><img src="./assets/imgs/logo/logo (2).jpg" alt="Logo Armazém Brasil" id="logo"></a>
 
             <!-- barra de pesquisa -->
             <div>

@@ -227,7 +227,7 @@ $PPs = $stmt->fetchAll(PDO::FETCH_OBJ);
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
-            left: 80vw;
+            left: 75vw;
             position: absolute;
             display: flex;
         }
