@@ -23,6 +23,7 @@
 /* logo */
 #logo{
     margin-left: 5vh;
+    max-height: 100%;
 }
 #logo img {max-width: 100%; height: auto;}
 
@@ -83,6 +84,10 @@
     max-height: 90vh;
     width: 45vw;
     height: auto;
+}
+#coisa{
+    width:0;
+    height: 0;
 }
 #valor_produto{
     display: block;
