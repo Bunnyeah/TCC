@@ -22,11 +22,11 @@
         <nav id="navbar">
             <div id="logo"><a href="../homepage.php"><img src="../assets/imgs/logo.jpg" alt="Logo Promel"></a></div>
             <div id="user_menu">
-                <div class="icone title"><img src="../assets/imgs/icons/Group.svg" style="margin-right: 10px;">Minha Conta</div>
-                <div id="user_pages">
+                <!-- <div class="icone title"><img src="../assets/imgs/icons/Group.svg" style="margin-right: 10px;">Minha Conta</div> -->
+                <!-- <div id="user_pages">
                     <div class="linha"><div class="seta"></div><a class="botao" href="./perfil.php"><p>Perfil</p></a></div>
                     <div class="linha"><div class="seta"></div><a class="botao" href="./alterarsenha.php"><p>Trocar Senha</p></a></div>
-                </div>
+                </div> -->
                 <div id="other_pages">
                     <a class="botao pagatual" href="./estoque.php"><img src="../assets/imgs/icons/estoque.svg"><p>Estoque</p></a>
                     <a href="./encomendas.php"> <img src="../assets/imgs/icons/encomendas.svg"><p>Encomendas</p></a>
@@ -80,7 +80,7 @@
                         <input class="form-control" type="number" name="produto_ID" value="<?=$produtos->produto_ID?>" style="display: none"; readonly>
                     </div>
                         <div id="all_info">
-                            <input id="txt1" value="Categoria: " readonly></input>
+                            <!-- <input id="txt1" value="Categoria: " readonly></input> -->
                             <input id="txt2" value="Preço: <?=$produtos->Preco_Und?>" readonly></input>
                             <input id="txt3" value="Quantia Vendidas <?=$produtos->Qnt_vend?>"readonly></input>
                             <div class="linhabaixo">

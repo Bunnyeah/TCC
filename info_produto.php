@@ -52,7 +52,7 @@ if ($produtoId) {
   
                   <ul class="dropdown">
                     <a href="./login.php"><li><img src="./assets/imgs/icons/login.svg">Entrar/Login</li></a>
-                    <a href="./"><li><img src="./assets/imgs/icons/fav_verde.svg">Meus Favoritos</li></a>
+                    <!-- <a href="./"><li><img src="./assets/imgs/icons/fav_verde.svg">Meus Favoritos</li></a> -->
                     <a href=""><li><img src="./assets/imgs/icons/logout_verde.svg">Sair</li></a>
                   </ul>
               </li>
