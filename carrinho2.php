@@ -305,7 +305,7 @@ $PPs = $stmt->fetchAll(PDO::FETCH_OBJ);
                     <!-- <label><input type="checkbox">Selecionar Tudo (0)</label> -->
                 </td>
                 <td class="actions-footer" colspan="3">
-                    <span class="total-price">Total: R$ 0,00</span>
+                    <span class="total-price">Total: R$ 10,00</span>
 
                     <button>Continuar</button>
                 </td>
