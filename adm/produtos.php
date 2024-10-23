@@ -134,8 +134,8 @@
 
         </div>
         <div class="inputs">
-        <input class="form-control" type="number" id="id_produto_edit" name="produto_ID" placeholder="ID" required><br>
-            <input class="form-control" type="text" id="nome_produto_edit" name="Nome_produto" placeholder="Nome do produto" autocomplete="off" required><br>
+        <input class="form-control d-none" type="number" id="id_produto_edit" name="produto_ID" placeholder="ID" required><br>
+            <input class="form-control" disabled type="text" id="nome_produto_edit" name="Nome_produto" placeholder="Nome do produto" autocomplete="off" required><br>
             <input class="form-control" type="number" id="preco_und_edit" name="Preco_Und" placeholder="Preço Unitário" required><br>
             <input class="form-control" type="number" id="qtd_stock_edit" name="Qtd_stock" placeholder="Quantidade em estoque" required><br>
             <textarea class="form-control" id="descricao_edit" name="Descricao" placeholder="Descrição" style="resize: none;" required></textarea><br>
