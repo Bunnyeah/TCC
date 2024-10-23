@@ -121,16 +121,16 @@ $produtos   = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         <!-- Informações Categorias -->
           <!-- Seta Lateral -->
-          <div class="seta_lateral" onclick="toggleMenu()">></div>
+          <!-- <div class="seta_lateral" onclick="toggleMenu()">></div> -->
 
           <!-- Menu Lateral -->
-          <div class="seta_lateral_menu" id="setaMenu">
+          <!-- <div class="seta_lateral_menu" id="setaMenu">
               <div>
                   <p>Fitoterápicos</p>
                   <p>Nutraceuticos</p>
                   <p>Nutrição Esportiva</p>
               </div>
-          </div>
+            </div> -->
 
           <script>
               function toggleMenu() {

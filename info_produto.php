@@ -83,9 +83,9 @@ if ($produtoId) {
                         <hr>
 
                         <!-- Informações do Frete -->
-                        <p>Selecione seu Estado para saber seu frete</p>
+                        <p class="mt-4">Selecione seu Estado para saber seu frete</p>
     <form>
-        <label for="estado">Estado:</label>
+        <label for="estado" class="mb-4">Estado:</label>
         <select id="estado">
             <option value="">Selecione um estado</option>
             <option value="1">Acre (AC)</option>
@@ -168,10 +168,10 @@ if ($produtoId) {
 </script>
 
                         <!-- Botões de Ação -->
-                        <button id="btn" type="button" class="btn btn-primary">
-                            <img src="./assets/imgs/icons/encomendas.svg"> Adicionar ao Carrinho
+                        <button id="btn" type="button" class="btn btn-primary mt-4">
+                            Adicionar ao Carrinho
                         </button>
-                        <button id="btn1" type="button" class="btn btn-primary">Comprar agora</button>
+                        <button id="btn1" type="button" class="btn btn-primary mt-4">Comprar agora</button>
 
                         <hr>
                         <!-- Descrição do Produto -->
