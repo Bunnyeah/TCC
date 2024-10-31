@@ -12,49 +12,10 @@ $produtos   = $stmt->fetchAll(PDO::FETCH_OBJ);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Home Page</title>
-    <style>
-      .btn-primary{
-        background: #133A41;
-      }
-      .btn-primary:active, .btn-primary:hover{
-        background: #215059;
-      }
-    </style>
 </head>
 <body>
     <!-- MENU -->
-    <header>
-      <div id="redes">      
-      <img src="./assets/imgs/icons/facebook.svg" alt="icone Facebook">      
-      <img src="./assets/imgs/outras_plataformas/tiktok.svg" alt="icone TikTok">
-      <img src="./assets/imgs/icons/instagram.svg" alt="icone Instagram">
-      <img src="./assets/imgs/icons/whatsapp.svg" alt="icone WhatsApp">
-      </div>
-        <nav id="menu">
-            <a href="./homepage.php"><img src="./assets/imgs/logo/logo (2).jpg" alt="Logo Promel"></a>
-            <!-- barra de pesquisa -->
-            <div>
-              <input id=text_buscar type="search" placeholder="Buscar...">
-            </div>
-
-            <!-- Cachoeira Conta -->
-            <div class="header_conta">
-              <ul>
-                  <a><li><img src="./assets/imgs/icons/Group.svg" alt="conta" id="icone_menu2"></a>
-  
-                  <ul class="dropdown">
-                    <a href="./login.php"><li><img src="./assets/imgs/icons/login.svg">Entrar/Login</li></a>
-                    <!-- <a href="./"><li><img src="./assets/imgs/icons/fav_verde.svg">Meus Favoritos</li></a> -->
-                    <a href="./config/logout.php"><li><img src="./assets/imgs/icons/logout_verde.svg">Sair</li></a>
-                  </ul>
-              </li>
-              </ul>
-            </div>
-            <!-- icone "carrinho" -->
-                <a href="./carrinho2.php"><img src="./assets/imgs/icons/carrinho.svg" id="icone_menu"></a>
-        </nav>
-    </header>
-
+  <?php include "header.php"?>
     <!-- CONTEÚDO -->
     <main>
         <!--Carrossel - Slider-->
@@ -172,57 +133,7 @@ $produtos   = $stmt->fetchAll(PDO::FETCH_OBJ);
     </main>
 
     <!-- RODAPÉ -->
-    <footer class="footer"> 
-        <div id="alinhar_divs">
-          <div>
-              <h4>Contatos</h4>
-              <div id="contatos_lista">
-                <a href="https://www.instagram.com/promel_boituva/"><img src="./assets/imgs/icons/instagram.svg" alt="icone Instagram"></a>
-                <a href=""><img src="./assets/imgs/icons/whatsapp.svg" alt="icone Whatsapp"></a>
-                <a href="https://web.facebook.com/lojapromel/?_rdc=1&_rdr"><img src="./assets/imgs/icons/facebook.svg" alt="icone Facebook"></a>
-                </div>
-            </div>
 
-            <div>
-              <h4>Conheça-nos</h4>
-              <div id="informacoes_lista">
-                <p>Sobre a Loja</p>
-                <p>Sobre o Cliente</p>
-              </div>
-            </div>
-
-            <div>
-              <h4>Formas de Pagamento</h4>
-              <hr id="hr_align">
-              <div id="formas_pag_lista">
-                <img src="./assets/imgs/formas_pagamento/Metodo 01.png">
-                <img src="./assets/imgs/formas_pagamento/Metodo 02.png">
-                <img src="./assets/imgs/formas_pagamento/Metodo 03.png">
-                <img src="./assets/imgs/formas_pagamento/Metodo 04.png">
-              </div>
-              <p style="text-align: center;padding-top:2vh">Ou se preferir você pode pagar pela loja fisíca</p>
-            </div>
-
-            <div>
-              <h4>Outras Plataformas</h4>
-              <div id="outras_lista">
-                <a href=""><img src="./assets/imgs/outras_plataformas/shoppe.svg" alt="icone Shopee">Shopee</a>
-                <a href=""><img src="./assets/imgs/outras_plataformas/mercado_livre.svg" alt="icone Mercado Livre">Mercado Livre</a>
-                <a href=""><img src="./assets/imgs/outras_plataformas/tiktok.svg" alt="icone TikTok">TikTok</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-12">
-            <hr>
-            <p class="text-center" style="font-size: 14px">© 2024 Armazém Brasil - Desenvolvido por Davi Natan Bianchi, Edisom Coelho Junior, Nicolas Moro Mota e Vitor Melendes Diardina. Todos os direitos reservados</p>
-          </div>
-        </div>
-      </div>
-      <p id="cookie-valor"></p>
-    </footer>
 
     <script src="./assets/js/home.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
