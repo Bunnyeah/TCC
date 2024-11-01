@@ -28,7 +28,6 @@
 
     #footer{
         overflow: hidden;
-        position: absolute;
         bottom: 0 !important;
         width: 100vw;
         height: 37.5vh;

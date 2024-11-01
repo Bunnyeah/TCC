@@ -2,140 +2,73 @@
 require_once "./connection/connection.php";
 $sqlListarProdutos = "SELECT * FROM produto";
 $stmt = $conn->query($sqlListarProdutos);
-$produtos   = $stmt->fetchAll(PDO::FETCH_OBJ);
+$produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300..900&family=Roboto+Serif:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Home Page</title>
 </head>
 <body>
-    <!-- MENU -->
-  <?php include "header.php"?>
-    <!-- CONTEÚDO -->
-    <main>
-        <!--Carrossel - Slider-->
-        <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="./assets/imgs/decorativo/1.png" class="d-block w-100" id="banner1">
-              </div>
-              <div class="carousel-item">
-                <img src="./assets/imgs/decorativo/2.png" class="d-block w-100" alt="banner2">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
+    <?php include "header.php"; ?>
 
-        
-        <!-- Categorias Extras -->
-        <div id="alinhando" style="display: flex;justify-content: center; background: linear-gradient(#2C7669, #FFFFFF);">
-          <div id="caixa1">
-            <p>Produtos Fitness</p>
-            <div id="cor_fit">
-              <img src="">
+    <!-- Carrossel -->
+    <div id="carouselExample" class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./assets/imgs/decorativo/1.png" alt="Banner 1">
             </div>
-          </div>
-
-          <div id="caixa1">
-            <p>Saúde</p>
-            <div id="cor_saude">
-              <img src="">
+            <div class="carousel-item">
+                <img src="./assets/imgs/decorativo/2.png" alt="Banner 2">
             </div>
-          </div>
-
-          <div id="caixa1">
-            <p>Beleza</p>
-            <div id="cor_beleza">
-              <img src="">
-            </div>
-          </div>
         </div>
+        <button class="carousel-control prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-icon prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-icon next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Próximo</span>
+        </button>
+    </div>
 
-        <!-- Produtos Mais Populares -->
-        <p id="title">Mais Populares</p>
-        <div id="popdivares" class="row">
+    <!-- Categorias -->
+    <section class="categorias">
+        <div class="categoria">
+            <p>Produtos Fitness</p>
+            <div class="categoria-linha destaque-amarelo"></div>
+        </div>
+        <div class="categoria">
+            <p>Saúde</p>
+            <div class="categoria-linha destaque-azul"></div>
+        </div>
+        <div class="categoria">
+            <p>Beleza</p>
+            <div class="categoria-linha destaque-cinza"></div>
+        </div>
+    </section>
+
+    <!-- Produtos Mais Populares -->
+    <section class="produtos-populares">
+        <h2 class="titulo-populares">Mais Populares</h2>
+        <div class="lista-produtos">
             <?php foreach ($produtos as $produto): ?>
-                <div id="all_card" class="mb-3"> <!-- Colunas com margem inferior -->
-                    <div class="card">
-                      <img id="img_produt" src="assets/imgs/produtos/<?= $produto->imagem; ?>">
-                    </div>
-                        <div class="card-body" id="produtos">
-                            <p class="card-title">R$<?= number_format($produto->Preco_Und, 2, ',', '.'); ?> </p>
-                            <p class="card-text"><?= $produto->Nome_produto; ?> </p>
-                            <a href="./info_produto.php?id=<?= $produto->produto_ID; ?>" class="btn btn-primary form-control">Comprar</a>
-                        </div>
-                  </div>
+                <div class="produto-card">
+                    <img src="assets/imgs/produtos/<?= $produto->imagem; ?>" alt="<?= $produto->Nome_produto; ?>">
+                    <div class="produto-detalhes">
+                        <p class="produto-preco">R$<?= number_format($produto->Preco_Und, 2, ',', '.'); ?></p>
+                        <p class="produto-nome"><?= $produto->Nome_produto; ?></p>
+                      </div>
+                      <a href="./info_produto.php?id=<?= $produto->produto_ID; ?>" class="btn-comprar">Comprar</a>
+                </div>
             <?php endforeach; ?>
         </div>
+    </section>
 
-        <!-- Informações Categorias -->
-          <!-- Seta Lateral -->
-          <!-- <div class="seta_lateral" onclick="toggleMenu()">></div> -->
-
-          <!-- Menu Lateral -->
-          <!-- <div class="seta_lateral_menu" id="setaMenu">
-              <div>
-                  <p>Fitoterápicos</p>
-                  <p>Nutraceuticos</p>
-                  <p>Nutrição Esportiva</p>
-              </div>
-            </div> -->
-
-          <script>
-              function toggleMenu() {
-                  var menu = document.getElementById('setaMenu');
-                  menu.classList.toggle('show');
-              }
-          </script>
-        
-        <div class="container-fluid">
-          <div class="row">
-            <!-- Video Tik Tok -->
-            <div class="col-6" id="video">
-              <a href=""><video src=""></video></a>
-            </div>
-            
-            <!-- informações sobre oq é a categoria e seus beneficios -->
-            <div  class="col-6" id="txt">
-              <p></p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Localização do Estabelecimento Físico -->
-        <div class="endereco-container">
-          <div id="endereco-image">
-            <div id="local"><img src="./assets/imgs/icons/location.svg"></div>
-          </div>
-          <div class="endereco-items">
-            <span>Endereço: Rua Coronel Arruda Botelho,291 - Centro Boituva - SP,18550-000</span>
-            <span>Telefone: (15)3316-5606</span>
-            <span>Horario de Funcionamento: Aberto as 08:00 Fecha as 19:00 <img src="./assets/imgs/icons/seta_baixo_preta.svg" alt="setinha" id="setinha"></span>
-          </div>
-          <div id="div_img">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117214.65816763695!2d-47.91291218353377!3d-23.35353368235232
-            !2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c5e3f97216ab7d%3A0xb2de7e58cc205fad!2sLoja%20Promel%20Produtos%20Natur
-            ais!5e0!3m2!1spt-BR!2sbr!4v1729264585112!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>          </div>
-        </div>
-
-    </main>
-
-    <!-- RODAPÉ -->
-
-
-    <script src="./assets/js/home.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <?php include "footer.php"; ?>
 </body>
 </html>
