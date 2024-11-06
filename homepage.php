@@ -62,8 +62,8 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
                     <div class="produto-detalhes">
                         <p class="produto-preco">R$<?= number_format($produto->Preco_Und, 2, ',', '.'); ?></p>
                         <p class="produto-nome"><?= $produto->Nome_produto; ?></p>
-                      </div>
-                      <a href="./info_produto.php?id=<?= $produto->produto_ID; ?>" class="btn-comprar">Comprar</a>
+                    </div>
+                    <a href="./info_produto.php?id=<?= $produto->produto_ID; ?>" class="btn-comprar">Comprar</a>
                 </div>
             <?php endforeach; ?>
         </div>

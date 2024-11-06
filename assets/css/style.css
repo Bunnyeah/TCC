@@ -96,8 +96,7 @@ body {
 .lista-produtos {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-around;
+    justify-content: start;
 }
 
 .produto-card {
@@ -111,6 +110,7 @@ body {
     height: 50vh;
     max-height: 50vh;
     word-wrap: break-word;
+    margin: 1% 1.2506075%;
 }
 
 .produto-card:hover {
