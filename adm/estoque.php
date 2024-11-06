@@ -39,7 +39,6 @@ $produtos = $conn->fetchAll(PDO::FETCH_OBJ);
 
             <div id="other_pages">
                 <a class="botao pagatual" href="./estoque.php"><img src="../assets/imgs/icons/estoque.svg"><p>Estoque</p></a>
-                <a href="./encomendas.php"> <img src="../assets/imgs/icons/encomendas.svg"><p>Encomendas</p></a>
             </div>           
 
             <div id="sair"><a href="../config/logout.php"><img src="../assets/imgs/icons/logout.svg"><p>Sair</p></a></div>
