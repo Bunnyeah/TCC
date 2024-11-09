@@ -28,41 +28,7 @@ if ($produtoId) {
 </head>
 <body>
 
-    <!-- MENU -->
-    <header>
-    <div id="redes">      
-      <img src="./assets/imgs/icons/facebook.svg" alt="icone Facebook">      
-      <img src="./assets/imgs/outras_plataformas/tiktok.svg" alt="icone TikTok">
-      <img src="./assets/imgs/icons/instagram.svg" alt="icone Instagram">
-      <img src="./assets/imgs/icons/whatsapp.svg" alt="icone WhatsApp">
-      </div>
-        <nav id="menu">
-            <!-- logo -->
-            <a id="" href="./homepage.php"><img src="./assets/imgs/logo/logo (2).jpg" alt="Logo Armazém Brasil" id="logo"></a>
-
-            <!-- barra de pesquisa -->
-            <div>
-              <input id="text_buscar" type="search" placeholder="Buscar...">
-            </div>
-
-            <!-- icone "conta" -->
-            <div class="header_conta">
-              <ul>
-                  <a><li><img src="./assets/imgs/icons/Group.svg" alt="conta" id="icone_menu2"></a>
-  
-                  <ul class="dropdown">
-                    <a href="./login.php"><li><img src="./assets/imgs/icons/login.svg">Entrar/Login</li></a>
-                    <!-- <a href="./"><li><img src="./assets/imgs/icons/fav_verde.svg">Meus Favoritos</li></a> -->
-                    <a href=""><li><img src="./assets/imgs/icons/logout_verde.svg">Sair</li></a>
-                  </ul>
-              </li>
-              </ul>
-            </div>
-
-            <!-- icone "carrinho" -->
-            <a href="./carrinho2.php"><img src="./assets/imgs/icons/carrinho.svg" id="icone_menu"></a>
-        </nav>
-    </header>
+  <?php include "header.php" ?>
 
     <!-- CONTEUDO -->
     <main>
@@ -82,41 +48,6 @@ if ($produtoId) {
                         <a id="rs">R$</a><?= number_format($produto->Preco_Und, 2, ',', '.'); ?>
                         <hr>
 
-                        <!-- Informações do Frete -->
-                        <p class="mt-4">Selecione seu Estado para saber seu frete</p>
-    <form>
-        <label for="estado" class="mb-4">Estado:</label>
-        <select id="estado">
-            <option value="">Selecione um estado</option>
-            <option value="1">Acre (AC)</option>
-            <option value="2">Alagoas (AL)</option>
-            <option value="3">Amapá (AP)</option>
-            <option value="4">Amazonas (AM)</option>
-            <option value="5">Bahia (BA)</option>
-            <option value="6">Ceará (CE)</option>
-            <option value="7">Distrito Federal (DF)</option>
-            <option value="8">Espírito Santo (ES)</option>
-            <option value="9">Goiás (GO)</option>
-            <option value="10">Maranhão (MA)</option>
-            <option value="11">Mato Grosso (MT)</option>
-            <option value="12">Mato Grosso do Sul (MS)</option>
-            <option value="13">Minas Gerais (MG)</option>
-            <option value="14">Pará (PA)</option>
-            <option value="15">Paraíba (PB)</option>
-            <option value="16">Paraná (PR)</option>
-            <option value="17">Pernambuco (PE)</option>
-            <option value="18">Piauí (PI)</option>
-            <option value="19">Rio de Janeiro (RJ)</option>
-            <option value="20">Rio Grande do Norte (RN)</option>
-            <option value="21">Rio Grande do Sul (RS)</option>
-            <option value="22">Rondônia (RO)</option>
-            <option value="23">Roraima (RR)</option>
-            <option value="24">Santa Catarina (SC)</option>
-            <option value="25">São Paulo (SP)</option>
-            <option value="26">Sergipe (SE)</option>
-            <option value="27">Tocantins (TO)</option>
-        </select>
-    </form>
     <div id="resultado"></div>
 
     <script>
@@ -171,7 +102,7 @@ if ($produtoId) {
                         <button id="btn" type="button" class="btn btn-primary mt-4">
                             Adicionar ao Carrinho
                         </button>
-                        <button id="btn1" type="button" class="btn btn-primary mt-4">Comprar agora</button>
+                        <a href="https://wa.me/5515996810765?text=Olá, estou interessado no produto <?=$produto->Nome_produto?>"><button id="btn1" type="button" class="btn btn-primary mt-4">Comprar agora</button></a>
 
                         <hr>
                         <!-- Descrição do Produto -->
@@ -184,57 +115,8 @@ if ($produtoId) {
         <?php endif; ?>
     </main>
 
-    <!-- RODAPÉ -->
-    <footer class="footer"> 
-        <div id="alinhar_divs">
-          <div>
-              <h4>Contatos</h4>
-              <div id="contatos_lista">
-                <a href="https://www.instagram.com/promel_boituva/"><img src="./assets/imgs/icons/instagram.svg" alt="icone Instagram"></a>
-                <a href=""><img src="./assets/imgs/icons/whatsapp.svg" alt="icone Whatsapp"></a>
-                <a href="https://web.facebook.com/lojapromel/?_rdc=1&_rdr"><img src="./assets/imgs/icons/facebook.svg" alt="icone Facebook"></a>
-                </div>
-            </div>
+    <?php include "footer.php" ?>
 
-            <div>
-              <h4>Conheça-nos</h4>
-              <div id="informacoes_lista">
-                <p>Sobre a Loja</p>
-                <p>Sobre o Cliente</p>
-              </div>
-            </div>
-
-            <div>
-              <h4>Formas de Pagamento</h4>
-              <hr id="hr_align">
-              <div id="formas_pag_lista">
-                <img src="./assets/imgs/formas_pagamento/Metodo 01.png">
-                <img src="./assets/imgs/formas_pagamento/Metodo 02.png">
-                <img src="./assets/imgs/formas_pagamento/Metodo 03.png">
-                <img src="./assets/imgs/formas_pagamento/Metodo 04.png">
-              </div>
-              <p style="text-align: center;padding-top:2vh">Ou se preferir você pode pagar pela loja fisíca</p>
-            </div>
-
-            <div>
-              <h4>Outras Plataformas</h4>
-              <div id="outras_lista">
-                <a href=""><img src="./assets/imgs/outras_plataformas/shoppe.svg" alt="icone Shopee">Shopee</a>
-                <a href=""><img src="./assets/imgs/outras_plataformas/mercado_livre.svg" alt="icone Mercado Livre">Mercado Livre</a>
-                <a href=""><img src="./assets/imgs/outras_plataformas/tiktok.svg" alt="icone TikTok">TikTok</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-12">
-            <hr>
-            <p class="text-center" style="font-size: 14px">© 2024 Armazém Brasil - Desenvolvido por Davi Natan Bianchi, Edisom Coelho Junior, Nicolas Moro Mota e Vitor Melendes Diardina. Todos os direitos reservados</p>
-          </div>
-        </div>
-      </div>
-    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
