@@ -39,8 +39,8 @@
 
     <!-- Navbar Padrão -->
     <nav id="navbar">
-    <div id="logo"><a href="../homepage.php"><img src="../assets/imgs/logo.jpg" alt="Logo Promel"></a></div>
-    <div id="user_menu">
+        <div id="logo"><a href="../homepage.php"><img src="../assets/imgs/logo.jpg" alt="Logo Promel"></a></div>
+        <div id="user_menu">
             <div class="icone title"><img src="../assets/imgs/icons/Group.svg" style="margin-right: 10px;">Minha Conta</div>
             
             <div id="user_pages">
@@ -54,7 +54,7 @@
             </div>   
             
             <div id="sair"><a href="../config/logout.php"><img src="../assets/imgs/icons/logoutbranco.svg"><p>Sair</p></a></div>
-            </div>
+        </div>
     </nav>
 
     <div class="container">
@@ -85,13 +85,13 @@
             </div>
             
             <script>
-                imgperfil = document.getElementById("imgperfil")
-                fotoperfil = document.getElementById("fotoperfil")
+                const imgperfil = document.getElementById("imgperfil");
+                const fotoperfil = document.getElementById("fotoperfil");
 
                 fotoperfil.onchange = event => {
-                    const [file] = fotoperfil.files
+                    const [file] = fotoperfil.files;
                     if (file) {
-                        imgperfil.src = URL.createObjectURL(file)
+                        imgperfil.src = URL.createObjectURL(file);
                     }
                 }
             </script>
@@ -115,8 +115,16 @@
             </div>
         </form>
     </div>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.7/inputmask.min.js"></script>
+    <script>
+        
+        Inputmask({
+            mask: "(99) 99999-9999",
+            placeholder: " ",
+        }).mask(document.getElementById("telefone"));
+    </script>
 
-<script src="../assets/js/mobileNavbar.js"></script>
-<script src="../assets/js/inputFile.js"></script>
+    <script src="../assets/js/mobileNavbar.js"></script>
+    <script src="../assets/js/inputFile.js"></script>
+</body>
 </html>

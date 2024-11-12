@@ -95,15 +95,17 @@ $categorias = $conn->fetchAll(PDO::FETCH_OBJ);
 
         <!-- pop-up inserir -->
         <div id="abrir" class="modalDialog">
-            <div>
-                <a href="#close" title="Close" class="close">X</a>
-                <form id="form_categoria" action="./functions_adm/cadastrar_cat.php" method="POST">
-                    <h2>Inserir nova Categoria</h2>
-                    <label for="nome_categoria">Categoria</label>
-                    <input type="text" placeholder="coloque o nome aqui" name="Nome" id="nome_categoria" required autocomplete="off">
-                    <input type="hidden" name="Cor_Caixa" id="cor_categoria"> <!-- Campo oculto para cor -->
-                    <button type="submit" id="botao_inserir">Inserir</button>
-            </div>
+        <div>
+            <a href="#close" title="Close" class="close">X</a>
+            <form id="form_categoria" action="./functions_adm/cadastrar_cat.php" method="POST">
+                <h2>Inserir nova Categoria</h2>
+                <label for="nome_categoria">Categoria</label>
+                <input type="text" placeholder="coloque o nome aqui" name="Nome" id="nome_categoria" required autocomplete="off" maxlength="20">
+                <input type="hidden" name="Cor_Caixa" id="cor_categoria"> <!-- Campo oculto para cor -->
+                <button type="submit" id="botao_inserir">Inserir</button>
+        </div>
+        </form>
+    </div>
             </form>
         </div>
 
@@ -122,32 +124,11 @@ $categorias = $conn->fetchAll(PDO::FETCH_OBJ);
             </form>
         </div>
         <script>
-            function editcategoria(categoriaID) {
-
-                fetch(`./functions_adm/editar_cat.php?id=${categoriaID}`)
-                    .then(response => {
-                        // if (!response.ok) { //Só verificação de erro
-                        //     throw new Error('Erro na rede');
-                        // }
-                        return response.json()
-                    })
-                    .then(data => {
-                        console.log("Dados do produto:", data);
-
-                        // Preencher os campos do formulário de edição
-                        if (!data.error) {
-                            console.log(data)
-                            document.getElementById('edittextcat').value = data.Nome;
-                            document.getElementById('editcategoriaid').value = data.categoria_ID;
-                        } else {
-                            alert(data.error);
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Erro ao buscar os dados do produto', error);
-                    });
-            }
-        </script>
+        document.getElementById('nome_categoria').addEventListener('input', function (e) {
+            // Remove qualquer caractere que não seja letra
+            e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, '').slice(0, 20);
+        });
+    </script>
         <script src="../adm/functions_adm/script.js"></script>
         <script src="../assets/js/mobileNavbar.js"></script>
 </body>
