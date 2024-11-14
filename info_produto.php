@@ -1,21 +1,16 @@
 <?php
-
-$corDeFundo = "burlywood";
-
 require_once "./connection/connection.php";
 
 // Obtém o ID do produto da URL
-$produtoId = $_GET['id'];
-// $produtoId = $_GET['id'] ?? null;
+$produtoId = $_GET['id'] ?? null;
 
 if ($produtoId) {
     // Prepara e executa a consulta para buscar o produto pelo ID
     $stmt = $conn->prepare("SELECT * FROM produto WHERE produto_ID = :id");
-    $stmt->bindValue(':id', $produtoId);
+    $stmt->bindValue(':id', $produtoId, PDO::PARAM_INT);
     $stmt->execute();
     $produto = $stmt->fetch(PDO::FETCH_OBJ); // Obtém o produto como objeto
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -24,99 +19,74 @@ if ($produtoId) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/info_produto.css">
-    <title>Informações dos Produtos</title>
+    <title>Informações do Produto</title>
 </head>
-<body>
 
-  <?php include "header.php" ?>
+    <?php include "header.php" ?>
 
-    <!-- CONTEUDO -->
-    <main>
-        <div class="container-fluid">
+    <!-- CONTEÚDO -->
+    <main class="container my-5">
+        <?php if ($produto): ?>
             <div class="row">
-                <div class="col-6">
-                    <div id="div_img_prod">
-                        <?php if ($produto): ?>
-                            <img id="img_produto" src="./assets/imgs/produtos/<?=$produto->imagem?>">
+                <!-- Coluna da Imagem do Produto -->
+                <div class="col-md-6">
+                    <div class="product-image-container">
+                        <img src="./assets/imgs/produtos/<?= $produto->imagem ?>" alt="<?= htmlspecialchars($produto->Nome_produto) ?>" class="product-image">
+                    </div>
+                </div>
+                
+                <!-- Coluna de Informações do Produto -->
+                <div class="col-md-6">
+                    <!-- Nome e Preço do Produto -->
+                    <h1 class="product-title"><?= htmlspecialchars($produto->Nome_produto) ?></h1>
+                    plimplimplim avaliação
+                    <hr>
+                    <p class="product-price">R$ <?= number_format($produto->Preco_Und, 2, ',', '.') ?></p>
+
+                    <!-- Quantidade em Estoque -->
+                    <!-- Quantidade da Compra -->
+                    <div class="quantity-container d-flex align-items-center mb-4">
+                        <p id="titlequantia">Quantidade</p>
+                        <div class="quantidade">
+                            <button class="btn btn-outline-secondary" onclick="updateQuantity(-1)">-</button>
+                            <input type="text" id="quantity" value="1" readonly class="quantity mx-2">
+                            <button class="btn btn-outline-secondary" onclick="updateQuantity(1)">+</button>
                         </div>
+                        <spam id="estoque" class="product-stock"><p id="textobaixo"><?= htmlspecialchars($produto->Qtd_stock) ?> Unidades disponíveis</p></spam>
                     </div>
 
-                    <div class="col-6">
-                        <!-- Valor do Produto -->
-                        <hr>
-                        <h1 class="titulo p-2"><?= $produto->Nome_produto; ?></h1>
-                        <a id="rs">R$</a><?= number_format($produto->Preco_Und, 2, ',', '.'); ?>
-                        <hr>
-
-    <div id="resultado"></div>
-
-    <script>
-        // Gerar números aleatórios para cada estado
-        const estados = {};
-        for (let i = 1; i <= 27; i++) {
-            estados[i] = Math.floor(Math.random() * 27) + 1; // Números aleatórios de 1 a 100
-        }
-
-        // Função para exibir o valor correspondente ao estado selecionado
-        function mostrarValor() {
-            const estadoId = document.getElementById('estado').value;
-            const resultado = document.getElementById('resultado');
-
-            if (estadoId) {
-                const nomeEstado = document.getElementById('estado').options[document.getElementById('estado').selectedIndex].text;
-                resultado.textContent = `Valor para ${nomeEstado}: ${estados[estadoId]}`;
-            } else {
-                resultado.textContent = '';
-            }
-        }
-
-        // Adiciona o evento de mudança ao select
-        document.getElementById('estado').addEventListener('change', mostrarValor);
-    </script>
-
-                        <!-- Quantidade em Estoque -->
-                        <p>Quantidade em estoque: <?= $produto->Qtd_stock; ?></p>
-                          <hr>
-
-                        <p>Quantidade da compra:</p>
-                        <div class="contador-container">
-    <button class="contador-button" id="sub" onclick="updateContador(-1)">-</button>
-    <input type="text" class="contador-input" id="contador" value="1" readonly>
-    <button class="contador-button" id="soma" onclick="updateContador(1)">+</button>
-</div>
-
-<script>
-    
-    function updateContador(contar) {
-        var contadorInput = document.getElementById('contador');
-        var ContadorTroca = parseInt(contadorInput.value);  
-        
-        
-        if (ContadorTroca + contar >= 1) {
-            contadorInput.value = ContadorTroca + contar;
-        }
-    }
-</script>
-
-                        <!-- Botões de Ação -->
-                        <button id="btn" type="button" class="btn btn-primary mt-4">
-                            Adicionar ao Carrinho
+                    <!-- Botões de Ação -->
+                    <div class="action-buttons d-flex gap-3">
+                        <button class="buttoncoisa btn btn-primary flex-fill" id="botaocarrinho">
+                        <img src="./assets/imgs/icons/carrinhopreto.svg" id="carrinho">Adicionar ao Carrinho
                         </button>
-                        <a href="https://wa.me/5515996810765?text=Olá, estou interessado no produto <?=$produto->Nome_produto?>"><button id="btn1" type="button" class="btn btn-primary mt-4">Comprar agora</button></a>
-
-                        <hr>
-                        <!-- Descrição do Produto -->
-                        <p><?= $produto->Descricao; ?></p>
+                        <a href="https://wa.me/5515996810765?text=Olá, estou interessado no produto <?= urlencode($produto->Nome_produto) ?>" class="buttoncoisa btn btn-success flex-fill" target="_blank">
+                            Comprar agora
+                        </a>
                     </div>
+
+                    <!-- Descrição do Produto -->
+                    <hr>
+                    <p class="product-description mt-3"><?= nl2br(htmlspecialchars($produto->Descricao)) ?></p>
                 </div>
             </div>
         <?php else: ?>
-            <p>Nenhum produto encontrado.</p>
+            <p class="text-center">Nenhum produto encontrado.</p>
         <?php endif; ?>
     </main>
 
     <?php include "footer.php" ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function updateQuantity(amount) {
+            const quantityInput = document.getElementById('quantity');
+            const currentQuantity = parseInt(quantityInput.value);
+
+            if (currentQuantity + amount >= 1) {
+                quantityInput.value = currentQuantity + amount;
+            }
+        }
+    </script>
 </body>
 </html>
