@@ -27,28 +27,12 @@
         }
     
         foreach($lista as $usuario) { ?>
-            <nav id="mobileNavbar">
-                <div class="toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-
-            <nav id="navbar">
-                <div id="logo"><a href="../homepage.php"><img src="../assets/imgs/logo.jpg" alt="Logo Promel"></a></div>
-                <div id="user_menu">
-                    <div class="icone title"><img src="../assets/imgs/icons/Group.svg" style="margin-right: 10px;">Minha Conta</div>
-                    <div id="user_pages">
-                        <div class="linha"><div class="seta"></div><a class="botao pagatual" href="./perfil.php"><p>Perfil</p></a></div>
-                        <!-- <div class="linha"><div class="seta"></div><a class="botao" href="./endereco.php"><p>Endereço</p></a></div> -->
-                        <div class="linha"><div class="seta"></div><a class="botao" href="./alterarsenha.php"><p>Trocar Senha</p></a></div>
-                        <!-- <div class="linha"><div class="seta"></div><a class="botao" href="./historico.php"><p>Histórico</p></a></div> -->
-                    </div>
-                    <div id="sair"><a href="../config/logout.php"><img src="../assets/imgs/icons/logoutbranco.svg"><p>Sair</p></a></div>
-                    </div>
-            </nav>
-
+            
+            <?php include "navbar.php"; ?>
+            <script>
+            const paginas = document.querySelectorAll('.botao');
+            paginas[0].classList.add('pagatual');
+            </script>
             <div class="container">
                 <h3 id="title" class="my-md-5">Configurações da Conta</h3>
                 <div id="messageContainer"></div>
