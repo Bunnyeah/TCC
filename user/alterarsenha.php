@@ -1,3 +1,68 @@
+<?php
+
+$host = 'localhost'; 
+$db = 'promel04'; 
+$user = 'root';
+$password = ''; 
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $password);
+} catch (PDOException $e) {
+    die("Erro ao conectar ao banco de dados: " . $e->getMessage());
+}
+
+try {
+    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+    
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
+        $email = trim($_POST['email']);
+        $senha_atual = trim($_POST['senha_atual']);
+        $nova_senha = trim($_POST['nova_senha']);
+
+        
+        if (empty($email) || empty($senha_atual) || empty($nova_senha)) {
+            echo "Por favor, preencha todos os campos.";
+            exit;
+        }
+
+        
+        $stmt = $pdo->prepare("SELECT senha FROM cliente WHERE email = :email");
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $usuario = $stmt->fetch();
+
+            
+            if (password_verify($senha_atual, $usuario['senha'])) {
+                
+                $nova_senha_hash = password_hash($nova_senha, PASSWORD_DEFAULT);
+
+                
+                $Stmt = $pdo->prepare("UPDATE cliente SET senha = :nova_senha WHERE email = :email");
+                $Stmt->bindParam(':nova_senha', $nova_senha_hash);
+                $Stmt->bindParam(':email', $email);
+
+                if ($Stmt->execute()) {
+                    echo "Senha atualizada com sucesso!";
+                } else {
+                    echo "Erro ao atualizar a senha. Tente novamente.";
+                }
+            } else {
+                echo "A senha atual está incorreta.";
+            }
+        } else {
+            echo "Usuário não encontrado.";
+        }
+    }
+} catch (PDOException $e) {
+    echo "Erro de conexão: " . $e->getMessage();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -51,15 +116,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Senha antiga</label>
-                        <input type="password" class="form-control" id="password" name="oldpassword" placeholder="Insira sua senha antiga" required>
+                        <input type="password" class="form-control" id="senha_atual" name="senha_atual" placeholder="Insira sua senha antiga" required>
                     </div>
                     <div class="mb-3">
                         <label for="senha" class="form-label">Senha Nova</label>
-                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Insira sua nova senha" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirmsenha" class="form-label">Confirmar Senha</label>
-                        <input type="password" class="form-control" id="confirmsenha" name="confirmsenha" placeholder="Confirme sua nova senha" required>
+                        <input type="password" class="form-control" id="nova_senha" name="nova_senha" placeholder="Insira sua nova senha" required>
                     </div>
                 </div>
 

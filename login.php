@@ -38,7 +38,7 @@
 
                         <!-- Submit -->
                         <div class="mb-3" id="buttonsubmit">
-                            <a id="link_senha" href="./cadastro.php">Esqueci minha senha</a>
+                            <a id="link_senha" href="./user/alterarsenha.php">Esqueci minha senha</a>
                             <button type="submit" id="submit">></button>
                         </div>
                     </form>
