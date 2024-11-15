@@ -45,13 +45,14 @@ try{
     }
 
     // Atualiza as informações do usuário
-    $sql = "INSERT INTO produto (Preco_Und, Qtd_stock, Descricao, Nome_produto, imagem) VALUES (:Preco_Und, :Qtd_stock, :Descricao, :Nome_produto, :imagem)";
+    $sql = "INSERT INTO produto (Preco_Und, Qtd_stock, Descricao, Nome_produto, imagem, fk_categoria_ID) VALUES (:Preco_Und, :Qtd_stock, :Descricao, :Nome_produto, :imagem, :fk_categoria_ID)";
     $stmt = $conn->prepare($sql);
     $stmt->bindValue(':Preco_Und', htmlspecialchars($Preco_Und));
     $stmt->bindValue(':Qtd_stock', htmlspecialchars($Qtd_stock));
     $stmt->bindValue(':Descricao', htmlspecialchars($Descricao));
     $stmt->bindValue(':Nome_produto', htmlspecialchars($Nome_produto));
     $stmt->bindValue(':imagem', $nomearquivo);
+    $stmt->bindValue(':fk_categoria_ID', htmlspecialchars($fk_categoria_ID));
     $stmt->execute();
 
     $successMsg = "Produto Cadastrado com Sucesso";

@@ -80,9 +80,9 @@
                         <input class="form-control" type="number" name="produto_ID" value="<?=$produtos->produto_ID?>" style="display: none"; readonly>
                     </div>
                         <div id="all_info">
-                            <!-- <input id="txt1" value="Categoria: " readonly></input> -->
+                            <!-- <input id="txt1" value="Categoria "readonly></input> -->
                             <input id="txt2" value="Preço: <?=$produtos->Preco_Und?>" readonly></input>
-                            <input id="txt3" value="Quantia Vendidas <?=$produtos->Qnt_vend?>"readonly></input>
+                            <input id="txt3" value="Qtds Vendidas <?=$produtos->Qnt_vend?>"readonly></input>
                             <div class="linhabaixo">
                                 <input id="txt4" value="Estoque: <?=$produtos->Qtd_stock?>"readonly></input>
                                 <button onclick="editproduto(<?=$produtos->produto_ID?>)" class="btn_edit">Editar</button>
@@ -114,6 +114,17 @@
             <input class="form-control" type="text" id="nome_produto_add" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off"><br>
             <input class="form-control" type="number" id="preco_und_add" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required><br>
             <input class="form-control" type="number" id="qtd_stock_add" name="Qtd_stock" minlength="0" placeholder="Quantidade em estoque" required><br>
+            <select id="qtd_stock_add" name="fk_categoria_ID">
+                <option value="">Selecionar Categoria</option>
+                <?php
+                    $sql1 = 'SELECT * FROM categoria';
+                    $stmt = $conn->prepare($sql1);
+                    $stmt->execute();
+                    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                        echo '<option value="'.$row['categoria_ID'].'">'.$row['Nome'].'</option>';
+                    }
+               ?>
+            </select>
             <textarea class="form-control" id="descricao_add" name="Descricao" placeholder="Descrição" style="resize: none;" required></textarea><br>
             <button type="submit" class="submit">Salvar</button>
         </div>
@@ -146,7 +157,6 @@
 
         <script>
             // document.getElementById("delete").onsubmit = function(event) {
-
             // }
         </script>
         <script src="../assets/js/produto.js"></script>
