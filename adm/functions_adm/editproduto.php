@@ -19,12 +19,15 @@ if (isset($_GET['id'])) { //Aqui eu pego o Fetch pra usar o select e colocar ess
         echo json_encode(['error' => 'Produto não encontrado']);
     }
 
+
+
+
 } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
     extract($_POST);
     extract($_FILES);
 
-    try {
-        $target_dir = "../assets/imgs/produtos/";
+    // try {
+        $target_dir = "../../assets/imgs/produtos/";
         $file_size_limit = 2000000; // 2 MB
         $allowed_types = ['jpg', 'jpeg', 'png'];
         $target_file = null;
@@ -65,23 +68,25 @@ if (isset($_GET['id'])) { //Aqui eu pego o Fetch pra usar o select e colocar ess
         if (isset($target_file)) {
             $stmt->bindValue(':imagem', $target_file);
         }
-        $stmt->bindValue(':produto_ID', htmlspecialchars($produto_ID)); // Jogo o ID de produto no form de formainvisivel pra pegar ele pelo post
+        $stmt->bindValue(':produto_ID', htmlspecialchars($produto_ID)); // Sempre vincule o ID do produto
         // var_dump($produto_ID, $Preco_Und, $Qtd_stock, $Descricao, $Nome_produto);
         $stmt->execute();
+        header("Location: ../produtos.php");
+            
 
-    if ($stmt->rowCount() > 0) {
-        echo json_encode(['success' => "Produto atualizado com sucesso"]);
-    } else {
-        echo json_encode(['error' => "Nenhuma alteracao feita"]);
-    }
+    // if ($stmt->rowCount() > 0) {
+    //     echo json_encode(['success' => "Produto atualizado com sucesso"]);
+    // } else {
+    //     echo json_encode(['error' => "Nenhuma alteracao feita"]);
+    // }
 
-    } catch (PDOException $e) {
-        echo json_encode(['error' => "Erro ao atualizar o produto: " . $e->getMessage()]);
-    } catch (Exception $e) {
-        echo json_encode(['error' => $e->getMessage()]);
-    } finally {
-        $conn = null;
-    }
+    // } catch (PDOException $e) {
+    //     echo json_encode(['error' => "Erro ao atualizar o produto: " . $e->getMessage()]);
+    // } catch (Exception $e) {
+    //     echo json_encode(['error' => $e->getMessage()]);
+    // } finally {
+    //     $conn = null;
+    // }
 } else {
     echo json_encode(['error' => 'Método de requisição não suportado']);
     $conn = null;

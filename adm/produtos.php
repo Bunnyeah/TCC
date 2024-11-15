@@ -104,7 +104,7 @@
         <!-- Formulário de Adição -->
 <div id="addproduto">
     <a class="close" id="close">X</a>
-    <form enctype="multipart/form-data" action="../config/cadproduto.php" id="formaddproduto" method="POST">
+    <form enctype="multipart/form-data" action="./functions_adm/cadproduto.php" id="formaddproduto" method="POST">
         <div id="img_perfil" class="col-md-4 col-sm-12 mb-5 mt-4">
             <label for="newprodutoimg">
                 <img src="../assets/imgs/decorativo/arraste_img.png" id="imgperfilAdd">
@@ -125,7 +125,7 @@
 <!-- Formulário de Edição -->
 <div id="editproduto">
     <a class="close" id="close">X</a>
-    <form enctype="multipart/form-data" action="../config/editproduto.php" id="formeditproduto" method="POST">
+    <form enctype="multipart/form-data" action="./functions_adm/editproduto.php" id="formeditproduto" method="POST">
         <div id="img_perfil" class="col-md-4 col-sm-12">
             <label for="editprodutoimg">
                 <img src="../assets/imgs/logo.jpg" id="imgperfilEdit">

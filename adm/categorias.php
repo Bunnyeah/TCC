@@ -124,12 +124,30 @@ $categorias = $conn->fetchAll(PDO::FETCH_OBJ);
             </form>
         </div>
         <script>
-        document.getElementById('nome_categoria').addEventListener('input', function (e) {
-            // Remove qualquer caractere que não seja letra
-            e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, '').slice(0, 20);
+        function editcategoria(categoriaID) {
+    fetch(`./functions_adm/editar_cat.php?id=${categoriaID}`)
+        .then(response => {
+            // if (!response.ok) { //Só verificação de erro
+            //     throw new Error('Erro na rede');
+            // }
+            return response.json()
+        })
+        .then(data => {
+            console.log("Dados do produto:", data);
+            // Preencher os campos do formulário de edição
+            if (!data.error) {
+                console.log(data)
+                document.getElementById('edittextcat').value = data.Nome;
+                document.getElementById('editcategoriaid').value = data.categoria_ID;
+            } else {
+                alert(data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao buscar os dados do produto', error);
         });
+}
     </script>
-        <script src="../adm/functions_adm/script.js"></script>
         <script src="../assets/js/mobileNavbar.js"></script>
 </body>
 

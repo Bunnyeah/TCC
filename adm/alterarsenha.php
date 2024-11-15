@@ -1,3 +1,68 @@
+<?php
+
+$host = 'localhost'; 
+$db = 'promel04'; 
+$user = 'root';
+$password = ''; 
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $password);
+} catch (PDOException $e) {
+    die("Erro ao conectar ao banco de dados: " . $e->getMessage());
+}
+
+try {
+    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+    
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
+        $email = trim($_POST['email']);
+        $senha_atual = trim($_POST['senha_atual']);
+        $nova_senha = trim($_POST['nova_senha']);
+
+        
+        if (empty($email) || empty($senha_atual) || empty($nova_senha)) {
+            echo "Por favor, preencha todos os campos.";
+            exit;
+        }
+
+        
+        $stmt = $pdo->prepare("SELECT senha FROM cliente WHERE email = :email");
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $usuario = $stmt->fetch();
+
+            
+            if (password_verify($senha_atual, $usuario['senha'])) {
+                
+                $nova_senha_hash = password_hash($nova_senha, PASSWORD_DEFAULT);
+
+                
+                $Stmt = $pdo->prepare("UPDATE cliente SET senha = :nova_senha WHERE email = :email");
+                $Stmt->bindParam(':nova_senha', $nova_senha_hash);
+                $Stmt->bindParam(':email', $email);
+
+                if ($Stmt->execute()) {
+                    echo "Senha atualizada com sucesso!";
+                } else {
+                    echo "Erro ao atualizar a senha. Tente novamente.";
+                }
+            } else {
+                echo "A senha atual está incorreta.";
+            }
+        } else {
+            echo "Usuário não encontrado.";
+        }
+    }
+} catch (PDOException $e) {
+    echo "Erro de conexão: " . $e->getMessage();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,11 +70,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="../assets/css/usuario-alterarsenha.css" rel="stylesheet">
+    <link href="../assets/css/adm-alterarsenha.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.7-beta.19/inputmask.min.js"></script>
     <title>Configurações da Conta</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.7/inputmask.min.js"></script> <!-- Biblioteca Inputmask -->
 </head>
 <body>
+    <?php
+    session_start();
+    ?>
     <!-- Navbar Mobile -->
     <nav id="mobileNavbar">
         <div class="toggle">
@@ -28,10 +97,6 @@
                 <div class="linha"><div class="seta"></div><a class="botao" href="./perfil.php"><p>Perfil</p></a></div>
                 <div class="linha"><div class="seta"></div><a class="botao pagatual" href="./alterarsenha.php"><p>Trocar Senha</p></a></div>
             </div>
-            <div id="other_pages">
-                <a class="botao pagatual" href="./estoque.php"><img src="../assets/imgs/icons/estoque.svg"><p>Estoque</p></a>
-                <a href="./encomendas.php"><img src="../assets/imgs/icons/encomendas.svg"><p>Encomendas</p></a>
-            </div>   
             <div id="sair"><a href="../config/logout.php"><img src="../assets/imgs/icons/logoutbranco.svg"><p>Sair</p></a></div>
         </div>
     </nav>
@@ -42,24 +107,20 @@
 
             <form id="formcad" enctype="multipart/form-data" class="row" method="POST">
                 <div class="image">
-                    <img src="./assets/imgs/Imagem.svg">
+                    <img src="../uploads/<?=$_SESSION["idusuario"];?>.jpeg">
                 </div>
                 <div class="col-12 mt-3">
                     <div class="mb-3">
-                        <label for="Usuário" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome de usuário" required>
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Confirme seu Email" required>
                     </div>
                     <div class="mb-3">
-                        <label for="Senha antiga" class="form-label">Senha antiga</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="insira seu email" required>
+                        <label for="password" class="form-label">Senha antiga</label>
+                        <input type="password" class="form-control" id="senha_atual" name="senha_atual" placeholder="Insira sua senha antiga" required>
                     </div>
                     <div class="mb-3">
-                        <label for="senha nova" class="form-label">Senha Nova</label>
-                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Insira sua senha" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label">Confirmar Senha</label>
-                        <input type="password" class="form-control" id="confirmsenha" name="confirmsenha" placeholder="Confirme sua senha" required>
+                        <label for="senha" class="form-label">Senha Nova</label>
+                        <input type="password" class="form-control" id="nova_senha" name="nova_senha" placeholder="Insira sua nova senha" required>
                     </div>
                 </div>
 
@@ -71,15 +132,33 @@
         </div>
     </div>
 
-</body>
-<script src="../assets/js/mobileNavbar.js"></script>
-<script>
-    
-    Inputmask({
-        mask: "(99) 99999-9999", 
-        placeholder: "_",
-    }).mask("#telefone"); 
+    <script>
+        
+        Inputmask({
+            alias: "email"
+        }).mask("#email");
 
-    
-</script>
+        
+        Inputmask({
+            regex: "[A-Za-z0-9]{8,20}"
+        }).mask("#password");
+
+        Inputmask({
+            regex: "[A-Za-z0-9]{8,20}"
+        }).mask("#senha");
+
+        Inputmask({
+            regex: "[A-Za-z0-9]{8,20}"
+        }).mask("#confirmsenha");
+
+        
+        const inputs = document.querySelectorAll("input, textarea");
+        inputs.forEach(input => {
+            input.addEventListener("input", () => {
+                resetarMensagem();
+            });
+        });
+    </script>
+    <script src="../assets/js/mobileNavbar.js"></script>
+</body>
 </html>
