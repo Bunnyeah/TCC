@@ -1,6 +1,7 @@
 <?php
 require_once "./connection/connection.php";
 include "header.php";
+session_start();
 
 // var_dump($_SESSION['carrinho']);
 
@@ -49,19 +50,19 @@ if (!empty($_SESSION['carrinho'])) {
                     <?php foreach ($_SESSION['carrinho'] as $pp) : ?>
                         <tr class="tbody">
                             <td class="product" id="img_name">
-                            <img src="./assets/imgs/produtos/<?= $pp['imagem'] ?>" alt="<?= $pp['nome'] ?>
+                            <img src="./assets/imgs/produtos/<?= $pp['imagem'];?>" alt="<?= $pp['nome'];?>"></img>
                                     <div class="product-details">
                                         <h5><?= $pp['nome'] ?></h5>
                                     </div>
                             </td>
-                            <td>R$ <?= number_format($pp['preco'], 2, ',', '.') ?></td>
-                            <td><?= $pp['quantidade'] ?></td>
-                            <td>R$ <?= number_format($pp['preco'] * $pp['quantidade'], 2, ',', '.') ?></td>
+                            <td>R$ <?= number_format($pp['preco'], 2, ',', '.');?></td>
+                            <td><?= $pp['quantidade'];?></td>
+                            <td>R$ <?= number_format($pp['preco'] * $pp['quantidade'], 2, ',', '.');?></td>
 
                             <td>
                             <!-- Botão para remover o item -->
                             <form method="POST" style="display:inline;">
-                                <input type="hidden" name="id" value="<?= $pp['id'] ?>">
+                                <input type="hidden" name="id" value="<?= $pp['id'];?>">
                                 <button type="submit" name="remover_item" class="btn btn-danger btn-sm">Remover</button>
                             </form>
                             </td>
@@ -88,4 +89,3 @@ if (!empty($_SESSION['carrinho'])) {
     </div>
 </body>
 </html>
-                    

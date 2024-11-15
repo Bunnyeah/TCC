@@ -46,7 +46,6 @@
 </head>
 <body>
   <?php
-    session_start();
     require_once './connection/connection.php';
     $imagem = "./assets/imgs/icons/Group.svg";
     if (isset($_SESSION["loggedin"])) {

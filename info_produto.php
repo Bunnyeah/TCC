@@ -1,9 +1,10 @@
 <?php
+// Configuração inicial
 require_once "./connection/connection.php";
+session_start();
 
 // Obtém o ID do produto da URL
 $produtoId = $_GET['id'] ?? null;
-
 if ($produtoId) {
     // Prepara e executa a consulta para buscar o produto pelo ID
     $stmt = $conn->prepare("SELECT * FROM produto WHERE produto_ID = :id");
@@ -35,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
     exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -44,7 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
     <link rel="stylesheet" href="./assets/css/info_produto.css">
     <title>Informações do Produto</title>
 </head>
-<body>
 
 <?php include "header.php"; ?>
 
@@ -54,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
             <!-- Coluna da Imagem do Produto -->
             <div class="col-md-6">
                 <div class="product-image-container">
-                    <img src="./assets/imgs/produtos/<?= $produto->imagem ?>" alt="<?= htmlspecialchars($produto->Nome_produto) ?>" class="product-image">
+                    <img src="./assets/imgs/produtos/<?= htmlspecialchars($produto->imagem) ?>" alt="<?= htmlspecialchars($produto->Nome_produto) ?>" class="product-image">
                 </div>
             </div>
             
@@ -87,11 +88,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
                         <button type="submit" name="adicionar_carrinho" class="buttoncoisa btn btn-primary flex-fill" id="botaocarrinho">
                             <img src="./assets/imgs/icons/carrinhopreto.svg" id="carrinho">Adicionar ao Carrinho
                         </button>
+                    </form>
                         <a href="https://wa.me/5515996810765?text=Olá, estou interessado no produto <?= urlencode($produto->Nome_produto) ?>" class="buttoncoisa btn btn-success flex-fill" target="_blank">
                             Comprar agora
                         </a>
                     </div>
-                </form>
 
                 <!-- Descrição do Produto -->
                 <hr>
