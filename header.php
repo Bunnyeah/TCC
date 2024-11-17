@@ -56,7 +56,11 @@
   <!-- MENU -->
   <header id="menu">
     <a href="./homepage.php"><img src="./assets/imgs/logo/logo (2).jpg" alt="Logo Promel"></a>
-    <input id="text_buscar" type="search" placeholder="Buscar...">
+
+    <form action="pesquisa.php" method="GET">
+    <input id="text_buscar" type="search" name="query" placeholder="Buscar...">
+    </form>
+
     <a href="./user/perfil.php"><img src="<?=$imagem?>" alt="conta" id="perfilicon"></a> 
     <a href="./carrinho2.php"><img src="./assets/imgs/icons/carrinho.svg" id="carrinhoicon"></a>
   </header>
