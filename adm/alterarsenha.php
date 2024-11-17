@@ -78,28 +78,12 @@ try {
 <body>
     <?php
     session_start();
+    include "navbar.php";
     ?>
-    <!-- Navbar Mobile -->
-    <nav id="mobileNavbar">
-        <div class="toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
-
-    <!-- Navbar Padrão -->
-    <nav id="navbar">
-        <div id="logo"><a href="../homepage.php"><img src="../assets/imgs/logo.jpg" alt="Logo Promel"></a></div>
-        <div id="user_menu">
-            <div class="icone title"><img src="../assets/imgs/icons/Group.svg" style="margin-right: 10px;">Minha Conta</div>
-            <div id="user_pages">
-                <div class="linha"><div class="seta"></div><a class="botao" href="./perfil.php"><p>Perfil</p></a></div>
-                <div class="linha"><div class="seta"></div><a class="botao pagatual" href="./alterarsenha.php"><p>Trocar Senha</p></a></div>
-            </div>
-            <div id="sair"><a href="../config/logout.php"><img src="../assets/imgs/icons/logoutbranco.svg"><p>Sair</p></a></div>
-        </div>
-    </nav>
+            <script>
+            const paginas = document.querySelectorAll('.botao');
+            paginas[1].classList.add('pagatual');
+            </script>
 
     <div class="container">
         <div class="quadrado">

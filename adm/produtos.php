@@ -14,29 +14,11 @@
     <body>
         <div id="messageContainer"></div>
         <!-- Navbar Mobile -->
-        <nav id="mobileNavbar">
-            <div class="toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-        <!-- Navbar Padrão -->
-        <nav id="navbar">
-            <div id="logo"><a href="../homepage.php"><img src="../assets/imgs/logo.jpg" alt="Logo Promel"></a></div>
-            <div id="user_menu">
-                <!-- <div class="icone title"><img src="../assets/imgs/icons/Group.svg" style="margin-right: 10px;">Minha Conta</div> -->
-                <!-- <div id="user_pages">
-                    <div class="linha"><div class="seta"></div><a class="botao" href="./perfil.php"><p>Perfil</p></a></div>
-                    <div class="linha"><div class="seta"></div><a class="botao" href="./alterarsenha.php"><p>Trocar Senha</p></a></div>
-                </div> -->
-                <div id="other_pages">
-                    <a class="botao pagatual" href="./estoque.php"><img src="../assets/imgs/icons/estoque.svg"><p>Estoque</p></a>
-                </div>
-
-                <div id="sair"><a href="../config/logout.php"><img src="../assets/imgs/icons/logoutbranco.svg"><p>Sair</p></a></div>
-            </div>
-        </nav>
+        <?php include "navbar.php"?>
+        <script>
+            const paginas = document.querySelectorAll('.botao');
+            paginas[2].classList.add('pagatual');
+            </script>
         <!-- Titulo -->
         <div id="containertotal">
             <h3 id="Title" class="my-md-5">Estoque</h3>
@@ -58,7 +40,6 @@
 
             <div id="all_produtos">
             <?php
-            session_start();
             require_once '../connection/connection.php';
 
             // if (isset($_SESSION["loggedin"])) {
