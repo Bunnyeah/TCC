@@ -22,22 +22,12 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
             <div class="carousel-item active">
                 <img src="./assets/imgs/decorativo/1.png" alt="Banner 1">
             </div>
-            <div class="carousel-item">
-                <img src="./assets/imgs/decorativo/2.png" alt="Banner 2">
-            </div>
         </div>
-        <button class="carousel-control prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-icon prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-        </button>
-        <button class="carousel-control next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-icon next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Próximo</span>
-        </button>
+        
     </div>
 
     <!-- Categorias -->
-    <section class="categorias">
+    <section class="categorias active">
         <?php 
         $sqlSelectCategorias = 'SELECT * FROM categoria';
         $stmt = $conn->query($sqlSelectCategorias);
@@ -50,25 +40,72 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
         </div>
         <?php }; ?>
     </section>
+    <div class="navigation-buttons">
+        <button class="arrow-prev">◀</button>
+        <button class="arrow-next">▶</button>
+    </div>
+
 
     <script>
         const items = document.querySelectorAll('.categoria');
         let bloco = [];
+        let currentSection = document.querySelector('.categorias');
+
+        // Adiciona seções dinamicamente
         items.forEach((item, index) => {
-        bloco.push(item);
-        if ((index + 1) % 3 === 0) {//Quando tiverem 3 itens
-            console.log(`Bloco de 3:`);
-            bloco.forEach((elemento) => console.log(elemento.textContent)); // Mostra os textos
-            bloco = []; // Limpa o bloco para o próximo grupo
-        }
+            bloco.push(item);
+            currentSection.appendChild(item);
+
+            if ((index + 1) % 3 === 0) { // Quando atingir 3 elementos
+                bloco = [];
+                currentSection = document.createElement('section');
+                currentSection.className = 'categorias';
+                currentSection.style.transform = 'translateX(100%)';
+                document.body.appendChild(currentSection);
+            }
         });
 
-        // Caso haja sobras no final (menos de 3 itens)
-        if (bloco.length > 0) {
-        console.log('Último bloco (incompleto):');
-        bloco.forEach((elemento) => console.log(elemento.textContent));
+        const sections = document.querySelectorAll('.categorias'); // Seleciona todas as seções
+        const prevButton = document.querySelector('.arrow-prev'); // Botão para trás
+        const nextButton = document.querySelector('.arrow-next'); // Botão para frente
+        let currentIndex = 0; // Índice da seção visível
+
+        function updateNavigationButtons() {
+            // Desabilita os botões se não houver mais seções para navegar
+            prevButton.disabled = currentIndex === 0;
+            nextButton.disabled = currentIndex === sections.length - 1;
         }
+
+        function navigateToSection(direction) {
+            // Remove a classe ativa da seção atual
+            sections[currentIndex].classList.remove('active');
+
+    // Aplica a transformação para sair da tela
+        if (direction === 'next') {
+            sections[currentIndex].style.transform = 'translateX(-100%)'; // Sai para a esquerda
+            currentIndex++;
+            sections[currentIndex].style.transform = 'translateX(100%)'; // Prepara para entrar da direita
+        } else if (direction === 'prev') {
+            sections[currentIndex].style.transform = 'translateX(100%)'; // Sai para a direita
+            currentIndex--;
+            sections[currentIndex].style.transform = 'translateX(-100%)'; // Prepara para entrar da esquerda
+        }
+
+        // Adiciona a classe ativa à nova seção
+        sections[currentIndex].classList.add('active');
+        sections[currentIndex].style.transform = 'translateX(0)'; // Entra no centro
+
+        updateNavigationButtons(); // Atualiza os estados dos botões
+        }
+
+        // Inicialização
+        updateNavigationButtons();
+
+        // Eventos dos botões
+        nextButton.addEventListener('click', () => navigateToSection('next'));
+        prevButton.addEventListener('click', () => navigateToSection('prev'));
     </script>
+
     <!-- Produtos Mais Populares -->
     <section class="produtos-populares">
         <h2 class="titulo-populares">Mais Populares</h2>
