@@ -38,10 +38,17 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
 
     <!-- Categorias -->
     <section class="categorias">
+        <?php 
+        $sqlSelectCategorias = 'SELECT * FROM categoria';
+        $stmt = $conn->query($sqlListarProdutos);
+        $categorias = $stmt->fetchAll(PDO::FETCH_OBJ);
+        foreach($categorias as $categoria){
+        ?>
         <div class="categoria">
             <p>Produtos Fitness</p>
             <div class="categoria-linha destaque-amarelo"></div>
         </div>
+        <?php }; ?>
         <div class="categoria">
             <p>Saúde</p>
             <div class="categoria-linha destaque-azul"></div>

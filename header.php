@@ -46,16 +46,21 @@
 </head>
 <body>
   <?php
-    session_start();
-    require_once './connection/connection.php';
+  session_start();
+  require_once './connection/connection.php';
+    $perfil = "./user/perfil.php";
     $imagem = "./assets/imgs/icons/Group.svg";
-    if (isset($_SESSION["loggedin"])) {
-      $imagem = "./uploads/".$_SESSION["idusuario"];
+    if (isset($_SESSION["loggedin"]) == true) {
+      $imagem = "./uploads/".$_SESSION["idusuario"].".jpeg";
+      if(isset($_SESSION["adm"]) == true){
+        $perfil = "./adm/perfil.php";
+      }
     }
   ?>
   <!-- MENU -->
   <header id="menu">
     <a href="./homepage.php"><img src="./assets/imgs/logo/logo (2).jpg" alt="Logo Promel"></a>
+<<<<<<< HEAD
 
     <form action="pesquisa.php" method="GET">
     <input id="text_buscar" type="search" name="query" placeholder="Buscar...">
@@ -63,6 +68,11 @@
 
     <a href="./user/perfil.php"><img src="<?=$imagem?>" alt="conta" id="perfilicon"></a> 
     <a href="./carrinho2.php"><img src="./assets/imgs/icons/carrinho.svg" id="carrinhoicon"></a>
+=======
+    <input id="text_buscar" type="search" placeholder="Buscar...">
+    <a href="<?=$perfil?>"><img src="<?=$imagem?>" alt="conta" id="perfilicon"></a> 
+    <a href="./carrinho.php"><img src="./assets/imgs/icons/carrinho.svg" id="carrinhoicon"></a>
+>>>>>>> f391c72854b3a20ee9ec6ae836d1e48cd41824c0
   </header>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

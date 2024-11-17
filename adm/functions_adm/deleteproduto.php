@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../connection/connection.php';
+require_once '../../connection/connection.php';
 $response = [];
 
 if (isset($_GET['id'])) {

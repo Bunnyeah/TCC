@@ -20,45 +20,11 @@ $categorias = $conn->fetchAll(PDO::FETCH_OBJ);
 <body>
 
 
-    <!-- Navbar Mobile -->
-    <nav id="mobileNavbar">
-        <div class="toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
-
-    <!-- Navbar Padrão -->
-    <nav id="navbar">
-        <div id="logo"><a href="../homepage.php"><img src="../assets/imgs/logo.jpg" alt="Logo Promel"></a></div>
-
-        <div id="user_menu">
-            <!-- <div class="icone title"><img src="../assets/imgs/icons/Group.svg" style="margin-right: 10px;">Minha Conta</div> -->
-            <div id="user_pages">
-                <!-- <div class="linha">
-                    <div class="seta"></div><a class="botao" href="perfil.php">
-                        <p>Perfil</p>
-                    </a>''
-                </div> -->
-                <!-- <div class="linha">
-                    <div class="seta"></div><a class="botao" href="alterarsenha.php">
-                        <p>Trocar Senha</p>
-                    </a>
-                </div> -->
-            </div>
-
-            <div id="other_pages">
-                <a class="botao pagatual" href="./estoque.php"><img src="../assets/imgs/icons/estoque.svg">
-                    <p>Estoque</p>
-                </a>
-                <a href="./encomendas.php"> <img src="../assets/imgs/icons/encomendas.svg">
-                    <p>Encomendas</p>
-                </a>
-            </div>
-            <div id="sair"><a href="../config/logout.php"><img src="../assets/imgs/icons/logoutbranco.svg"><p>Sair</p></a></div>
-            </div>
-    </nav>
+    <?php include "navbar.php"?>
+            <script>
+            const paginas = document.querySelectorAll('.botao');
+            paginas[2].classList.add('pagatual');
+            </script>
 
     <!-- Titulo -->
     <div id="containertotal">
@@ -124,12 +90,30 @@ $categorias = $conn->fetchAll(PDO::FETCH_OBJ);
             </form>
         </div>
         <script>
-        document.getElementById('nome_categoria').addEventListener('input', function (e) {
-            // Remove qualquer caractere que não seja letra
-            e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, '').slice(0, 20);
+        function editcategoria(categoriaID) {
+    fetch(`./functions_adm/editar_cat.php?id=${categoriaID}`)
+        .then(response => {
+            // if (!response.ok) { //Só verificação de erro
+            //     throw new Error('Erro na rede');
+            // }
+            return response.json()
+        })
+        .then(data => {
+            console.log("Dados do produto:", data);
+            // Preencher os campos do formulário de edição
+            if (!data.error) {
+                console.log(data)
+                document.getElementById('edittextcat').value = data.Nome;
+                document.getElementById('editcategoriaid').value = data.categoria_ID;
+            } else {
+                alert(data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao buscar os dados do produto', error);
         });
+}
     </script>
-        <script src="../adm/functions_adm/script.js"></script>
         <script src="../assets/js/mobileNavbar.js"></script>
 </body>
 

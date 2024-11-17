@@ -50,7 +50,7 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
     width: 25%;
-    height: 50vh;
+    height: 12.5vh;
 }
 
 .categoria:hover {
