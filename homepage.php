@@ -40,25 +40,35 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
     <section class="categorias">
         <?php 
         $sqlSelectCategorias = 'SELECT * FROM categoria';
-        $stmt = $conn->query($sqlListarProdutos);
+        $stmt = $conn->query($sqlSelectCategorias);
         $categorias = $stmt->fetchAll(PDO::FETCH_OBJ);
         foreach($categorias as $categoria){
         ?>
         <div class="categoria">
-            <p>Produtos Fitness</p>
+            <p><?=$categoria->Nome;?></p>
             <div class="categoria-linha destaque-amarelo"></div>
         </div>
         <?php }; ?>
-        <div class="categoria">
-            <p>Saúde</p>
-            <div class="categoria-linha destaque-azul"></div>
-        </div>
-        <div class="categoria">
-            <p>Beleza</p>
-            <div class="categoria-linha destaque-cinza"></div>
-        </div>
     </section>
 
+    <script>
+        const items = document.querySelectorAll('.categoria');
+        let bloco = [];
+        items.forEach((item, index) => {
+        bloco.push(item);
+        if ((index + 1) % 3 === 0) {//Quando tiverem 3 itens
+            console.log(`Bloco de 3:`);
+            bloco.forEach((elemento) => console.log(elemento.textContent)); // Mostra os textos
+            bloco = []; // Limpa o bloco para o próximo grupo
+        }
+        });
+
+        // Caso haja sobras no final (menos de 3 itens)
+        if (bloco.length > 0) {
+        console.log('Último bloco (incompleto):');
+        bloco.forEach((elemento) => console.log(elemento.textContent));
+        }
+    </script>
     <!-- Produtos Mais Populares -->
     <section class="produtos-populares">
         <h2 class="titulo-populares">Mais Populares</h2>

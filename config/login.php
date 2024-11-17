@@ -22,10 +22,10 @@
                     $_SESSION["usuario"] = htmlspecialchars($usuario->Nome);
                     $_SESSION["idusuario"] = $usuario->cliente_ID;
                     if($email == "adm@adm.com"){
-                        $_SESSION['adm'] = true;
+                        $_SESSION["adm"] = true;
                         header("Location: ../adm/perfil.php");
-                    }
-                    // Redireciona para o perfil do usuário
+                        exit;
+                    } else{}
                     header("Location: ../user/perfil.php");
                     exit;
                 } else {
