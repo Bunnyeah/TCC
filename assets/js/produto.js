@@ -26,7 +26,7 @@ function deleteproduto(){
     let deleteID = document.getElementById('delete').value
     console.log("ID recebido:", deleteID); // Log do ID recebido
 
-    fetch(`../config/deleteproduto.php?id=${deleteID}`)
+    fetch(`./functions_adm/deleteproduto.php?id=${deleteID}`)
         .then(response => response.json()
         ).then(data => { 
             // messageContainer.classList.add("alert-success"); //Desativar scrollbar
@@ -44,7 +44,7 @@ function editproduto(produtoID) {
     popupedit.style.display = "flex";
     container.style.opacity = "30%";
 
-    fetch(`../config/editproduto.php?id=${produtoID}`)
+    fetch(`./functions_adm/editproduto.php?id=${produtoID}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Erro na rede');

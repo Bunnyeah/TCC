@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="../assets/css/nav.css" rel="stylesheet">
-    <link href="../assets/css/usuario-perfil.css" rel="stylesheet">
+    <link href="../assets/css/user-perfil.css" rel="stylesheet">
     <title>Configurações da Conta</title>
 </head>
 <body>
@@ -27,28 +27,12 @@
         }
     
         foreach($lista as $usuario) { ?>
-            <nav id="mobileNavbar">
-                <div class="toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-
-            <nav id="navbar">
-                <div id="logo"><a href="../homepage.php"><img src="../assets/imgs/logo.jpg" alt="Logo Promel"></a></div>
-                <div id="user_menu">
-                    <div class="icone title"><img src="../assets/imgs/icons/Group.svg" style="margin-right: 10px;">Minha Conta</div>
-                    <div id="user_pages">
-                        <div class="linha"><div class="seta"></div><a class="botao pagatual" href="./perfil.php"><p>Perfil</p></a></div>
-                        <!-- <div class="linha"><div class="seta"></div><a class="botao" href="./endereco.php"><p>Endereço</p></a></div> -->
-                        <div class="linha"><div class="seta"></div><a class="botao" href="./alterarsenha.php"><p>Trocar Senha</p></a></div>
-                        <!-- <div class="linha"><div class="seta"></div><a class="botao" href="./historico.php"><p>Histórico</p></a></div> -->
-                    </div>
-                    <div id="sair"><a href="../config/logout.php"><img src="../assets/imgs/icons/logoutbranco.svg"><p>Sair</p></a></div>
-                    </div>
-            </nav>
-
+            
+            <?php include "navbar.php"; ?>
+            <script>
+            const paginas = document.querySelectorAll('.botao');
+            paginas[0].classList.add('pagatual');
+            </script>
             <div class="container">
                 <h3 id="title" class="my-md-5">Configurações da Conta</h3>
                 <div id="messageContainer"></div>
@@ -64,7 +48,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="telefone" class="form-label">Telefone</label>
-                            <input type="tel" onkeyup="handlePhone(event)" class="form-control" id="telefone" name="telefone" value="<?=$usuario->Telefone;?>" maxlength="11">
+                            <input type="tel" onkeyup="handlePhone(event)" class="form-control" id="telefone" name="telefone" value="<?=$usuario->Telefone;?>" maxlength="15">
                             <script>
                                 const handlePhone = (event) => {
                                     let input = event.target

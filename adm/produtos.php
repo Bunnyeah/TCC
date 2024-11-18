@@ -14,29 +14,11 @@
     <body>
         <div id="messageContainer"></div>
         <!-- Navbar Mobile -->
-        <nav id="mobileNavbar">
-            <div class="toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-        <!-- Navbar Padrão -->
-        <nav id="navbar">
-            <div id="logo"><a href="../homepage.php"><img src="../assets/imgs/logo.jpg" alt="Logo Promel"></a></div>
-            <div id="user_menu">
-                <!-- <div class="icone title"><img src="../assets/imgs/icons/Group.svg" style="margin-right: 10px;">Minha Conta</div> -->
-                <!-- <div id="user_pages">
-                    <div class="linha"><div class="seta"></div><a class="botao" href="./perfil.php"><p>Perfil</p></a></div>
-                    <div class="linha"><div class="seta"></div><a class="botao" href="./alterarsenha.php"><p>Trocar Senha</p></a></div>
-                </div> -->
-                <div id="other_pages">
-                    <a class="botao pagatual" href="./estoque.php"><img src="../assets/imgs/icons/estoque.svg"><p>Estoque</p></a>
-                </div>
-
-                <div id="sair"><a href="../config/logout.php"><img src="../assets/imgs/icons/logoutbranco.svg"><p>Sair</p></a></div>
-            </div>
-        </nav>
+        <?php include "navbar.php"?>
+        <script>
+            const paginas = document.querySelectorAll('.botao');
+            paginas[2].classList.add('pagatual');
+            </script>
         <!-- Titulo -->
         <div id="containertotal">
             <h3 id="Title" class="my-md-5">Estoque</h3>
@@ -58,7 +40,6 @@
 
             <div id="all_produtos">
             <?php
-            session_start();
             require_once '../connection/connection.php';
 
             // if (isset($_SESSION["loggedin"])) {
@@ -82,9 +63,9 @@
                         <input class="form-control" type="number" name="produto_ID" value="<?=$produtos->produto_ID?>" style="display: none"; readonly>
                     </div>
                         <div id="all_info">
-                            <!-- <input id="txt1" value="Categoria: " readonly></input> -->
+                            <!-- <input id="txt1" value="Categoria "readonly></input> -->
                             <input id="txt2" value="Preço: <?=$produtos->Preco_Und?>" readonly></input>
-                            <input id="txt3" value="Quantia Vendidas <?=$produtos->Qnt_vend?>"readonly></input>
+                            <input id="txt3" value="Qtds Vendidas <?=$produtos->Qnt_vend?>"readonly></input>
                             <div class="linhabaixo">
                                 <input id="txt4" value="Estoque: <?=$produtos->Qtd_stock?>"readonly></input>
                                 <button onclick="editproduto(<?=$produtos->produto_ID?>)" class="btn_edit">Editar</button>
@@ -104,7 +85,7 @@
         <!-- Formulário de Adição -->
 <div id="addproduto">
     <a class="close" id="close">X</a>
-    <form enctype="multipart/form-data" action="../config/cadproduto.php" id="formaddproduto" method="POST">
+    <form enctype="multipart/form-data" action="./functions_adm/cadproduto.php" id="formaddproduto" method="POST">
         <div id="img_perfil" class="col-md-4 col-sm-12 mb-5 mt-4">
             <label for="newprodutoimg">
                 <img src="../assets/imgs/decorativo/arraste_img.png" id="imgperfilAdd">
@@ -116,6 +97,17 @@
             <input class="form-control" type="text" id="nome_produto_add" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off"><br>
             <input class="form-control" type="text" class="preco_und_add"  id="preco_und_add" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required><br>
             <input class="form-control" type="number" id="qtd_stock_add" name="Qtd_stock" minlength="0" placeholder="Quantidade em estoque" required><br>
+            <select id="qtd_stock_add" name="fk_categoria_ID">
+                <option value="">Selecionar Categoria</option>
+                <?php
+                    $sql1 = 'SELECT * FROM categoria';
+                    $stmt = $conn->prepare($sql1);
+                    $stmt->execute();
+                    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                        echo '<option value="'.$row['categoria_ID'].'">'.$row['Nome'].'</option>';
+                    }
+               ?>
+            </select>
             <textarea class="form-control" id="descricao_add" name="Descricao" placeholder="Descrição" style="resize: none;" required></textarea><br>
             <button type="submit" class="submit">Salvar</button>
         </div>
@@ -125,7 +117,7 @@
 <!-- Formulário de Edição -->
 <div id="editproduto">
     <a class="close" id="close">X</a>
-    <form enctype="multipart/form-data" action="../config/editproduto.php" id="formeditproduto" method="POST">
+    <form enctype="multipart/form-data" action="./functions_adm/editproduto.php" id="formeditproduto" method="POST">
         <div id="img_perfil" class="col-md-4 col-sm-12">
             <label for="editprodutoimg">
                 <img src="../assets/imgs/logo.jpg" id="imgperfilEdit">
@@ -146,6 +138,10 @@
     </form>
 </div>
 
+        <script>
+            // document.getElementById("delete").onsubmit = function(event) {
+            // }
+        </script>
 <script>
    $(document).ready(function () {
             $('#preco_und_add').mask('000.000.000.000.000,00', {reverse: true});

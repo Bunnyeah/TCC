@@ -10,34 +10,29 @@ body {
 }
 
 /* Carrossel */
+.carousel {
+    position: relative;
+    width: 100%;
+}
+
 .carousel img {
     width: 100%;
     height: auto;
 }
 
-.carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    border: none;
-    background: none;
-}
-
-.carousel-control-icon {
-    background-color: #000;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
 
 /* Categorias */
 .categorias {
     display: flex;
     justify-content: space-around;
-    gap: 20px;
-    padding: 20px;
     background: linear-gradient(#2C7669, #FFFFFF);
+    transform: translateX(0); /* Controle inicial de posição */
+    transition: transform 0.5s ease-in-out; /* Animação suave */
+    margin-bottom: 20px; /* Espaço entre categorias e próximos elementos */
+}
 
+.categorias:not(.active) {
+    display: none; /* Esconde seções não ativas */
 }
 
 .categoria {
@@ -50,7 +45,7 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
     width: 25%;
-    height: 50vh;
+    height: 12.5vh;
 }
 
 .categoria:hover {
@@ -74,6 +69,43 @@ body {
 
 .destaque-cinza {
     background-color: #6c757d;
+}
+
+/* Botão de navegação entre categorias */
+.navigation-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.arrow-prev, .arrow-next {
+    background: #2C7669;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-prev:hover, .arrow-next:hover {
+    background: #235e56;
+    transform: scale(1.1);
+}
+
+.arrow-prev:disabled, .arrow-next:disabled {
+    background: #AFAFAF;
+    cursor: not-allowed;
+    display: none;
 }
 
 /* Produtos Populares */
@@ -126,7 +158,6 @@ body {
     border-top-right-radius: 8px;
 }
 
-
 .produto-detalhes {
     height: 27.5%;
     padding: 15px;
@@ -166,11 +197,30 @@ body {
 
 /* Responsividade */
 @media (max-width: 768px) {
+    .categorias {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .categoria {
+        width: 100%;
+        height: auto;
+    }
+
     .lista-produtos {
         justify-content: center;
     }
 
     .produto-card {
         width: 90%;
+        height: auto;
+    }
+
+    .btn-comprar {
+        width: 100%;
+    }
+
+    .arrow {
+        right: 10px;
     }
 }

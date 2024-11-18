@@ -47,16 +47,5 @@
         </div>
     </div>
 
-    <script>
-        Inputmask({
-            alias: "email"
-        }).mask("#email");
-
-        Inputmask({
-            regex: "[A-Za-z0-9]{8,20}"
-        }).mask("#senha");
-
-    </script>
-
 </body>
 </html>

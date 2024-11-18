@@ -320,12 +320,11 @@ text-align: center;
 width: 24px;
 text-decoration: none;
 font-weight: bold;
--webkit-border-radius: 12px;
--moz-border-radius: 12px;
 border-radius: 12px;
--moz-box-shadow: 1px 1px 3px #000;
--webkit-box-shadow: 1px 1px 3px #000;
 box-shadow: 1px 1px 3px #000;
+position: absolute;
+top: 19vh;
+left: 72vw;
 }
 
 #img_perfil{

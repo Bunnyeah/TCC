@@ -70,7 +70,7 @@ try {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="../assets/css/usuario-alterarsenha.css" rel="stylesheet">
+    <link href="../assets/css/user-alterarsenha.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.7-beta.19/inputmask.min.js"></script>
     <title>Configurações da Conta</title>
@@ -79,28 +79,11 @@ try {
     <?php
     session_start();
     ?>
-    <!-- Navbar Mobile -->
-    <nav id="mobileNavbar">
-        <div class="toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
-
-    <!-- Navbar Padrão -->
-    <nav id="navbar">
-        <div id="logo"><a href="../homepage.php"><img src="../assets/imgs/logo.jpg" alt="Logo Promel"></a></div>
-        <div id="user_menu">
-            <div class="icone title"><img src="../assets/imgs/icons/Group.svg" style="margin-right: 10px;">Minha Conta</div>
-            <div id="user_pages">
-                <div class="linha"><div class="seta"></div><a class="botao" href="./perfil.php"><p>Perfil</p></a></div>
-                <div class="linha"><div class="seta"></div><a class="botao pagatual" href="./alterarsenha.php"><p>Trocar Senha</p></a></div>
-            </div>
-            <div id="sair"><a href="../config/logout.php"><img src="../assets/imgs/icons/logoutbranco.svg"><p>Sair</p></a></div>
-        </div>
-    </nav>
-
+    <?php include "navbar.php"; ?>
+    <script>
+    const paginas = document.querySelectorAll('.botao');
+    paginas[1].classList.add('pagatual');
+    </script>
     <div class="container">
         <div class="quadrado">
             <h3 id="title" class="my-md-5">Alterar Senha</h3>

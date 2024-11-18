@@ -5,9 +5,9 @@ require_once '../../connection/connection.php';
 extract($_POST);
 extract($_FILES);
 
-try{
+// try{
     // Define constantes
-    $target_dir = "../assets/imgs/produtos/";
+    $target_dir = "../../assets/imgs/produtos/";
     $file_size_limit = 2000000; // 2 MB
     $allowed_types = ['jpg', 'jpeg', 'png'];
     $errorMsg = "";
@@ -18,10 +18,6 @@ try{
         $imageFileType = strtolower(pathinfo($_FILES["newprodutoimg"]["name"], PATHINFO_EXTENSION));
         $nomearquivo = uniqid() . "." . $imageFileType;
         $target_file = $target_dir . $nomearquivo;
-
-        // if($target_file){
-        //     unlink($target_file);
-        // };
 
         // Verifica o tipo de arquivo
         if (!in_array($imageFileType, $allowed_types)) {
@@ -45,28 +41,28 @@ try{
     }
 
     // Atualiza as informações do usuário
-    $sql = "INSERT INTO produto (Preco_Und, Qtd_stock, Descricao, Nome_produto, imagem) VALUES (:Preco_Und, :Qtd_stock, :Descricao, :Nome_produto, :imagem)";
+    $sql = "INSERT INTO produto (Preco_Und, Qtd_stock, Descricao, Nome_produto, imagem, fk_categoria_ID) VALUES (:Preco_Und, :Qtd_stock, :Descricao, :Nome_produto, :imagem, :fk_categoria_ID)";
     $stmt = $conn->prepare($sql);
     $stmt->bindValue(':Preco_Und', htmlspecialchars($Preco_Und));
     $stmt->bindValue(':Qtd_stock', htmlspecialchars($Qtd_stock));
     $stmt->bindValue(':Descricao', htmlspecialchars($Descricao));
     $stmt->bindValue(':Nome_produto', htmlspecialchars($Nome_produto));
     $stmt->bindValue(':imagem', $nomearquivo);
+    $stmt->bindValue(':fk_categoria_ID', htmlspecialchars($fk_categoria_ID));
     $stmt->execute();
 
-    $successMsg = "Produto Cadastrado com Sucesso";
-
-    if ($successMsg) {
-        echo json_encode(['success' => $successMsg]);
-        header("Location: ../produtos.php");
-    }
-
-} catch (PDOException $e) {
-    echo json_encode(['error' => "Erro ao cadastrar o produto: " . $e->getMessage()]);
     header("Location: ../produtos.php");
-} catch (Exception $e) {
-    echo json_encode(['error' => $e->getMessage()]);
-} finally {
-    $conn = null;
-}
+    // $successMsg = "Perfil Atualizado";
+
+    // if ($successMsg) {
+    //     echo json_encode(['success' => $successMsg]);
+    // }
+
+// } catch (PDOException $e) {
+//     echo json_encode(['error' => "Erro ao atualizar o perfil: " . $e->getMessage()]);
+// } catch (Exception $e) {
+// } finally {
+//     $conn = null;
+// }
+// unlink($filename)
 ?>
