@@ -7,9 +7,9 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="../assets/css/adm/produtos.css">
         <link rel="stylesheet" href="../assets/css/nav.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.6/inputmask.min.js"></script>
         <title>Produtos</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     </head>
     <body>
         <div id="messageContainer"></div>
@@ -95,7 +95,7 @@
         </div>
         <div class="inputs">
             <input class="form-control" type="text" id="nome_produto_add" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off"><br>
-            <input class="form-control" type="number"  id="preco_und_add" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required><br>
+            <input class="form-control" type="text" class="preco_und_add"  id="preco_und_add" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required><br>
             <input class="form-control" type="number" id="qtd_stock_add" name="Qtd_stock" minlength="0" placeholder="Quantidade em estoque" required><br>
             <select id="qtd_stock_add" name="fk_categoria_ID">
                 <option value="">Selecionar Categoria</option>
@@ -143,17 +143,20 @@
             // }
         </script>
 <script>
-        Inputmask({
-            alias: "currency",
-            prefix: "R$ ",
-            groupSeparator: ".",
-            decimalSeparator: ",",
-            digits: 2
-        }).mask(document.getElementById("preco_und_add"));
-    </script>
+   $(document).ready(function () {
+            $('#preco_und_add').mask('#.##0,00', {reverse: true});
+        });
+
+        $(document).ready(function () {
+            $('#preco_und_edit').mask('#.##0,00', {reverse: true});
+        });
+</script>
+
+
     
         <script src="../assets/js/produto.js"></script>
         <script src="../assets/js/mobileNavbar.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        
     </body>
 </html>
