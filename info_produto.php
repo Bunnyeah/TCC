@@ -1,7 +1,7 @@
+<?php include "header.php"; ?>
 <?php
 // Configuração inicial
 require_once "./connection/connection.php";
-session_start();
 
 // Obtém o ID do produto da URL
 $produtoId = $_GET['id'] ?? null;
@@ -47,7 +47,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
     <title>Informações do Produto</title>
 </head>
 
-<?php include "header.php"; ?>
 
 <main class="container my-5">
     <?php if ($produtoId && $produto): ?>
