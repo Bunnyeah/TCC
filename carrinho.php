@@ -1,5 +1,6 @@
 <?php
 require_once "./connection/connection.php";
+session_start();
 include "header.php";
 
 // var_dump($_SESSION['carrinho']);
