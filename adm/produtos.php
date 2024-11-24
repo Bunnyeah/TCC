@@ -36,7 +36,7 @@
                 <input type= "search" placeholder="Procurar produtos..." id="text_buscar">
             </div>
 
-            <button id="botao_add"onclick="addproduto()"><p id="aumentar">+</p>Adicionar produto</button> <!-- Butão -->
+            <button id="botao_add" onclick="addproduto()"><p id="aumentar">+</p>Adicionar produto</button> <!-- Butão -->
 
             <div id="all_produtos">
             <?php
@@ -58,16 +58,16 @@
                         <img id="img_prodt" src="../assets/imgs/produtos/<?=$produtos->imagem?>">
                     </div>
                     <div id="info_prodt" class="col-8">
-                    <div class="'centralizar'">
+                    <div class="centralizar">
                         <p><?=$produtos->Nome_produto?></p>
                         <input class="form-control" type="number" name="produto_ID" value="<?=$produtos->produto_ID?>" style="display: none"; readonly>
                     </div>
                         <div id="all_info">
-                            <!-- <input id="txt1" value="Categoria "readonly></input> -->
-                            <input id="txt2" value="Preço: <?=$produtos->Preco_Und?>" readonly></input>
-                            <input id="txt3" value="Qtds Vendidas <?=$produtos->Qnt_vend?>"readonly></input>
+                            <!-- <div id="txt1"><p>Categoria: <?=$categoria->Nome?></p></div> -->
+                            <div id="txt2"><p>Preço: <?=$produtos->Preco_Und?> (unidade) </p></div>
+                            <div id="txt3"><p>Qtds Vendidas <?=$produtos->Qnt_vend?></p></div>
                             <div class="linhabaixo">
-                                <input id="txt4" value="Estoque: <?=$produtos->Qtd_stock?>"readonly></input>
+                                <div id="txt4"><p>Estoque: <?=$produtos->Qtd_stock?></p></div>
                                 <button onclick="editproduto(<?=$produtos->produto_ID?>)" class="btn_edit">Editar</button>
                             </div>
                         </div>
@@ -106,13 +106,48 @@
                     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                         echo '<option value="'.$row['categoria_ID'].'">'.$row['Nome'].'</option>';
                     }
-               ?>
+                ?>
             </select>
             <textarea class="form-control" id="descricao_add" name="Descricao" placeholder="Descrição" style="resize: none;" required></textarea><br>
             <button type="submit" class="submit">Salvar</button>
         </div>
     </form>
 </div>
+
+    <!-- Formulário de Adição -->
+    <div id="addproduto" onblur="fecha()">
+        <a class="close" id="close">X</a>
+        <form enctype="multipart/form-data" action="./functions_adm/cadproduto.php" id="formaddproduto" method="POST">
+            <div id="img_perfil" class="col-md-4 col-sm-12 mb-5 mt-4">
+                <label for="newprodutoimg">
+                    <img src="../assets/imgs/decorativo/arraste_img.png" id="imgperfilAdd">
+                </label>
+                <input type="file" id="newprodutoimg" name="newprodutoimg">
+                <button type="button" id="inputFileAdd" class="d-none">Escolher imagem</button>
+            </div>
+            <div class="inputs">
+                <input class="form-control" type="text" id="nome_produto_add" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off"><br>
+
+                <!-- SELECIONAR CATEGORIA -->
+                <select id="qtd_stock_add" name="fk_categoria_ID" class="categ">
+                    <option value="">Selecionar Categoria</option>
+                    <?php
+                        $sql1 = 'SELECT * FROM categoria';
+                        $stmt = $conn->prepare($sql1);
+                        $stmt->execute();
+                        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                            echo '<option value="'.$row['categoria_ID'].'">'.$row['Nome'].'</option>';
+                        }
+                ?>
+                </select>
+
+                <input class="form-control" type="number"  id="preco_und_add" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required><br>
+                <input class="form-control" type="number" id="qtd_stock_add" name="Qtd_stock" minlength="0" placeholder="Quantidade em estoque" required><br>
+                <textarea class="form-control" id="descricao_add" name="Descricao" placeholder="Descrição" style="resize: none;" required></textarea><br>
+                <button type="submit" class="submit">Salvar</button>
+            </div>
+        </form>
+    </div>
 
 <!-- Formulário de Edição -->
 <div id="editproduto">
