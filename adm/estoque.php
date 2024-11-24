@@ -36,9 +36,9 @@ $produtos = $conn->fetchAll(PDO::FETCH_OBJ);
 
     <!-- barra de pesquisa -->
     <div id="barra_pesquisa">
-        <input type="search" placeholder="Procurar produtos..." id="text_buscar">
+        <input type= "search" placeholder="Procurar produtos..." id="text_buscar">
     </div>
-
+    
     <div id="all_produts">
         <?php foreach ($produtos as $produto){ ?>
             <div id="produto">

@@ -17,14 +17,18 @@ a {
     text-decoration: none;
 }
 
-#text_buscar {
+/* barra de pesquisa */
+#text_buscar{
     margin: 4vh;
     padding: 20px;
     height: 8vh;
-    width: 70vw;
-    border: none;
+    width: 90vw;
+    max-width: 70vw;
+    border-style: none;
     font-size: 14px;
-    background-image: url("../../imgs/icons/pesquisa.svg");
+    max-height: 6vh;
+
+    background-image: url("../../imgs/icons/search.svg");
     background-repeat: no-repeat;
     background-position: 98%;
     background-size: 25px;
@@ -42,42 +46,40 @@ a {
     padding-right: 20px;
 }
 
-#botoes {
-    margin: 0 1vw;
+    #botoes{
+    margin: 0vh 1vw;
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-around;
-}
-
-.button {
-    padding: 1vh 3vw;
+    max-width: 100%;
+    }
+    .button{
+    padding: 1vh;
     color: #ffffff;
     border: none;
     border-radius: 25px;
     margin-left: 20px;
+    padding-left: 2vw;
+    padding-right: 3vw;
+    
+    position: relative; /*! Aqui*/
+    top: 0;
     background-color: #dddddd;
-    transition: 0.2s ease-in-out;
-}
-
-.button:hover {
+    transition: all.2s ease-in-out;
+    }
+    
+    .button:hover{
     top: -4px;
-    box-shadow: 0 6px 9px #b4b4b4;
-}
+    box-shadow: 0 6px 9px #b4b4b4 ;
+    }
+    
+    /* cores dos botoes */
+    #btn1{background-color: #69C9D0;}
+    #btn2{background-color: #428390;}
+    #btn3{background-color: #5A3A3F;}
+    #btn4{background-color: #E0A072;}
 
-#btn1 {
-    background-color: #69C9D0;
-}
-
-#btn2 {
-    background-color: #428390;
-}
-
-#btn3 {
-    background-color: #5A3A3F;
-}
-
-#btn4 {
-    background-color: #E0A072;
-}
 
 #all_produts {
     background-color: #EBEBEB;
