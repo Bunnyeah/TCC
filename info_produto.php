@@ -95,7 +95,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
                     <label for="estrela-5" class="fa fa-star"></label>
                     <input type="radio" name="estrela" id="estrela-5" id="vazio" value="5">
                     
-                  
+                    <!-- Avaliação comentário -->
+                    <br><textarea name="comentario" rows="4" cols="30" placeholder="Digite o seu comentário..."></textarea>
+                    <input type="submit" value="Enviar">
+                    </div>
+                    </form>
 
                 <hr>
                 <p class="product-price">R$ <?= number_format($produto->Preco_Und, 2, ',', '.') ?></p>
@@ -132,13 +136,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
             <p class="product-description mt-3"><?= nl2br(htmlspecialchars($produto->Descricao)) ?></p>
         </div>
         </div>
-
-            <!-- Avaliação comentário -->
-            <textarea name="comentario" rows="4" cols="30" placeholder="Digite o seu comentário..."></textarea>
-            <input type="submit" value="Enviar">
-            </div>
-            </form>
-
 
     <?php else: ?>
         <p class="text-center">Nenhum produto encontrado.</p>
