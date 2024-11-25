@@ -14,7 +14,7 @@
         align-items: center;
         justify-content: space-around;
     }
-    /* #logo img {max-width: 20vw; height: auto;} */
+    #logo img {max-width: 20vw; height: auto;}
     #text_buscar{
         border-radius: 50px;
         padding: 20px;

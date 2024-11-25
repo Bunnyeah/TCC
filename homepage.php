@@ -135,6 +135,20 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
         <?php include 'select-produtos.php' ?>
     </section>
     
+    <div class="container-fluid">
+          <div class="row">
+            <!-- Video Tik Tok -->
+            <div class="col-6" id="video">
+              <a href=""><video src=""></video></a>
+            </div>
+            
+            <!-- informações sobre oq é a categoria e seus beneficios -->
+            <div  class="col-6" id="txt">
+              <p></p>
+            </div>
+          </div>
+        </div>
+
         <!-- Localização do Estabelecimento Físico -->
         <div class="endereco-container">
           <div id="endereco-image">
@@ -146,11 +160,10 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
             <span>Horario de Funcionamento: Aberto as 08:00 Fecha as 19:00 <img src="./assets/imgs/icons/seta_baixo_preta.svg" alt="setinha" id="setinha"></span>
           </div>
           <div id="div_img">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117214.65816763695!2d-47.91291218353377!3d-23.35353368235232
-            !2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c5e3f97216ab7d%3A0xb2de7e58cc205fad!2sLoja%20Promel%20Produtos%20Natur
-            ais!5e0!3m2!1spt-BR!2sbr!4v1729264585112!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>          </div>
+            <a href=""><img src="./assets/imgs/decorativo/maps_home.png" alt="Localização"></a>
+          </div>
         </div>
-        
+
     <?php include "footer.php"; ?>
 </body>
 </html>
