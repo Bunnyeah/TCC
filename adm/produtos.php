@@ -25,10 +25,10 @@
 
             <!-- botoes -->
             <div id="botoes">
-                <a id="button" href="./estoque.php"><button class="button" id="btn1"><img src="../assets/imgs/icons/barra_menu.svg" id="icon_btn_adm"><span class="txtbutton">Tudo</span></button></a>
-                <a id="button" href="./produtos.php"><button class="button" id="btn2"><img src="../assets/imgs/icons/engren.svg" id="icon_btn_adm"><span class="txtbutton">Produtos</span></button></a>
-                <a id="button" href="./categorias.php"><button class="button" id="btn3"><img src="../assets/imgs/icons/engren.svg" id="icon_btn_adm"><span class="txtbutton">Categorias</span></button></a>
-                <a id="button" href=""><button class="button" id="btn4"><span class="txtbutton">Ordenar Por</span></button></a>
+                <a href="./estoque.php"><button class="button" id="btn1"><img src="../assets/imgs/icons/barra_menu.svg" id="icon_btn_adm"><span class="txtbutton">Tudo</span></button></a>
+                <a href="./produtos.php"><button class="button" id="btn2"><img src="../assets/imgs/icons/engren.svg" id="icon_btn_adm"><span class="txtbutton">Produtos</span></button></a>
+                <a href="./categorias.php"><button class="button" id="btn3"><img src="../assets/imgs/icons/engren.svg" id="icon_btn_adm"><span class="txtbutton">Categorias</span></button></a>
+                <a href=""><button class="button" id="btn4"><img src="../assets/imgs/icons/engren.svg" id="icon_btn_adm"><span class="txtbutton">Ordenar Por</span></button></a>
             </div>
 
             <!-- barra de pesquisa -->
@@ -83,7 +83,7 @@
             </div>
         </div>
         <!-- Formulário de Adição -->
-<div id="addproduto">
+        <div id="addproduto">
     <a class="close" id="close">X</a>
     <form enctype="multipart/form-data" action="./functions_adm/cadproduto.php" id="formaddproduto" method="POST">
         <div id="img_perfil" class="col-md-4 col-sm-12 mb-5 mt-4">
@@ -94,9 +94,16 @@
             <button type="button" id="inputFileAdd" class="d-none">Escolher imagem</button>
         </div>
         <div class="inputs">
-            <input class="form-control" type="text" id="nome_produto_add" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off"><br>
-            <input class="form-control" type="text" class="preco_und_add"  id="preco_und_add" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required><br>
-            <input class="form-control" type="number" id="qtd_stock_add" name="Qtd_stock" minlength="0" placeholder="Quantidade em estoque" required><br>
+            <label for="nome_produto_add">Nome do Produto:</label>
+            <input class="form-control" type="text" id="nome_produto_add" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off">
+
+            <label for="preco_und_add">Preço Unitário:</label>
+            <input class="form-control" type="text" id="preco_und_add" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required>
+
+            <label for="qtd_stock_add">Quantidade em Estoque:</label>
+            <input class="form-control" type="number" id="qtd_stock_add" name="Qtd_stock" minlength="0" placeholder="Quantidade em estoque" required>
+
+            <label for="selectcategoria">Categoria:</label>
             <select class="form-control" id="selectcategoria" name="fk_categoria_ID">
                 <option value="">Selecionar Categoria</option>
                 <?php
@@ -108,11 +115,14 @@
                     }
                 ?>
             </select>
-            <textarea class="form-control" id="descricao_add" name="Descricao" placeholder="Descrição" style="resize: none;" required></textarea><br>
+
+            <label for="descricao_add">Descrição:</label>
+            <textarea class="form-control" id="descricao_add" name="Descricao" placeholder="Descrição" style="resize: none;" required></textarea>
             <button type="submit" class="submit">Salvar</button>
         </div>
     </form>
 </div>
+
 
     <!-- Formulário de Adição -->
     <div id="addproduto" onblur="fecha()">
@@ -126,7 +136,7 @@
                 <button type="button" id="inputFileAdd" class="d-none">Escolher imagem</button>
             </div>
             <div class="inputs">
-                <input class="form-control" type="text" id="nome_produto_add" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off"><br>
+                <input class="form-control" type="text" id="nome_produto_add" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off">
 
                 <!-- SELECIONAR CATEGORIA -->
                 <select id="qtd_stock_add" name="fk_categoria_ID" class="categ">
@@ -141,9 +151,9 @@
                 ?>
                 </select>
 
-                <input class="form-control" type="number"  id="preco_und_add" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required><br>
-                <input class="form-control" type="number" id="qtd_stock_add" name="Qtd_stock" minlength="0" placeholder="Quantidade em estoque" required><br>
-                <textarea class="form-control" id="descricao_add" name="Descricao" placeholder="Descrição" style="resize: none;" required></textarea><br>
+                <input class="form-control" type="number"  id="preco_und_add" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required>
+                <input class="form-control" type="number" id="qtd_stock_add" name="Qtd_stock" minlength="0" placeholder="Quantidade em estoque" required>
+                <textarea class="form-control" id="descricao_add" name="Descricao" placeholder="Descrição" style="resize: none;" required></textarea>
                 <button type="submit" class="submit">Salvar</button>
             </div>
         </form>

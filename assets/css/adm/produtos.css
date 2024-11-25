@@ -127,7 +127,6 @@ input, textarea{
     background-color: #EBEBEB;
     padding: 2vh;
     width: 75vw;
-    max-width: 75vw;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -146,7 +145,7 @@ input, textarea{
     margin: 0;
     max-height: 30vh;
     width: 40%;
-    max-width: 40%;
+    max-width: 100%;
     display: flex;
     flex-direction: row;    
     background-color: #ffffff;
@@ -212,51 +211,6 @@ input, textarea{
     border-radius: 2rem;
     color: #FFFFFF;
     padding: 1vh 1vw;
-}
-
-/* POP-UP ADICIONAR PRODUTO */
-#addproduto{
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
-#formaddproduto{
-    border: solid #AFAFAF 1px;
-    border-radius: 25px;
-    background-color: #FFFFFF;
-    height: 60vh;
-    width: 50vw;
-    display: flex;
-    flex-direction: wrap;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-around;
-}
-
-#addproduto input{
-    border: solid #AFAFAF 1px;
-    height: 5vh;
-    width: 20vw;
-}
-
-#selectcategoria{
-    border: solid #AFAFAF 1px;
-    height: 5vh;
-    width: 20vw;
-    margin-bottom: 2.5vh;
-}
-
-#addproduto textarea{
-    border: solid #AFAFAF 1px;
-    height: 10vh;
-    width: 20vw;
 }
 
 /* POP-UP EDITAR PRODUTO */
@@ -355,7 +309,6 @@ input, textarea{
     max-width: 100%;
     width: auto;
     height: 36.5vh;
-    margin-bottom: 5vh;
 }
 
 input[type=file]{
@@ -384,6 +337,96 @@ input[type=file]{
     text-align: center;
 }
 
+
+/* POP-UP ADICIONAR PRODUTO */
+#addproduto {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+#formaddproduto {
+    border: solid #AFAFAF 1px;
+    border-radius: 25px;
+    background-color: #FFFFFF;
+    height: 60vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: wrap;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#addproduto input {
+    border: solid #AFAFAF 1px;
+    height: 5vh;
+    width: 20vw;
+}
+
+#selectcategoria {
+    border: solid #AFAFAF 1px;
+    height: 5vh;
+    width: 20vw;
+    margin-bottom: 2.5vh;
+}
+
+#addproduto textarea {
+    border: solid #AFAFAF 1px;
+    height: 10vh;
+    width: 20vw;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #addproduto{
+        margin-top: 2vh;
+    }
+    #formaddproduto {
+        padding: 0;
+        height: 95vh;
+        width: 90%;
+        flex-wrap: wrap;
+    }
+
+    #formaddproduto label {
+        font-size: 14px;
+    }
+
+    #formaddproduto input,
+    #formaddproduto select,
+    #formaddproduto textarea {
+        width: 90%;
+        height: 5vh;
+        font-size: 14px;
+        margin-bottom: 2vh;
+    }
+
+
+    #formaddproduto button.submit {
+        width: 100%;
+        font-size: 14px;
+    }
+    #img_perfil{
+        margin-bottom:2vh !important;
+        width: 90%;
+        margin-top: 0 !important;
+        height: 30vh;
+    }
+    #imgperfilAdd{
+        height: 20%;
+        width: auto;
+        max-height: 90%;
+        max-width: 90%;
+    }
+}
+
 /* Para telas menores que 700px */
 @media (max-width: 700px) {
     /* Ajustando o container principal */
@@ -396,7 +439,8 @@ input[type=file]{
 
     /* Barra de pesquisa */
     #text_buscar {
-        width: 95%;
+        width: 90vw;
+        max-width: 95vw;
         margin: 2vh auto;
         font-size: 12px;
         padding: 1vh 2vw;
@@ -405,7 +449,8 @@ input[type=file]{
 
     /* Botões principais */
     #botoes {
-        width: 100vw;
+        width: 85vw;
+        margin: 0 5vw;
         margin-top: 5vh;
         flex-direction: row;
         justify-content: space-between;
@@ -423,15 +468,12 @@ input[type=file]{
     .txtbutton {
         display: none;
     }
-    #btn4 {
-        display: none;
-    }
+
 
     /* Botão adicionar produto */
     #botao_add {
         height: 5vh;
         width: 5vh;
-        padding: 1rem;
         margin-left: 80vw;
         font-size: 1.2rem;
         justify-content: center;
@@ -446,8 +488,12 @@ input[type=file]{
     /* Listagem de produtos */
     #all_produtos {
         flex-direction: column;
+        width: 90vw;
+        justify-content: center;
+        align-items: center;
     }
     #produto {
+        border-radius: 10px;
         width: 95%;
         margin-bottom: 3vh;
         flex-direction: column;
@@ -460,18 +506,20 @@ input[type=file]{
     /* Imagem do produto */
     #img_prodt_div {
         width: 100%;
-        height: auto;
+        height: 25vh;
         text-align: center;
         margin-bottom: 1rem;
     }
     #img_prodt {
+        width: auto;
         max-width: 100%;
-        height: auto;
+        height: 25vh;
     }
 
     /* Informações do produto */
     #info_prodt {
         width: 100%;
+        height: 22.5vh;
     }
     .centralizar {
         text-align: center;
@@ -496,17 +544,14 @@ input[type=file]{
     }
     #formaddproduto, #formeditproduto {
         width: 90%;
-        padding: 2vh;
     }
     #formaddproduto input, #formeditproduto input,
     #formaddproduto textarea, #formeditproduto textarea,
     #formaddproduto select, #formeditproduto select {
         width: 100%;
-        margin-bottom: 1rem;
     }
     .submit {
         width: 100%;
-        padding: 1rem;
     }
 
     /* Fechar modal */
@@ -516,6 +561,7 @@ input[type=file]{
     #txt2, #txt3 {
         display: flex;
         align-items: center;
+        display: none;
     }
     #txt2 p, #txt3 p {
         padding: 1rem;
