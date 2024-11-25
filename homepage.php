@@ -3,6 +3,7 @@ require_once "./connection/connection.php";
 $sqlListarProdutos = "SELECT * FROM produto";
 $stmt = $conn->query($sqlListarProdutos);
 $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
