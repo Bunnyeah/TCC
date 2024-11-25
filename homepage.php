@@ -43,6 +43,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
         </div>
         <?php }; ?>
     </section>
+    <!-- Setas -->
     <div class="navigation-buttons">
         <button class="arrow-prev"><img src="./assets/imgs/icons/setaesquerda"></button>
         <button class="arrow-next"><img src="./assets/imgs/icons/setadireita"></button>

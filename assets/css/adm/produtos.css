@@ -412,7 +412,7 @@ input[type=file]{
         gap: 1rem;
     }
     .button {
-        width: 25vw;
+        width: 100%;
         padding: 1rem;
         margin: 0;
         font-size: 14px;
@@ -521,114 +521,4 @@ input[type=file]{
         padding: 1rem;
         margin: 0;
     }
-
-    /* POP-UP ADICIONAR PRODUTO */
-/* #addproduto {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-#formaddproduto {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    width: 50vw;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-#formaddproduto input,
-#formaddproduto select,
-#formaddproduto textarea {
-    width: 100%;
-    padding: 12px 18px;
-    margin-bottom: 15px;
-    font-size: 1rem;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    outline: none;
-    transition: all 0.3s ease;
-}
-
-#formaddproduto input:focus,
-#formaddproduto select:focus,
-#formaddproduto textarea:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
-}
-
-#formaddproduto label {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 8px;
-    text-align: left;
-    width: 100%;
-}
-
-#img_perfil {
-    position: relative;
-    text-align: center;
-}
-
-#imgperfilAdd {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #ddd;
-}
-
-#img_perfil label {
-    display: block;
-    font-size: 1rem;
-    margin-top: 15px;
-    color: #007bff;
-    cursor: pointer;
-}
-
-#inputFileAdd {
-    display: none;
-}
-
-.submit {
-    padding: 15px 30px;
-    background-color: #28a745;
-    color: white;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.submit:hover {
-    background-color: #218838;
-}
-
-#close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 1.5rem;
-    color: #333;
-    cursor: pointer;
-}
-
-#close:hover {
-    color: #ff3333;
-} */
-
 }
