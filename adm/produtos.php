@@ -197,20 +197,10 @@
     </form>
 </div>
 <script>
-<<<<<<< HEAD
     $(document).ready(function () {
             $('#preco_und_add').mask('000.000.000.000.000,00', {reverse: true});
         });
         
-=======
-   $(document).ready(function () {
-            $('#preco_und_add').mask('#.##0,00', {reverse: true});
-        });
-
-        $(document).ready(function () {
-            $('#preco_und_edit').mask('#.##0,00', {reverse: true});
-        });
->>>>>>> 9772a9d7538b02bb030b99abcd51eb46dad4b319
 </script>
 
 
