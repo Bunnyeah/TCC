@@ -1,7 +1,5 @@
 <?php
 require_once './connection/connection.php';
-
-
 $query = $_GET['query'];
 $produtos = [];
 
@@ -22,20 +20,9 @@ if (!empty($query)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Resultados da Pesquisa</title>
-    <style>
-        .produto {
-            margin-bottom: 15px;
-            padding: 10px;
-            border: 3px solid #ccc;
-            border-radius: 5px;
-            background: #f1f1f1;
-        }
-        .verMais{
-            text-decoration: none;
-            color: black;
-        }
-    </style>
+   
 </head>
 <?php include "header.php"; ?>
 
@@ -43,16 +30,24 @@ if (!empty($query)) {
     <hr>
     <h1>Produtos relacionados</h1>
     <hr>
-    <?php if (!empty($produtos)): ?>
-        <?php foreach ($produtos as $produto): ?>
-            <div class="produto">
-                <h3><?php echo htmlspecialchars($produto['Nome_produto']); ?></h3>
-                <p><?php echo htmlspecialchars($produto['Descricao']); ?></p>
-                <a class="verMais" href="info_produto.php?id=<?php echo $produto['produto_ID']; ?>">Ver mais</a>
-            </div>
-        <?php endforeach; ?>
-    <?php else: ?>
-    <?php endif; ?>
-
+    <div class="lista-produtos">
+        <?php if (!empty($produtos)): ?>
+            <?php foreach ($produtos as $produto): ?>
+                <div class="produto-card">
+                    <img src="assets/imgs/produtos/<?= htmlspecialchars($produto['imagem']); ?>" 
+                         alt="<?= htmlspecialchars($produto['Nome_produto']); ?>">
+                    <div class="produto-detalhes">
+                        <p class="produto-preco">
+                            R$<?= number_format($produto['Preco_Und'], 2, ',', '.'); ?>
+                        </p>
+                        <p class="produto-nome"><?= htmlspecialchars($produto['Nome_produto']); ?></p>
+                    </div>
+                    <a href="./info_produto.php?id=<?= $produto['produto_ID']; ?>" class="btn-comprar">Comprar</a>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>Nenhum produto encontrado.</p>
+        <?php endif; ?>
+    </div>
 </body>
 </html>
