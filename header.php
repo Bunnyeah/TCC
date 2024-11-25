@@ -14,7 +14,7 @@
         align-items: center;
         justify-content: space-around;
     }
-    #logo img {max-width: 100%; height: auto;}
+    #logo img {max-width: 20vw; height: auto;}
     #text_buscar{
         border-radius: 50px;
         padding: 20px;
@@ -46,7 +46,6 @@
 </head>
 <body>
   <?php
-  session_start();
   require_once './connection/connection.php';
     $perfil = "./user/perfil.php";
     $imagem = "./assets/imgs/icons/Group.svg";
@@ -59,7 +58,7 @@
   ?>
   <!-- MENU -->
   <header id="menu">
-    <a href="./homepage.php"><img src="./assets/imgs/logo/logo (2).jpg" alt="Logo Promel"></a>
+    <a href="./homepage.php" id="logo"><img src="./assets/imgs/logo/logo (2).jpg" alt="Logo Promel"></a>
 
     <form action="pesquisa.php" method="GET">
     <input id="text_buscar" type="search" name="query" placeholder="Buscar...">

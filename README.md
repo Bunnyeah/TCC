@@ -1,9 +1,8 @@
 - Responsividade
 - API Correios
-- Melhorar o carrinho (TEM que ser um select produtos selecionável)
-- Corrigir erros (maior parte são de linkagens)
-- Alterar os inputs (Paiva mandou)
-- Arrumar centralização imagem produto
-- Salvar e list endereço
-- Alterar senha
-- Integração com o Mercado Pago
+- Davi - Terminar o carrinho e insert categoria
+- Corrigir erros
+- Verificar máscaras do Vitor M
+- CSS Alterar senha
+- Adicionar "Categoria" no select produtos do "ADM - produtos"
+- Editar imagem - "ADM - produtos"

@@ -15,7 +15,10 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
     <title>Home Page</title>
 </head>
 <body>
-    <?php include "header.php"; ?>
+    <?php 
+    session_start();
+    include "header.php"; 
+    ?>
 
     <!-- Carrossel -->
     <div id="carouselExample" class="carousel">
@@ -35,15 +38,16 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
         $categorias = $stmt->fetchAll(PDO::FETCH_OBJ);
         foreach($categorias as $categoria){
         ?>
-        <div class="categoria">
+        <div class="categoria" data-categoria="<?= $categoria->categoria_ID; ?>">
             <p><?=$categoria->Nome;?></p>
             <div class="categoria-linha destaque-amarelo"></div>
         </div>
         <?php }; ?>
     </section>
+    <!-- Setas -->
     <div class="navigation-buttons">
-        <button class="arrow-prev">◀</button>
-        <button class="arrow-next">▶</button>
+        <button class="arrow-prev"><img src="./assets/imgs/icons/setaesquerda"></button>
+        <button class="arrow-next"><img src="./assets/imgs/icons/setadireita"></button>
     </div>
 
 
@@ -105,24 +109,61 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
         // Eventos dos botões
         nextButton.addEventListener('click', () => navigateToSection('next'));
         prevButton.addEventListener('click', () => navigateToSection('prev'));
+
+
+
+        document.querySelectorAll('.categoria').forEach(botao => {
+    botao.addEventListener('click', () => {
+        const categoria = botao.getAttribute('data-categoria');
+
+        fetch('select-produtos.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `categoria=${encodeURIComponent(categoria)}`
+        })
+        .then(response => response.text())
+        .then(data => {
+            // Atualizar apenas o conteúdo da lista de produtos
+            document.getElementById('produtos-populares').innerHTML = data;
+        })
+        .catch(error => console.error('Erro:', error));
+    });
+});
     </script>
 
     <!-- Produtos Mais Populares -->
-    <section class="produtos-populares">
-        <h2 class="titulo-populares">Mais Populares</h2>
-        <div class="lista-produtos">
-            <?php foreach ($produtos as $produto): ?>
-                <div class="produto-card">
-                    <img src="assets/imgs/produtos/<?= $produto->imagem; ?>" alt="<?= $produto->Nome_produto; ?>">
-                    <div class="produto-detalhes">
-                        <p class="produto-preco">R$<?= number_format($produto->Preco_Und, 2, ',', '.'); ?></p>
-                        <p class="produto-nome"><?= $produto->Nome_produto; ?></p>
-                    </div>
-                    <a href="./info_produto.php?id=<?= $produto->produto_ID; ?>" class="btn-comprar">Comprar</a>
-                </div>
-            <?php endforeach; ?>
-        </div>
+    <section id="produtos-populares">
+        <?php include 'select-produtos.php' ?>
     </section>
+    
+    <div class="container-fluid">
+          <div class="row">
+            <!-- Video Tik Tok -->
+            <div class="col-6" id="video">
+              <a href=""><video src=""></video></a>
+            </div>
+            
+            <!-- informações sobre oq é a categoria e seus beneficios -->
+            <div  class="col-6" id="txt">
+              <p></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Localização do Estabelecimento Físico -->
+        <div class="endereco-container">
+          <div id="endereco-image">
+            <div id="local"><img src="./assets/imgs/icons/location.svg"></div>
+          </div>
+          <div class="endereco-items">
+            <span>Endereço: Rua Coronel Arruda Botelho,291 - Centro Boituva - SP,18550-000</span>
+            <span>Telefone: (15)3316-5606</span>
+            <span>Horario de Funcionamento: Aberto as 08:00 Fecha as 19:00 <img src="./assets/imgs/icons/seta_baixo_preta.svg" alt="setinha" id="setinha"></span>
+          </div>
+          <div id="div_img">
+            <a href=""><img src="./assets/imgs/decorativo/maps_home.png" alt="Localização"></a>
+          </div>
+        </div>
 
     <?php include "footer.php"; ?>
 </body>
