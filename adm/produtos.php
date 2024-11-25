@@ -25,10 +25,10 @@
 
             <!-- botoes -->
             <div id="botoes">
-                <a id="button" href="./estoque.php"><button class="button" id="btn1"><img src="../assets/imgs/icons/barra_menu.svg" id="icon_btn_adm">Tudo</button></a>
-                <a id="button" href="./produtos.php"><button class="button" id="btn2"><img src="../assets/imgs/icons/engren.svg" id="icon_btn_adm">Produtos</button></a>
-                <a id="button" href="./categorias.php"><button class="button" id="btn3"><img src="../assets/imgs/icons/engren.svg" id="icon_btn_adm">Categorias</button></a>
-                <a id="button" href=""><button class="button" id="btn4">Ordenar Por</button></a>
+                <a id="button" href="./estoque.php"><button class="button" id="btn1"><img src="../assets/imgs/icons/barra_menu.svg" id="icon_btn_adm"><span class="txtbutton">Tudo</span></button></a>
+                <a id="button" href="./produtos.php"><button class="button" id="btn2"><img src="../assets/imgs/icons/engren.svg" id="icon_btn_adm"><span class="txtbutton">Produtos</span></button></a>
+                <a id="button" href="./categorias.php"><button class="button" id="btn3"><img src="../assets/imgs/icons/engren.svg" id="icon_btn_adm"><span class="txtbutton">Categorias</span></button></a>
+                <a id="button" href=""><button class="button" id="btn4"><span class="txtbutton">Ordenar Por</span></button></a>
             </div>
 
             <!-- barra de pesquisa -->
@@ -36,7 +36,7 @@
                 <input type= "search" placeholder="Procurar produtos..." id="text_buscar">
             </div>
 
-            <button id="botao_add" onclick="addproduto()"><p id="aumentar">+</p>Adicionar produto</button> <!-- Butão -->
+            <button id="botao_add" onclick="addproduto()"><img src="../assets/imgs/icons/plus.svg" id="icon_btn_adm"><span class="txtbutton"> Adicionar produto</span></button> <!-- Butão -->
 
             <div id="all_produtos">
             <?php
@@ -54,10 +54,10 @@
                 }
             foreach($lista as $produtos){ ?>
                 <div id="produto">
-                    <div id="img_prodt_div" class="col-4">
+                    <div id="img_prodt_div" class="col-5">
                         <img id="img_prodt" src="../assets/imgs/produtos/<?=$produtos->imagem?>">
                     </div>
-                    <div id="info_prodt" class="col-8">
+                    <div id="info_prodt" class="col-7">
                     <div class="centralizar">
                         <p><?=$produtos->Nome_produto?></p>
                         <input class="form-control" type="number" name="produto_ID" value="<?=$produtos->produto_ID?>" style="display: none"; readonly>
@@ -94,10 +94,14 @@
             <button type="button" id="inputFileAdd" class="d-none">Escolher imagem</button>
         </div>
         <div class="inputs">
-            <input class="form-control" type="text" id="nome_produto_add" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off"><br>
+        <label>Nome</label>    
+        <input class="form-control" type="text" id="nome_produto_add" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off"><br>
+            <label>Preço</label>
             <input class="form-control" type="text" class="preco_und_add"  id="preco_und_add" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required><br>
+            <label>Quantia em Estoque</label>
             <input class="form-control" type="number" id="qtd_stock_add" name="Qtd_stock" minlength="0" placeholder="Quantidade em estoque" required><br>
-            <select id="qtd_stock_add" name="fk_categoria_ID">
+            <label>Categoria</label>
+            <select class="form-control" id="selectcategoria" name="fk_categoria_ID">
                 <option value="">Selecionar Categoria</option>
                 <?php
                     $sql1 = 'SELECT * FROM categoria';
@@ -108,6 +112,7 @@
                     }
                 ?>
             </select>
+            <label>descrição</label>
             <textarea class="form-control" id="descricao_add" name="Descricao" placeholder="Descrição" style="resize: none;" required></textarea><br>
             <button type="submit" class="submit">Salvar</button>
         </div>
