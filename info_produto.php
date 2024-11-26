@@ -1,8 +1,8 @@
-<?php include "header.php"; ?>
 <?php
 // Configuração inicial
 require_once "./connection/connection.php";
 session_start();
+include "header.php";
 // Obtém o ID do produto da URL
 $produtoId = $_GET['id'] ?? null;
 if ($produtoId) {
@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
                     <input type="radio" name="estrela" id="estrela-5" id="vazio" value="5">
                     <input type="text" name="idproduto" value="<?=$produto->produto_ID?>" style="display:none">
                     <!-- Avaliação comentário -->
-                    <br><textarea name="comentario" rows="4" cols="30" placeholder="Digite o seu comentário..."></textarea>
+                    <br><textarea name="comentario" rows="4" cols="30" placeholder="Digite o seu comentário..." id="comentario"></textarea>
                     <input type="submit" value="Enviar">
                     </div>
                     </form>

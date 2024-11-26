@@ -249,8 +249,8 @@ input, textarea{
     font-weight: bold;
     box-shadow: 1px 1px 3px #000;
     position: relative;
-    top: 17vh;
-    left: 73vw;
+    top: 12.5vh;
+    left: 86.5vw;
     justify-content: center;
     text-align: center;
 }
@@ -323,13 +323,18 @@ input[type=file]{
     border: solid #AFAFAF 1px;
     border-radius: 25px;
     background-color: #FFFFFF;
-    height: 60vh;
-    width: 50vw;
+    height: 70vh;
+    width: 60vw;
+    margin-left: 18vw;
     display: flex;
     flex-direction: wrap;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-around;
+}
+#formaddproduto label {
+    align-self: flex-start; /* Alinha os labels à esquerda dentro de cada grupo */
+    margin-bottom: 5px; /* Dá um pequeno espaço entre o label e o input */
 }
 
 #addproduto input, #editproduto input {
@@ -342,7 +347,7 @@ input[type=file]{
     border: solid #AFAFAF 1px;
     height: 5vh;
     width: 20vw;
-    margin-bottom: 2.5vh;
+    margin-bottom: 1vh;
 }
 
 #addproduto textarea, #editproduto textarea {
@@ -365,6 +370,7 @@ input[type=file]{
         height: 95vh;
         width: 90%;
         flex-wrap: wrap;
+        margin: 0;
     }
 
     #formaddproduto label {
@@ -377,7 +383,6 @@ input[type=file]{
         width: 90%;
         height: 5vh;
         font-size: 14px;
-        margin-bottom: 2vh;
     }
 
 

@@ -132,7 +132,7 @@ ON
                 ?>
             </select>
 
-            <label for="descricao_add">Descrição:</label>
+            <label for="descricao_add">Descrição</label>
             <textarea class="form-control" id="descricao_add" name="Descricao" placeholder="Descrição" style="resize: none;" required></textarea>
             <button type="submit" class="submit">Salvar</button>
         </div>
@@ -168,18 +168,21 @@ ON
             
             <!-- SELECIONAR CATEGORIA -->
             <label for="selectcategoria">Categoria</label>
-            <select class="form-control" id="selectcategoria" name="fk_categoria_ID">
-                <option value="">Selecionar Categoria</option>
-                <?php
-                    $sql1 = 'SELECT * FROM categoria';
-                    $stmt = $conn->prepare($sql1);
-                    $stmt->execute();
-                    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                        echo '<option value="'.$row['categoria_ID'].'">'.$row['Nome'].'</option>';
-                    }
-                ?>
-            </select>
-            <label for="descricao_edit">Descrição:</label>
+<select class="form-control" id="selectcategoria" name="fk_categoria_ID">
+    <option value="">Selecionar Categoria</option>
+    <?php
+        $sql1 = 'SELECT * FROM categoria';
+        $stmt = $conn->prepare($sql1);
+        $stmt->execute();
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            // Verifica se a categoria do produto corresponde ao ID da categoria
+            $selected = ($row['categoria_ID'] == $produto->fk_categoria_ID) ? 'selected' : '';
+            echo '<option value="'.$row['categoria_ID'].'" '.$selected.'>'.$row['Nome'].'</option>';
+        }
+    ?>
+</select>
+
+            <label for="descricao_edit">Descrição</label>
             <textarea class="form-control" id="descricao_edit" name="Descricao" placeholder="Descrição" style="resize: none;" required></textarea>
 
             <button type="submit" class="submit">Salvar</button>

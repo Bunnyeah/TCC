@@ -1,0 +1,117 @@
+/* Base */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Comfortaa:wght@300..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: #f4f7f9; /* Fundo claro e suave */
+    color: #333; /* Texto escuro */
+    line-height: 1.6;
+}
+
+/* Links */
+a {
+    color: #428390;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* Container principal */
+.container {
+    position: absolute;
+    top: 50%; /* Posiciona no meio vertical */
+    left: 60%; /* Posiciona no meio horizontal */
+    transform: translate(-50%, -50%); /* Ajusta a posição para centralizar */
+    padding: 2rem;
+    max-width: 600px; /* Limita largura no desktop */
+    background: #fff; /* Fundo branco */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+/* Título */
+#title {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-family: "Comfortaa", sans-serif;
+}
+
+/* Formulário */
+#formcad {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Inputs */
+input {
+    height: 45px;
+    padding: 0.5rem;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #428390;
+    box-shadow: 0 0 0 3px rgba(66, 131, 144, 0.2);
+}
+
+/* Botão */
+#submit {
+    height: 50px;
+    border-radius: 25px;
+    background-color: #428390;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+#submit:hover {
+    background-color: #316d78;
+}
+
+/* Imagem do perfil */
+.image img {
+    display: block;
+    margin: 0 auto 1rem;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #428390;
+    object-fit: cover;
+}
+
+/* Estilo Responsivo */
+@media (max-width: 767px) {
+    .container {
+        padding: 1.5rem;
+        left: 50%;
+    }
+
+    input {
+        font-size: 0.9rem;
+    }
+
+    #submit {
+        font-size: 0.9rem;
+    }
+
+    #title {
+        font-size: 1.5rem;
+    }
+}
