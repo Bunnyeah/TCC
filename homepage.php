@@ -162,7 +162,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
             <span>Horario de Funcionamento: Aberto as 08:00 Fecha as 19:00 <img src="./assets/imgs/icons/seta_baixo_preta.svg" alt="setinha" id="setinha"></span>
           </div>
           <div id="div_img">
-            <a href=""><img src="./assets/imgs/decorativo/maps_home.png" alt="Localização"></a>
+            <a href="https://www.google.com/maps/place/Promel+Boituva/@-23.2851232,-47.6765076,21z/data=!4m10!1m2!2m1!1spromel+produtos+naturais+boituva!3m6!1s0x94c5e3ffc55afc99:0x8ea05c5b0d523b8b!8m2!3d-23.2851231!4d-47.6762261!15sCiBwcm9tZWwgcHJvZHV0b3MgbmF0dXJhaXMgYm9pdHV2YVoiIiBwcm9tZWwgcHJvZHV0b3MgbmF0dXJhaXMgYm9pdHV2YZIBEWhlYWx0aF9mb29kX3N0b3Jl4AEA!16s%2Fg%2F11y3sj6rjd?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D"><img src="./assets/imgs/decorativo/maps_home.png" alt="Localização"></a>
           </div>
         </div>
 
