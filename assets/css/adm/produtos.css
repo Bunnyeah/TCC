@@ -95,6 +95,7 @@ input, textarea{
     padding: 1vh;
     background-color: #F5F5F5;
     width: 90%;
+    margin-bottom: 1vh;
 }
 
 #icon_btn_adm{max-width: 100%; height: 25px;}
@@ -215,12 +216,12 @@ input, textarea{
 
 /* Deletar produto (no pop-up de editar) */
 #delete{
-    background-color: #FFFFFF;
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: end;
-    padding-top: 20%;
+    margin-right: 10%;
+    margin-top: 5%;
 }
 
 /* Parte de escolher categoria */
@@ -548,5 +549,17 @@ input[type=file]{
     #txt2 p, #txt3 p {
         padding: 1rem;
         margin: 0;
+    }
+    #delete{
+        background-color:transparent;
+        position: absolute;
+        display: flex;
+        align-items: end;
+        justify-content: end;
+        bottom: 0%;
+        max-width: 40px;
+        max-height: 40px;
+        height: auto;
+        right: -5%;
     }
 }

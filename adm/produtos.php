@@ -15,6 +15,7 @@
         <div id="messageContainer"></div>
         <!-- Navbar Mobile -->
         <?php include "navbar.php"?>
+        
         <script>
             const paginas = document.querySelectorAll('.botao');
             paginas[2].classList.add('pagatual');
@@ -35,7 +36,6 @@
             <div id="barra_pesquisa">
                 <input type= "search" placeholder="Procurar produtos..." id="text_buscar">
             </div>
-
             <button id="botao_add" onclick="addproduto()"><img src="../assets/imgs/icons/plus.svg" id="icon_btn_adm"><span class="txtbutton"> Adicionar produto</span></button> <!-- Butão -->
 
             <div id="all_produtos">

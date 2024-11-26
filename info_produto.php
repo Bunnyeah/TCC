@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
 
                     <label for="estrela-5" class="fa fa-star"></label>
                     <input type="radio" name="estrela" id="estrela-5" id="vazio" value="5">
-                    
+                    <input type="text" name="idproduto" value="<?=$produto->produto_ID?>" style="display:none">
                     <!-- Avaliação comentário -->
                     <br><textarea name="comentario" rows="4" cols="30" placeholder="Digite o seu comentário..."></textarea>
                     <input type="submit" value="Enviar">

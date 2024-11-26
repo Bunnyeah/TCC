@@ -1,10 +1,13 @@
 <?php
 
-session_start(); 
+session_start();
+
 
 include_once '../connection/connection.php';
 
 date_default_timezone_set('America/Sao_Paulo');
+extract($_POST);
+
 
 if (!empty($_POST['estrela'])) {
 
@@ -24,14 +27,14 @@ if (!empty($_POST['estrela'])) {
     if ($cad_avaliacao->execute()) {
 
         $_SESSION['msg'] = "<p style='color: green;'>Avaliação cadastrar com sucesso.</p>";
-        header("Location: ../info_produto.php?id=" . $produto_ID);
+        header("Location: ../info_produto.php?id=" . $idproduto);
     } else {
 
         $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Avaliação não cadastrar.</p>";
-        header("Location: ../info_produto.php?id=" . $produto_ID);
+        header("Location: ../info_produto.php?id=" . $idproduto);
     }
 } else {
     $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário selecionar pelo menos 1 estrela.</p>";
-    header("Location: ../info_produto.php?id=" . $produto_ID);
+    header("Location: ../info_produto.php?id=" . $idproduto);
     exit;
 }

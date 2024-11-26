@@ -34,7 +34,8 @@ if (isset($_GET['id'])) { //Aqui eu pego o Fetch pra usar o select e colocar ess
 
         if (isset($_FILES["editprodutoimg"]) && $_FILES["editprodutoimg"]["error"] == 0) {
             $imageFileType = strtolower(pathinfo($_FILES["editprodutoimg"]["name"], PATHINFO_EXTENSION));
-            $target_file = $target_dir . uniqid() . "." . $imageFileType;
+            $nomearquivo = uniqid() . "." . $imageFileType;
+            $target_file = $target_dir . $nomearquivo;
 
             // Verifica o tipo de arquivo
             if (!in_array($imageFileType, $allowed_types)) {
@@ -57,7 +58,7 @@ if (isset($_GET['id'])) { //Aqui eu pego o Fetch pra usar o select e colocar ess
             }
         }
 
-        $sql = "UPDATE produto SET Preco_Und = :Preco_Und, Qtd_stock = :Qtd_stock, Descricao = :Descricao, Nome_produto = :Nome_produto" . (isset($target_file) ? ", imagem = :imagem" : "") . " WHERE produto_ID = :produto_ID";
+        $sql = "UPDATE produto SET Preco_Und = :Preco_Und, Qtd_stock = :Qtd_stock, Descricao = :Descricao, Nome_produto = :Nome_produto, imagem = :imagem WHERE produto_ID = :produto_ID";
 
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':Preco_Und', htmlspecialchars($Preco_Und));
@@ -66,7 +67,7 @@ if (isset($_GET['id'])) { //Aqui eu pego o Fetch pra usar o select e colocar ess
         $stmt->bindValue(':Nome_produto', htmlspecialchars($Nome_produto));
         
         if (isset($target_file)) {
-            $stmt->bindValue(':imagem', $target_file);
+            $stmt->bindValue(':imagem', $nomearquivo);
         }
         $stmt->bindValue(':produto_ID', htmlspecialchars($produto_ID)); // Sempre vincule o ID do produto
         // var_dump($produto_ID, $Preco_Und, $Qtd_stock, $Descricao, $Nome_produto);

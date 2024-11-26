@@ -21,30 +21,29 @@ $categorias = $conn->fetchAll(PDO::FETCH_OBJ);
 
 
     <?php include "navbar.php"?>
-            <script>
+    <script>
             const paginas = document.querySelectorAll('.botao');
             paginas[2].classList.add('pagatual');
             </script>
+        <!-- Titulo -->
+        <div id="containertotal">
+            <h3 id="Title" class="my-md-5">Estoque</h3>
 
-    <!-- Titulo -->
-    <div id="containertotal">
-        <h3 id="Title" class="my-md-5">Estoque</h3>
+            <!-- botoes -->
+            <div id="botoes">
+                <a href="./estoque.php"><button class="button" id="btn1"><img src="../assets/imgs/icons/barra_menu.svg" id="icon_btn_adm"><span class="txtbutton">Tudo</span></button></a>
+                <a href="./produtos.php"><button class="button" id="btn2"><img src="../assets/imgs/icons/engren.svg" id="icon_btn_adm"><span class="txtbutton">Produtos</span></button></a>
+                <a href="./categorias.php"><button class="button" id="btn3"><img src="../assets/imgs/icons/engren.svg" id="icon_btn_adm"><span class="txtbutton">Categorias</span></button></a>
+                <a href=""><button class="button" id="btn4"><img src="../assets/imgs/icons/engren.svg" id="icon_btn_adm"><span class="txtbutton">Ordenar Por</span></button></a>
+            </div>
 
-        <!-- botoes -->
-        <div id="botoes">
-            <a href="./estoque.php"><button class="button" id="btn1"><img src="../assets/imgs/icons/barra_menu.svg" id="icon_btn_adm"><span class="txt"> Tudo</span></button></a>
-            <a href="./produtos.php"><button class="button" id="btn2"><img src="../assets/imgs/icons/engren.svg" id="icon_btn_adm"><span class="txt"> Produtos</span></button></a>
-            <a href="./categorias.php"><button class="button" id="btn3"><img src="../assets/imgs/icons/engren.svg" id="icon_btn_adm"><span class="txt"> Categorias</span></button></a>
-            <a href=""><button class="button" id="btn4"><img src="../assets/imgs/icons/order.svg" id="icon_btn_adm"><span class="txt"> Ordenar por</span></button></a>
-        </div>
-
-        <!-- barra de pesquisa -->
-        <div id="barra_pesquisa">
-            <input type="search" placeholder="Procurar produtos..." id="text_buscar">
-        </div>
+            <!-- barra de pesquisa -->
+            <div id="barra_pesquisa">
+                <input type= "search" placeholder="Procurar produtos..." id="text_buscar">
+            </div>
 
     <div class="paidocoisa">
-        <a href="#abrir" id="coisa"><button type="submit" class="botao_add">+</button></a>
+        <a href="#abrir" id="coisa"><button type="submit" class="botao_add"><img src="../assets/imgs/icons/plus.svg" id="icon_btn_adm"></button></a>
     </div>
         <!-- TODAS AS CATEGORIAS -->
         <div class="all_categorias">
