@@ -21,7 +21,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
 // Geração do HTML dos produtos
 ?>
 <h2 class="titulo-populares">Produtos</h2>
-<div class="lista-produtos">
+<div class="lista-produtos"> <!-- Início da div de produtos -->
 <?php foreach ($produtos as $produto): ?>
     <div class="produto-card">
         <img src="assets/imgs/produtos/<?= $produto->imagem; ?>" alt="<?= $produto->Nome_produto; ?>">
@@ -31,6 +31,5 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
         </div>            
         <div class="div_botao"><a href="./info_produto.php?id=<?= $produto->produto_ID; ?>" class="btn-comprar">Comprar</a></div> 
     </div>
-</div>
-    </div>
 <?php endforeach; ?>
+</div>

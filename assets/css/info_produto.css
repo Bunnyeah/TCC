@@ -14,18 +14,20 @@ body {
 /* Conteiner da Imagem do Produto */
 .product-image-container {
     width: 40vw;
-    aspect-ratio: 1; /* Mantém a imagem quadrada */
+    aspect-ratio: 1;
     overflow: hidden;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    max-width: 500px; /* Garante que a imagem não ultrapasse 500px */
+    margin: 0 auto; /* Centraliza a imagem */
 }
 
 .product-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cobre o contêiner mantendo a proporção */
+    object-fit: cover;
 }
 
 /* Título e Preço do Produto */
@@ -43,7 +45,6 @@ body {
 }
 
 /* Avaliação */
-
 .estrelas input[type=radio]{
     display: none;
 }
@@ -55,9 +56,6 @@ body {
 .estrelas input[type=radio]:checked~label:before{
     color: #c7c7c7;
 }
-
-
-
 
 /* Estoque e Descrição */
 .product-stock {
@@ -76,8 +74,9 @@ body {
 .quantity-container {
     max-width: 150px;
 }
-.quantidade{
-    border: 1px solid #D9D9D9; /* Cor da borda */
+
+.quantidade {
+    border: 1px solid #D9D9D9;
     border-radius: 10px;
 }
 
@@ -86,10 +85,11 @@ body {
     height: 100%;
     text-align: center;
     font-size: 1rem;
-    color: #6c757d; /* Cor do texto */
-    background-color: transparent; /* Sem preenchimento */
+    color: #6c757d;
+    background-color: transparent;
     border: 0;
 }
+
 .quantity:focus {
     outline: none;
     box-shadow: none;
@@ -104,16 +104,27 @@ body {
     background-color: #F9EEE4 !important;
     border: none !important;
     color: black !important;
+    font-size: 1.2rem; /* Aumentando o tamanho da fonte */
+    padding: 15px 30px; /* Aumentando o tamanho do botão */
+    border-radius: 8px; /* Bordas mais arredondadas para melhorar a aparência */
 }
 
 .btn-success {
     background-color: #428390 !important;
     border: none !important;
     color: white;
+    font-size: 1.2rem; /* Aumentando o tamanho da fonte */
+    padding: 15px 30px; /* Aumentando o tamanho do botão */
+    border-radius: 8px; /* Bordas mais arredondadas para melhorar a aparência */
+}
+
+#comentario{
+    height: 10vh;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
+    /* Ajuste do Tamanho das Fontes */
     .product-title {
         font-size: 1.5rem;
     }
@@ -122,49 +133,130 @@ body {
         font-size: 1.2rem;
     }
 
+    /* Imagem */
     .product-image-container {
+        width: 80vw; /* Mais largo em telas menores */
+        margin-bottom: 2rem;
+    }
+
+    /* Quantidade e Tamanho do Input */
+    .quantity-container {
         max-width: 100%;
-        margin: 0 auto;
+        width: 100%;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .quantidade {
+        width: 50px;
+        text-align: center;
+    }
+
+    /* Formulários */
+    .product-description {
+        font-size: 1.2rem;
     }
 
     .action-buttons {
         flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-primary,
+    .btn-success {
+        width: 100%; /* Botões ocupam toda a largura */
+        margin-top: 1rem;
+        font-size: 1.4rem; /* Aumentando o tamanho da fonte para telas menores */
+        padding: 20px 40px; /* Aumentando o tamanho do botão */
+    }
+
+    /* Ajustar o título de quantidade */
+    #titlequantia {
+        font-size: 1.2rem;
+        padding-right: 10px;
+        padding-top: 20px;
+    }
+
+    /* Estilo de Estoque */
+    #estoque {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 480px) {
+    /* Ajustes para telas muito pequenas, como celulares */
+    .product-title {
+        font-size: 1.3rem;
+    }
+
+    .product-price {
+        font-size: 1.1rem;
+    }
+
+    .quantity-container {
+        margin-top: 2rem;
+        width: 100%;
+    }
+
+    .quantidade {
+        width: 60px;
+    }
+
+    #titlequantia {
+        font-size: 1.1rem;
+    }
+
+    .btn-primary,
+    .btn-success {
+        font-size: 1.6rem; /* Aumentando o tamanho da fonte para telas pequenas */
+        padding: 25px 50px; /* Aumentando ainda mais o tamanho do botão */
     }
 }
 
-#carrinho{
-    height:50%;
+/* Customizações de Layout para ícones */
+#carrinho {
+    height: 50%;
     margin-right: 5px;
 }
-#botaocarrinho{
+
+#botaocarrinho {
     display: flex;
 }
-.buttoncoisa{
+
+.buttoncoisa {
     justify-content: center;
     display: flex !important;
     max-width: 17.5vw !important;
     height: 7.5vh;
     align-items: center;
 }
-.quantity-container{
-    margin-top: 27.5vh;
+
+.quantity-container {
     min-width: 40vw;
 }
-#estoque{
+
+#estoque {
     display: flex !important;
     font-size: 0.75rem;
     align-items: end !important;
     text-align: end !important;
 }
-#textobaixo{
+
+#textobaixo {
     padding-top: 50px;
     padding-left: 10px;
 }
-.btn-outline-secondary{
+
+.btn-outline-secondary {
     border: 0 !important;
     margin: 0 !important;
 }
-#titlequantia{
+
+#titlequantia {
     font-size: 1.5rem;
     padding-right: 10px;
     padding-top: 30px;
