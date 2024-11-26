@@ -98,8 +98,8 @@
             <div>
                 <p class="footertitulo">Outras Plataformas</p>
                 <div id="outras_lista">
-                    <a href=""><img src="./assets/imgs/outras_plataformas/shoppe.svg" alt="icone Shopee"> Shopee</a>
-                    <a href=""><img src="./assets/imgs/outras_plataformas/mercado_livre.svg" alt="icone Mercado Livre"> Mercado Livre</a>
+                    <a href="https://br.shp.ee/Pg4znkK"><img src="./assets/imgs/outras_plataformas/shoppe.svg" alt="icone Shopee"> Shopee</a>
+                    <a href="https://produto.mercadolivre.com.br/MLB-3908945095-oleo-de-semente-de-abobora-1350mg-_JM https://br.shp.ee/Pg4znkK"><img src="./assets/imgs/outras_plataformas/mercado_livre.svg" alt="icone Mercado Livre"> Mercado Livre</a>
                     <a href="https://www.tiktok.com/@promel_alex?_t=8rfkLdLY46J&_r=1"><img src="./assets/imgs/outras_plataformas/tiktok.svg" alt="icone TikTok"> TikTok</a>
                 </div>
             </div>
