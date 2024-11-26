@@ -79,8 +79,23 @@ if (!empty($_SESSION['carrinho'])) {
                     <td class="select-all"></td>
                     <td class="actions-footer" colspan="4">
                         <span class="total-price">Total: R$ <?= number_format($valorTotal, 2, ',', '.') ?></span>
-                    
-                        <button class="btn btn-success">Continuar</button>
+                        <a href="https://wa.me/5515996810765?text=<?= rawurlencode(
+                            "Olá! Aqui estão os detalhes do seu carrinho de compras:\n\n\n" . 
+                            implode("\n", array_map(function($pp) {
+                                return "Produto: {$pp['nome']}\n" .
+                                "Preço: R$ " . number_format($pp['preco'], 2, ',', '.') . "\n" .
+                                "Quantidade: {$pp['quantidade']}\n" .
+                                "Subtotal: R$ " . number_format($pp['preco'] * $pp['quantidade'], 2, ',', '.'). "\n"; 
+                            }, $_SESSION['carrinho'])) . 
+                            "\n\n Valor Total: R$ " . number_format(array_reduce($_SESSION['carrinho'], function($total, $item) {
+                                return $total + ($item['preco'] * $item['quantidade']);
+                            }, 0), 2, ',', '.') . 
+                            "\n\n Caso queira confirmar a compra ou adicionar mais itens, responda a esta mensagem! "
+                        ); ?>" 
+                        class="btn btn-success" target="_blank">
+                            Continuar
+                        </a>
+
                     </td>
                 </tr>
             </tfoot>

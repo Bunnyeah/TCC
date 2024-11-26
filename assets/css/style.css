@@ -138,15 +138,17 @@ body {
 .produto-card {
     background-color: #ffffff;
     border: 1px solid #AFAFAF;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
-    width: 17.5%;
-    max-width: 17.5%;
-    height: 50vh;
-    max-height: 50vh;
+    width: 18%;
+    max-width: 18%;
+    height: 60vh;
+    max-height: 60vh;
     word-wrap: break-word;
     margin: 1% 1.2506075%;
+    display: flex;
+    flex-direction: column;
 }
 
 .produto-card:hover {
@@ -163,9 +165,8 @@ body {
 }
 
 .produto-detalhes {
-    height: 27.5%;
-    padding: 15px;
-    overflow: hidden;
+    height: 25%;
+    padding: 5px;
 }
 
 .produto-preco {
@@ -176,23 +177,28 @@ body {
 .produto-nome {
     font-size: 1rem;
     color: #5A5A5A;
-    overflow: hidden;
+}
+
+.div_botao{
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    height: 12%;    
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
 }
 
 .btn-comprar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-color: #2C7669;
     color: #ffffff;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 10px;
     font-weight: bold;
     text-decoration: none;
     transition: background-color 0.3s;
-    height: 10%;
     width: 90%;
-    margin-left: 5%;
+    padding: 1vh 0;
+    border: none;
 }
 
 .btn-comprar:hover {

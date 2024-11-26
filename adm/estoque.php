@@ -1,6 +1,21 @@
 <?php 
 require_once '../connection/connection.php';
-$sql = "SELECT * FROM produto";
+$sql = 'SELECT 
+produto.produto_ID,
+produto.Nome_produto,
+produto.Preco_Und,
+produto.Qtd_stock,
+produto.Qnt_vend,
+produto.Status_prdt,
+produto.Descricao,
+produto.imagem,
+categoria.Nome AS Nome_categoria
+FROM 
+produto
+LEFT JOIN 
+categoria 
+ON 
+produto.fk_categoria_ID = categoria.categoria_ID';
 $conn = $conn->query($sql);
 $produtos = $conn->fetchAll(PDO::FETCH_OBJ);
 ?>
@@ -47,6 +62,7 @@ $produtos = $conn->fetchAll(PDO::FETCH_OBJ);
                     </div>
                     <div id="info_prodt" class="col-8">
                         <p id="txt"><?= $produto->Nome_produto ?></p>
+                        <p id="txt"><?= $produto->Nome_categoria ?></p>
                         <p id="txt">R$ <?= $produto->Preco_Und ?></p>
                         <!-- quantidade no estoque -->
                         <p id="estoque">Estoque: <?= $produto->Qtd_stock ?> itens</p>

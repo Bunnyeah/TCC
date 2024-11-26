@@ -3,6 +3,7 @@ require_once "./connection/connection.php";
 $sqlListarProdutos = "SELECT * FROM produto";
 $stmt = $conn->query($sqlListarProdutos);
 $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -43,6 +44,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
         </div>
         <?php }; ?>
     </section>
+    <!-- Setas -->
     <div class="navigation-buttons">
         <button class="arrow-prev"><img src="./assets/imgs/icons/setaesquerda"></button>
         <button class="arrow-next"><img src="./assets/imgs/icons/setadireita"></button>
@@ -134,6 +136,34 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
         <?php include 'select-produtos.php' ?>
     </section>
     
+    <div class="container-fluid">
+          <div class="row">
+            <!-- Video Tik Tok -->
+            <div class="col-6" id="video">
+              <a href=""><video src=""></video></a>
+            </div>
+            
+            <!-- informações sobre oq é a categoria e seus beneficios -->
+            <div  class="col-6" id="txt">
+              <p></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Localização do Estabelecimento Físico -->
+        <div class="endereco-container">
+          <div id="endereco-image">
+            <div id="local"><img src="./assets/imgs/icons/location.svg"></div>
+          </div>
+          <div class="endereco-items">
+            <span>Endereço: Rua Coronel Arruda Botelho,291 - Centro Boituva - SP,18550-000</span>
+            <span>Telefone: (15)3316-5606</span>
+            <span>Horario de Funcionamento: Aberto as 08:00 Fecha as 19:00 <img src="./assets/imgs/icons/seta_baixo_preta.svg" alt="setinha" id="setinha"></span>
+          </div>
+          <div id="div_img">
+            <a href=""><img src="./assets/imgs/decorativo/maps_home.png" alt="Localização"></a>
+          </div>
+        </div>
 
     <?php include "footer.php"; ?>
 </body>
