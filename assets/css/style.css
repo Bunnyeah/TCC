@@ -131,7 +131,7 @@ body {
 
 .lista-produtos {
     display: flex;
-    justify-content: start;
+    justify-content: space-around;
     flex-wrap: nowrap !important;  /* Garante que os itens fiquem na mesma linha em telas grandes */
     gap: 20px; /* Adiciona espaço entre os produtos */
 }

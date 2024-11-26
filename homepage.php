@@ -137,18 +137,18 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
     </section>
     
     <div class="container-fluid">
-          <div class="row">
+        <div class="row">
             <!-- Video Tik Tok -->
             <div class="col-6" id="video">
-              <a href=""><video src=""></video></a>
+                <a href=""><video src=""></video></a>
             </div>
             
             <!-- informações sobre oq é a categoria e seus beneficios -->
-            <div  class="col-6" id="txt">
-              <p></p>
+            <div class="col-6" id="txt">
+                <p></p>
             </div>
-          </div>
         </div>
+    </div>
 
         <!-- Localização do Estabelecimento Físico -->
         <div class="endereco-container">
