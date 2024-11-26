@@ -98,27 +98,28 @@ ON
             </div>
         </div>
         <!-- Formulário de Adição -->
-        <div id="addproduto">
+    <div id="addproduto">
     <a class="close" id="close">X</a>
     <form enctype="multipart/form-data" action="./functions_adm/cadproduto.php" id="formaddproduto" method="POST">
         <div id="img_perfil" class="col-md-4 col-sm-12 mb-5 mt-4">
             <label for="newprodutoimg">
                 <img src="../assets/imgs/decorativo/arraste_img.png" id="imgperfilAdd">
             </label>
+            
             <input type="file" id="newprodutoimg" name="newprodutoimg">
             <button type="button" id="inputFileAdd" class="d-none">Escolher imagem</button>
         </div>
         <div class="inputs">
-            <label for="nome_produto_add">Nome do Produto:</label>
+            <label for="nome_produto_add">Nome do Produto</label>
             <input class="form-control" type="text" id="nome_produto_add" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off">
 
-            <label for="preco_und_add">Preço Unitário:</label>
+            <label for="preco_und_add">Preço Unitário</label>
             <input class="form-control" type="text" id="preco_und_add" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required>
 
-            <label for="qtd_stock_add">Quantidade em Estoque:</label>
+            <label for="qtd_stock_add">Quantidade em Estoque</label>
             <input class="form-control" type="number" id="qtd_stock_add" name="Qtd_stock" minlength="0" placeholder="Quantidade em estoque" required>
 
-            <label for="selectcategoria">Categoria:</label>
+            <label for="selectcategoria">Categoria</label>
             <select class="form-control" id="selectcategoria" name="fk_categoria_ID">
                 <option value="">Selecionar Categoria</option>
                 <?php
@@ -139,86 +140,57 @@ ON
 </div>
 
 
-    <!-- Formulário de Adição -->
-    <div id="addproduto" onblur="fecha()">
-        <a class="close" id="close">X</a>
-        <form enctype="multipart/form-data" action="./functions_adm/cadproduto.php" id="formaddproduto" method="POST">
-            <div id="img_perfil" class="col-md-4 col-sm-12 mb-5 mt-4">
-                <label for="newprodutoimg">
-                    <img src="../assets/imgs/decorativo/arraste_img.png" id="imgperfilAdd">
-                </label>
-                <input type="file" id="newprodutoimg" name="newprodutoimg">
-                <button type="button" id="inputFileAdd" class="d-none">Escolher imagem</button>
-            </div>
-            <div class="inputs">
-                <input class="form-control" type="text" id="nome_produto_add" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off">
-
-                <!-- SELECIONAR CATEGORIA -->
-                <select id="qtd_stock_add" name="fk_categoria_ID" class="categ">
-                    <option value="">Selecionar Categoria</option>
-                    <?php
-                        $sql1 = 'SELECT * FROM categoria';
-                        $stmt = $conn->prepare($sql1);
-                        $stmt->execute();
-                        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                            echo '<option value="'.$row['categoria_ID'].'">'.$row['Nome'].'</option>';
-                        }
-                ?>
-                </select>
-
-                <input class="form-control" type="number"  id="preco_und_add" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required>
-                <input class="form-control" type="number" id="qtd_stock_add" name="Qtd_stock" minlength="0" placeholder="Quantidade em estoque" required>
-                <textarea class="form-control" id="descricao_add" name="Descricao" placeholder="Descrição" style="resize: none;" required></textarea>
-                <button type="submit" class="submit">Salvar</button>
-            </div>
-        </form>
-    </div>
-
 <!-- Formulário de Edição -->
 <div id="editproduto">
     <a class="close" id="close">X</a>
-    <form enctype="multipart/form-data" action="./functions_adm/editproduto.php" id="formeditproduto" method="POST">
-        <div id="img_perfil" class="col-md-4 col-sm-12">
+    <form enctype="multipart/form-data" action="./functions_adm/editproduto.php" id="formaddproduto" method="POST">
+        <div id="img_perfil" class="col-md-4 col-sm-12 mb-5 mt-4">
             <label for="editprodutoimg">
-                <img src="../assets/imgs/logo.jpg" id="imgperfilEdit">
-                <input type="file" id="editprodutoimg" name="editprodutoimg">
-                <button type="button" id="inputFileEdit" class="d-none">Escolher imagem</button>
+                <img src="../assets/imgs/decorativo/arraste_img.png" id="imgperfilEdit">
             </label>
-            <p type="text" onclick="deleteproduto(<?=$produtos->produto_ID?>)" id="delete" class="submit btn" style="color: red !important;" readonly>deletar produto</p>
+            <p type="text" onclick="deleteproduto(<?=$produtos->produto_ID?>)" id="delete" class="submit btn" style="color: red !important;" readonly>
+                <img src="../assets/imgs/icons/lixo.svg" id="lixo"><span class="txtbutton">Deletar Produto</span></p>
 
+            <input type="file" id="editprodutoimg" name="editprodutoimg">
+            <button type="button" id="inputFileEdit" class="d-none">Escolher imagem</button>
         </div>
         <div class="inputs">
         <input class="form-control d-none" type="number" id="id_produto_edit" name="produto_ID" placeholder="ID" required><br>
-            <input class="form-control" disabled type="text" id="nome_produto_edit" name="Nome_produto" placeholder="Nome do produto" autocomplete="off" required><br>
+            <label for="nome_produto_edit">Nome do Produto</label>
+            <input class="form-control" type="text" id="nome_produto_edit" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off">
 
-             <!-- SELECIONAR CATEGORIA -->
-             <select id="qtd_stock_add" name="fk_categoria_ID" class="categ">
-                    <option value="">Selecionar Categoria</option>
-                    <?php
-                        $sql1 = 'SELECT * FROM categoria';
-                        $stmt = $conn->prepare($sql1);
-                        $stmt->execute();
-                        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                            echo '<option value="'.$row['categoria_ID'].'">'.$row['Nome'].'</option>';
-                        }
+            
+            <label for="preco_und_edit">Preço Unitário</label>
+            <input class="form-control" type="number" id="preco_und_edit" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required>
+            
+            <label for="qtd_stock_edit">Quantidade em Estoque</label>
+            <input class="form-control" type="number" id="qtd_stock_edit" name="Qtd_stock" minlength="0" placeholder="Quantidade em estoque" required>
+            
+            <!-- SELECIONAR CATEGORIA -->
+            <label for="selectcategoria">Categoria</label>
+            <select class="form-control" id="selectcategoria" name="fk_categoria_ID">
+                <option value="">Selecionar Categoria</option>
+                <?php
+                    $sql1 = 'SELECT * FROM categoria';
+                    $stmt = $conn->prepare($sql1);
+                    $stmt->execute();
+                    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                        echo '<option value="'.$row['categoria_ID'].'">'.$row['Nome'].'</option>';
+                    }
                 ?>
-                </select>
+            </select>
+            <label for="descricao_edit">Descrição:</label>
+            <textarea class="form-control" id="descricao_edit" name="Descricao" placeholder="Descrição" style="resize: none;" required></textarea>
 
-            <input class="form-control" type="number" id="preco_und_edit" name="Preco_Und" placeholder="Preço Unitário" required><br>
-            <input class="form-control" type="number" id="qtd_stock_edit" name="Qtd_stock" placeholder="Quantidade em estoque" required><br>
-            <textarea class="form-control" id="descricao_edit" name="Descricao" placeholder="Descrição" style="resize: none;" required></textarea><br>
             <button type="submit" class="submit">Salvar</button>
         </div>
     </form>
 </div>
 <script>
-   $(document).ready(function () {
-            $('#preco_und_add').mask('#.##0,00', {reverse: true});
+    $(document).ready(function () {
+            $('#preco_und_add').mask('000.000.000.000.000,00', {reverse: true});
         });
-
-        $(document).ready(function () {
-            $('#preco_und_edit').mask('#.##0,00', {reverse: true});
-        });
+        
 </script>
 
 

@@ -213,47 +213,14 @@ input, textarea{
     padding: 1vh 1vw;
 }
 
-/* POP-UP EDITAR PRODUTO */
-#editproduto{
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: fixed;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
-
-#formeditproduto{
-    border: solid #AFAFAF 1px;
-    border-radius: 25px;
-    background-color: white;
-    height: 60vh;
-    width: 50vw;
-    display: flex;
-    flex-direction: wrap;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-around;
-}
-
-#editproduto input{
-    border: solid #AFAFAF 1px;
-    height: 5vh;
-    width: 20vw;
-}
-
-#editproduto textarea{
-    border: solid #AFAFAF 1px;
-    height: 10vh;
-    width: 20vw;
-}
-
 /* Deletar produto (no pop-up de editar) */
 #delete{
     background-color: #FFFFFF;
-    margin-right: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: end;
+    padding-top: 20%;
 }
 
 /* Parte de escolher categoria */
@@ -339,7 +306,7 @@ input[type=file]{
 
 
 /* POP-UP ADICIONAR PRODUTO */
-#addproduto {
+#editproduto, #addproduto {
     display: none;
     position: fixed;
     z-index: 1;
@@ -364,7 +331,7 @@ input[type=file]{
     justify-content: space-around;
 }
 
-#addproduto input {
+#addproduto input, #editproduto input {
     border: solid #AFAFAF 1px;
     height: 5vh;
     width: 20vw;
@@ -377,16 +344,20 @@ input[type=file]{
     margin-bottom: 2.5vh;
 }
 
-#addproduto textarea {
+#addproduto textarea, #editproduto textarea {
     border: solid #AFAFAF 1px;
     height: 10vh;
     width: 20vw;
 }
 
+#lixo{
+    width: 32px !important;
+    height: 32px !important;
+}
 /* Responsividade */
 @media (max-width: 768px) {
-    #addproduto{
-        margin-top: 2vh;
+#editproduto,#addproduto{
+        margin-top: 3vh;
     }
     #formaddproduto {
         padding: 0;
@@ -414,17 +385,28 @@ input[type=file]{
         font-size: 14px;
     }
     #img_perfil{
-        margin-bottom:2vh !important;
+        margin-bottom:15vh !important;
         width: 90%;
         margin-top: 0 !important;
-        height: 30vh;
+        height: 5vh;
+        padding-top: 20vh;
     }
-    #imgperfilAdd{
-        height: 20%;
+    #imgperfilAdd, #imgperfilEdit{
         width: auto;
         max-height: 90%;
         max-width: 90%;
     }
+    .close{
+        position: absolute;
+        top: 2%;
+        left: 85%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 }
 
 /* Para telas menores que 700px */

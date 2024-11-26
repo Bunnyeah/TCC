@@ -120,6 +120,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
                         </div>
                     </div>
 
+                    <!-- função pop up -->
+                    <script>
+                        $("#botaocarrinho").click(function() {
+                            swal("Mensagem!");
+                        });
+                    </script>
+
                     <!-- Botões de Ação -->
                     <div class="action-buttons d-flex gap-3">
                         <button type="submit" name="adicionar_carrinho" class="buttoncoisa btn btn-primary flex-fill" id="botaocarrinho">
@@ -155,6 +162,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
         }
     }
 </script>
-</body>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
 </html>
