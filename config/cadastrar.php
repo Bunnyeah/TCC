@@ -17,13 +17,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindValue(':senha', $senha_hash);
 
         if ($stmt->execute()) {
-            echo "Usuário criado com sucesso";
+            echo "<script> 
+                alert('Usuário criado com sucesso');
+                window.location.href = 'alterarsenha.php'
+            </script>;";
             header("Location: ../login.php");
         } else {
             echo "Erro: " . $conn->errorInfo();
         }
     }else{
-        echo('As senhas não coincidem');
+        echo "<script> 
+        alert('As senhas não coincidem');
+        window.location.href = '../cadastro.php'
+    </script>;";  
     }
 }
 $conn = null;

@@ -11,11 +11,6 @@
 
     if ($stmt->rowCount() === 1) {
         $usuario = $stmt->fetch(PDO::FETCH_OBJ);
-
-                // if($usuario->senha = "123" && $usuario->email = "adm@adm.com"){
-                //     $_SESSION["loggedin"] = true;
-                //     header("Location: ../adm/produtos.php");
-                // }
                 if (password_verify($senha, $usuario->Senha)) {
                     session_start();
                     $_SESSION["loggedin"] = true;
@@ -29,7 +24,10 @@
                     header("Location: ../user/perfil.php");
                     exit;
                 } else {
-                    echo "Usuário ou senha incorretos.";
+                    echo "<script> 
+                        alert('Usuário ou senha incorretos');
+                        window.location.href = '../login.php'
+                    </script>;";  
                 }
             }
 
