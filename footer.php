@@ -100,7 +100,7 @@
                 <div id="outras_lista">
                     <a href=""><img src="./assets/imgs/outras_plataformas/shoppe.svg" alt="icone Shopee"> Shopee</a>
                     <a href=""><img src="./assets/imgs/outras_plataformas/mercado_livre.svg" alt="icone Mercado Livre"> Mercado Livre</a>
-                    <a href=""><img src="./assets/imgs/outras_plataformas/tiktok.svg" alt="icone TikTok"> TikTok</a>
+                    <a href="https://www.tiktok.com/@promel_alex?_t=8rfkLdLY46J&_r=1"><img src="./assets/imgs/outras_plataformas/tiktok.svg" alt="icone TikTok"> TikTok</a>
                 </div>
             </div>
         </div>
