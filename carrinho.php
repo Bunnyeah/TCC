@@ -79,6 +79,8 @@ if (!empty($_SESSION['carrinho'])) {
                     <td class="select-all"></td>
                     <td class="actions-footer" colspan="4">
                         <span class="total-price">Total: R$ <?= number_format($valorTotal, 2, ',', '.') ?></span>
+                    
+                        <!-- <button class="btn btn-success">Continuar</button> -->
                         <a href="https://wa.me/5515996810765?text=<?= rawurlencode(
                             "Olá! Aqui estão os detalhes do seu carrinho de compras:\n\n\n" . 
                             implode("\n", array_map(function($pp) {
@@ -95,12 +97,10 @@ if (!empty($_SESSION['carrinho'])) {
                         class="btn btn-success" target="_blank">
                             Continuar
                         </a>
-
                     </td>
                 </tr>
             </tfoot>
         </table>
-        
+
     </div>
 </body>
-</html>

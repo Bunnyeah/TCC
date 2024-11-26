@@ -2,12 +2,21 @@
 <?php
 // Configuração inicial
 require_once "./connection/connection.php";
-
+session_start();
 // Obtém o ID do produto da URL
 $produtoId = $_GET['id'] ?? null;
 if ($produtoId) {
     // Prepara e executa a consulta para buscar o produto pelo ID
-    $stmt = $conn->prepare("SELECT * FROM produto WHERE produto_ID = :id");
+    $stmt = $conn->prepare("SELECT     
+    produto.produto_ID,
+    produto.Nome_produto,
+    produto.Preco_Und,
+    produto.Qtd_stock,
+    produto.Qnt_vend,
+    produto.Status_prdt,
+    produto.Descricao,
+    produto.imagem
+    FROM produto WHERE produto_ID = :id");
     $stmt->bindValue(':id', $produtoId, PDO::PARAM_INT);
     $stmt->execute();
     $produto = $stmt->fetch(PDO::FETCH_OBJ); // Obtém o produto como objeto
@@ -120,11 +129,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
                     </div>
 
                     <!-- função pop up -->
-                    <script>
+                    <!-- <script>
                         $("#botaocarrinho").click(function() {
                             swal("Mensagem!");
                         });
-                    </script>
+                    </script> -->
 
                     <!-- Botões de Ação -->
                     <div class="action-buttons d-flex gap-3">
