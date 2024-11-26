@@ -186,7 +186,7 @@ tfoot .actions-footer .total-price {
     color: #333;
 }
 
-tfoot .actions-footer button {
+tfoot .actions-footer a {
     padding: 1.5vh 3.5vh;
     background-color: #17a2b8;
     color: #fff;
@@ -197,8 +197,11 @@ tfoot .actions-footer button {
     left: 75vw;
     position: absolute;
     display: flex;
+    text-decoration: none; /* Remove o sublinhado dos links */
+    align-items: center; /* Centraliza o conteúdo dentro do link */
+    justify-content: center; /* Centraliza horizontalmente */
 }
 
-tfoot .actions-footer button:hover {
+tfoot .actions-footer a:hover {
     background-color: #138496;
 }

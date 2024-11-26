@@ -58,9 +58,21 @@ if (isset($_GET['id'])) { //Aqui eu pego o Fetch pra usar o select e colocar ess
             }
         }
 
+<<<<<<< HEAD
         $sql = "UPDATE produto SET Preco_Und = :Preco_Und, Qtd_stock = :Qtd_stock, Descricao = :Descricao, Nome_produto = :Nome_produto, imagem = :imagem WHERE produto_ID = :produto_ID";
+=======
+        $sql = "UPDATE produto 
+        SET Preco_Und = :Preco_Und, 
+            Qtd_stock = :Qtd_stock, 
+            Descricao = :Descricao, 
+            Nome_produto = :Nome_produto" 
+            . (isset($target_file) ? ", imagem = :imagem" : "") 
+            . ", fk_categoria_ID = :fk_categoria_ID 
+        WHERE produto_ID = :produto_ID";
+>>>>>>> ab1ea94473d2293002ac1bb55a16f730bdc89e8c
 
         $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':produto_ID', htmlspecialchars($produto_ID)); // Sempre vincule o ID do produto
         $stmt->bindValue(':Preco_Und', htmlspecialchars($Preco_Und));
         $stmt->bindValue(':Qtd_stock', htmlspecialchars($Qtd_stock));
         $stmt->bindValue(':Descricao', htmlspecialchars($Descricao));
@@ -69,7 +81,7 @@ if (isset($_GET['id'])) { //Aqui eu pego o Fetch pra usar o select e colocar ess
         if (isset($target_file)) {
             $stmt->bindValue(':imagem', $nomearquivo);
         }
-        $stmt->bindValue(':produto_ID', htmlspecialchars($produto_ID)); // Sempre vincule o ID do produto
+        $stmt->bindValue(':fk_categoria_ID', htmlspecialchars($fk_categoria_ID));
         // var_dump($produto_ID, $Preco_Und, $Qtd_stock, $Descricao, $Nome_produto);
         $stmt->execute();
         header("Location: ../produtos.php");

@@ -2,7 +2,7 @@
 require_once "./connection/connection.php";
 session_start();
 include "header.php";
-
+if (isset($_SESSION["loggedin"])) {
 // var_dump($_SESSION['carrinho']);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remover_item'])) {
@@ -79,17 +79,42 @@ if (!empty($_SESSION['carrinho'])) {
                     <td class="select-all"></td>
                     <td class="actions-footer" colspan="4">
                         <span class="total-price">Total: R$ <?= number_format($valorTotal, 2, ',', '.') ?></span>
-                    
-                        <!-- colocar : <a href="https://wa.me/5515996810765?text=Olá, estou interessado no produto <?= urlencode($produto->Nome_produto) ?>" class="buttoncoisa btn btn-success flex-fill" target="_blank">
-                                    Nome
-                                </a>
-                        ou parecido com isso pra que na mensagem mostre todos os produtos do carrinho ou só os selecionados -->
-                        <button class="btn btn-success">Continuar</button> 
+                        <?php
+// Verifique se o carrinho está vazio
+if (empty($_SESSION['carrinho'])) {
+    echo '<p>Seu carrinho está vazio. Adicione produtos antes de continuar!</p>';
+} else {
+    // Gere o link do WhatsApp com os dados do carrinho
+    $mensagem = rawurlencode(
+        "Olá! Aqui estão os detalhes do seu carrinho de compras:\n\n\n" . 
+        implode("\n", array_map(function($pp) {
+            return "Produto: {$pp['nome']}\n" .
+                   "Preço: R$ " . number_format($pp['preco'], 2, ',', '.') . "\n" .
+                   "Quantidade: {$pp['quantidade']}\n" .
+                   "Subtotal: R$ " . number_format($pp['preco'] * $pp['quantidade'], 2, ',', '.'). "\n"; 
+        }, $_SESSION['carrinho'])) . 
+        "\n\nValor Total: R$ " . number_format(array_reduce($_SESSION['carrinho'], function($total, $item) {
+            return $total + ($item['preco'] * $item['quantidade']);
+        }, 0), 2, ',', '.') . 
+        "\n\nCaso queira confirmar a compra ou adicionar mais itens, responda a esta mensagem!"
+    );
+
+    echo '<a href="https://wa.me/5515996810765?text=' . $mensagem . '" class="btn btn-success" target="_blank">
+            Continuar
+          </a>';
+}
+?>
                     </td>
                 </tr>
             </tfoot>
         </table>
-        
+
     </div>
+    <?php
+    } else {
+        header("Location: ./adm/perfil.php");
+        exit();
+    }
+    ?>
 </body>
 </html>
