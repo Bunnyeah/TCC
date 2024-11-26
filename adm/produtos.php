@@ -43,7 +43,22 @@
             require_once '../connection/connection.php';
 
             // if (isset($_SESSION["loggedin"])) {
-                $sql = 'SELECT * FROM produto';
+                $sql = 'SELECT 
+    produto.produto_ID,
+    produto.Nome_produto,
+    produto.Preco_Und,
+    produto.Qtd_stock,
+    produto.Qnt_vend,
+    produto.Status_prdt,
+    produto.Descricao,
+    produto.imagem,
+    categoria.Nome AS Nome_categoria
+FROM 
+    produto
+LEFT JOIN 
+    categoria 
+ON 
+    produto.fk_categoria_ID = categoria.categoria_ID';
                 $stmt = $conn->prepare($sql);
                 $stmt->execute();
 
@@ -63,9 +78,9 @@
                         <input class="form-control" type="number" name="produto_ID" value="<?=$produtos->produto_ID?>" style="display: none"; readonly>
                     </div>
                         <div id="all_info">
-                            <!-- <div id="txt1"><p>Categoria: <?=$categoria->Nome?></p></div> -->
-                            <div id="txt2"><p>Preço: <?=$produtos->Preco_Und?> (unidade) </p></div>
-                            <div id="txt3"><p>Qtds Vendidas <?=$produtos->Qnt_vend?></p></div>
+                            <div id="txt2"><p>Categoria: <?=$produtos->Nome_categoria?></p></div>
+                            <div id="txt3"><p>Preço: <?=$produtos->Preco_Und?> (unidade) </p></div>
+                            <!-- <div id="txt3"><p>Qtds Vendidas</p></div> -->
                             <div class="linhabaixo">
                                 <div id="txt4"><p>Estoque: <?=$produtos->Qtd_stock?></p></div>
                                 <button onclick="editproduto(<?=$produtos->produto_ID?>)" class="btn_edit">Editar</button>
@@ -197,12 +212,6 @@
     </form>
 </div>
 <script>
-<<<<<<< HEAD
-    $(document).ready(function () {
-            $('#preco_und_add').mask('000.000.000.000.000,00', {reverse: true});
-        });
-        
-=======
    $(document).ready(function () {
             $('#preco_und_add').mask('#.##0,00', {reverse: true});
         });
@@ -210,7 +219,6 @@
         $(document).ready(function () {
             $('#preco_und_edit').mask('#.##0,00', {reverse: true});
         });
->>>>>>> 9772a9d7538b02bb030b99abcd51eb46dad4b319
 </script>
 
 
