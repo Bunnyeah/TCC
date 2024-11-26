@@ -80,7 +80,11 @@ if (!empty($_SESSION['carrinho'])) {
                     <td class="actions-footer" colspan="4">
                         <span class="total-price">Total: R$ <?= number_format($valorTotal, 2, ',', '.') ?></span>
                     
-                        <button class="btn btn-success">Continuar</button>
+                        <!-- colocar : <a href="https://wa.me/5515996810765?text=Olá, estou interessado no produto <?= urlencode($produto->Nome_produto) ?>" class="buttoncoisa btn btn-success flex-fill" target="_blank">
+                                    Nome
+                                </a>
+                        ou parecido com isso pra que na mensagem mostre todos os produtos do carrinho ou só os selecionados -->
+                        <button class="btn btn-success">Continuar</button> 
                     </td>
                 </tr>
             </tfoot>

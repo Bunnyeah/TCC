@@ -171,24 +171,11 @@
         </div>
     </form>
 </div>
-
-
-
-
-
-
-        <script>
-            // document.getElementById("delete").onsubmit = function(event) {
-            // }
-        </script>
 <script>
-   $(document).ready(function () {
-            $('#preco_und_add').mask('#.##0,00', {reverse: true});
+    $(document).ready(function () {
+            $('#preco_und_add').mask('000.000.000.000.000,00', {reverse: true});
         });
-
-        $(document).ready(function () {
-            $('#preco_und_edit').mask('#.##0,00', {reverse: true});
-        });
+        
 </script>
 
 
