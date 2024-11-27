@@ -261,3 +261,37 @@ body {
     padding-right: 10px;
     padding-top: 30px;
 }
+@media (max-width: 768px) {
+    /* Botões de Quantidade */
+    .quantidade button {
+        font-size: 1.5rem; /* Aumenta o tamanho do texto */
+        width: 50px; /* Largura dos botões */
+        height: 50px; /* Altura dos botões */
+    }
+
+    /* Botões principais */
+    .btn-primary,
+    .btn-success {
+        font-size: 1.6rem; /* Aumenta o tamanho da fonte */
+        padding: 20px 30px; /* Aumenta o preenchimento interno */
+        border-radius: 10px; /* Mantém a aparência arredondada */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Botões de Quantidade */
+    .quantidade button {
+        font-size: 1.8rem; /* Aumenta ainda mais para telas menores */
+        width: 60px; /* Maior largura */
+        height: 60px; /* Maior altura */
+    }
+
+    /* Botões principais */
+    .btn-primary,
+    .btn-success {
+        font-size: 2rem; /* Tamanho da fonte maior */
+        padding: 25px 40px; /* Mais espaçamento interno */
+        border-radius: 12px; /* Levemente mais arredondado */
+    }
+}
+

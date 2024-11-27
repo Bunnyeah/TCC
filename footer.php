@@ -63,6 +63,22 @@
         width: 50%;
         margin-left: 25%;
     }
+    @media (max-width: 768px) {
+        #footer{
+            height: auto;
+        }
+    #footercontainer {
+        display: none; /* Oculta todas as divs, exceto a última (copyright) */
+    }
+
+    .row {
+        margin-top: 2vh;
+        height:fit-content;
+    }
+}
+
+
+
     </style>
 </head>
 <body>

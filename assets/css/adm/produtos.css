@@ -265,13 +265,18 @@ input, textarea{
     cursor: pointer;
 }
 
-#img_perfil{
-    width: 50%;
+#img_perfil {
+    width: 100%;  /* Ou ajuste para o valor que você deseja */
+    max-width: 300px;  /* Limita a largura máxima */
+    height: auto;  /* Ajusta automaticamente a altura */
+    margin-top: 20px;  /* Define um espaço superior */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    justify-content: center;  /* Alinha o conteúdo horizontalmente */
+    align-items: center;  /* Alinha o conteúdo verticalmente */
+    flex-direction: column;  /* Exibe os filhos na coluna */
+    text-align: center;  /* Centraliza o texto dentro do contêiner */
 }
+
 
 #img_perfil img{
     max-width: 100%;
@@ -360,6 +365,23 @@ input[type=file]{
     width: 32px !important;
     height: 32px !important;
 }
+
+#container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Altura do container */
+}
+
+#imgperfilAdd {
+    width: auto;
+    max-height: none;
+    max-width: none;
+    margin-bottom: 1vh;
+}
+
+
+
 /* Responsividade */
 @media (max-width: 768px) {
 #editproduto,#addproduto{
@@ -399,8 +421,9 @@ input[type=file]{
     }
     #imgperfilAdd, #imgperfilEdit{
         width: auto;
-        max-height: 90%;
-        max-width: 90%;
+        max-height: none;
+        max-width: none;
+        margin-bottom: 1vh;
     }
     .close{
         position: absolute;

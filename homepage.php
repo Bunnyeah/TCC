@@ -158,10 +158,10 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
           <div class="endereco-items">
             <span>Endereço: Rua Coronel Arruda Botelho,291 - Centro Boituva - SP,18550-000</span>
             <span>Telefone: (15)3316-5606</span>
-            <span>Horario de Funcionamento: Aberto as 08:00 Fecha as 19:00 <img src="./assets/imgs/icons/seta_baixo_preta.svg" alt="setinha" id="setinha"></span>
+            <span>Horario de Funcionamento: Aberto as 08:00 Fecha as 19:00</span>
           </div>
           <div id="div_img">
-            <a href=""><img src="./assets/imgs/decorativo/maps_home.png" alt="Localização"></a>
+            <a href=""><img src="./assets/imgs/decorativo/maps_home.png" alt="Localização" id="imgendereco"></a>
           </div>
         </div>
 
