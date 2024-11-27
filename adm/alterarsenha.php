@@ -13,9 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $idusuario = $_SESSION['idusuario'];
 
     // Obtenha os valores do formulário
-    $senha_atual = $_POST['senha_atual'] ?? '';
-    $nova_senha = $_POST['nova_senha'] ?? '';
-    $confirma_senha = $_POST['confirmsenha'] ?? '';
+    $senha_atual = $_POST['senha_atual'];
+    $nova_senha = $_POST['nova_senha'];
+    $confirma_senha = $_POST['confirmsenha'];
 
     // Verifique se as novas senhas coincidem
     if ($nova_senha !== $confirma_senha) {

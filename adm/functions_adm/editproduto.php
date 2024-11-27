@@ -93,6 +93,7 @@ if (isset($_GET['id'])) { // Aqui eu pego o Fetch pra usar o select e colocar es
     $stmt->bindValue(':fk_categoria_ID', htmlspecialchars($fk_categoria_ID));
     
     if (isset($target_file)) {
+        unlink("../../assets/imgs/produtos/".htmlspecialchars($imagem)."");
         $stmt->bindValue(':imagem', $nomearquivo);
     }
 

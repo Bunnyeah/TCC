@@ -62,6 +62,7 @@ function editproduto(produtoID) {
                 document.getElementById('qtd_stock_edit').value = data.Qtd_stock;
                 document.getElementById('descricao_edit').value = data.Descricao;
                 document.getElementById('selectcategoria').value = data.fk_categoria_ID;
+                document.getElementById('imagemproduto').value = data.imagem;
                 document.getElementById('delete').value = produtoID;
 
                 // Atualizar a imagem se necessário
