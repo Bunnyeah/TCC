@@ -29,10 +29,6 @@ if (isset($_POST['excluir_feedback'])) {
         <!-- Navbar Mobile -->
         <?php include "navbar.php"?>
         
-        <script>
-            const paginas = document.querySelectorAll('.botao');
-            paginas[2].classList.add('pagatual');
-        </script>
 
         <!-- Titulo -->
         <div id="containertotal">
@@ -41,9 +37,7 @@ if (isset($_POST['excluir_feedback'])) {
             <div class="container">
                     <div>
                         <?php
-                            $query_avaliacoes = "SELECT id_avaliacao, qtd_estrela, comentario 
-                                                FROM avaliacoes
-                                                ORDER BY id_avaliacao DESC";
+                            $query_avaliacoes = "SELECT id_avaliacao, qtd_estrela, comentario FROM avaliacoes";
 
                             $result_avaliacoes = $conn->prepare($query_avaliacoes);
                             $result_avaliacoes->execute();
@@ -69,6 +63,10 @@ if (isset($_POST['excluir_feedback'])) {
                         ?>
                     </div>
             </div>
+            <script>
+            const paginas = document.querySelectorAll('.botao');
+            paginas[3].classList.add('pagatual');
+            </script>
         </div>
 
 </body>

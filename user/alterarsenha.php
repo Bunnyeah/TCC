@@ -13,9 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $idusuario = $_SESSION['idusuario'];
 
     // Obtenha os valores do formulário
-    $senha_atual = $_POST['senha_atual'] ?? '';
-    $nova_senha = $_POST['nova_senha'] ?? '';
-    $confirma_senha = $_POST['confirmsenha'] ?? '';
+    $senha_atual = $_POST['senha_atual'];
+    $nova_senha = $_POST['nova_senha'];
+    $confirma_senha = $_POST['confirmsenha'];
 
     // Verifique se as novas senhas coincidem
     if ($nova_senha !== $confirma_senha) {
@@ -91,10 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="quadrado">
             <h3 id="title" class="my-md-5">Alterar Senha</h3>
 
-            <form id="formcad" action="" enctype="multipart/form-data" class="row" method="POST">
-                <div class="image">
-                    <img src="../uploads/<?=$_SESSION["idusuario"];?>.jpeg">
-                </div>
+            <form id="formcad" action="" enctype="multipart/form-data"  method="POST">
                 <div class="col-12 mt-3">
                     <div class="mb-3">
                         <label for="password" class="form-label">Senha Atual</label>
@@ -119,25 +116,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <script>
-        
-        Inputmask({
-            alias: "email"
-        }).mask("#email");
-
-        
-        Inputmask({
-            regex: "[A-Za-z0-9]{8,20}"
-        }).mask("#password");
-
-        Inputmask({
-            regex: "[A-Za-z0-9]{8,20}"
-        }).mask("#senha");
-
-        Inputmask({
-            regex: "[A-Za-z0-9]{8,20}"
-        }).mask("#confirmsenha");
-
-        
         const inputs = document.querySelectorAll("input, textarea");
         inputs.forEach(input => {
             input.addEventListener("input", () => {

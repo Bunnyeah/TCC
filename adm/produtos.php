@@ -76,6 +76,8 @@ ON
                     <div class="centralizar">
                         <p><?=$produtos->Nome_produto?></p>
                         <input class="form-control" type="number" name="produto_ID" value="<?=$produtos->produto_ID?>" style="display: none"; readonly>
+                        <input class="form-control" type="text" name="imagem" value="<?=$produtos->imagem?>" style="display: none"; readonly>
+
                     </div>
                         <div id="all_info">
                             <div id="txt2"><p>Categoria: <?=$produtos->Nome_categoria?></p></div>
@@ -155,13 +157,15 @@ ON
             <button type="button" id="inputFileEdit" class="d-none">Escolher imagem</button>
         </div>
         <div class="inputs">
-        <input class="form-control d-none" type="number" id="id_produto_edit" name="produto_ID" placeholder="ID" required><br>
+        <input class="form-control d-none" type="number" id="id_produto_edit" name="produto_ID" placeholder="ID" required>
+        <input class="form-control d-none" type="text" id="imagemproduto" name="imagem" placeholder="ID" required>
+
             <label for="nome_produto_edit">Nome do Produto</label>
             <input class="form-control" type="text" id="nome_produto_edit" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off">
 
             
             <label for="preco_und_edit">Preço Unitário</label>
-            <input class="form-control" type="number" id="preco_und_edit" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required>
+            <input class="form-control" type="text" id="preco_und_edit" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required>
             
             <label for="qtd_stock_edit">Quantidade em Estoque</label>
             <input class="form-control" type="number" id="qtd_stock_edit" name="Qtd_stock" minlength="0" placeholder="Quantidade em estoque" required>
@@ -191,9 +195,39 @@ ON
 </div>
 <script>
     $(document).ready(function () {
-            $('#preco_und_add').mask('000.000.000.000.000,00', {reverse: true});
+            $('#preco_und_add').mask('#.##0,00', {reverse: true});
+            $('#preco_und_edit').mask('#.##0,00', {reverse: true});
         });
         
+        document.addEventListener('DOMContentLoaded', function() {
+        const valorInput = document.getElementById('qtd_stock_add');
+
+            valorInput.addEventListener('input', function() {
+            const valorNulo = parseInt(this.getAttribute('data-max'), 10);
+            const valor = parseInt(this.value, 10) || 0; 
+
+            if (valor < 0) {
+                this.value = 0; 
+            } else if (valor > valorNulo) {
+                this.value = valorNulo; 
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const valorInput2 = document.getElementById('qtd_stock_edit');
+
+            valorInput2.addEventListener('input', function() {
+            const valorNulo2 = parseInt(this.getAttribute('data-max'), 10);
+            const valor2 = parseInt(this.value, 10) || 0; 
+
+            if (valor2 < 0) {
+                this.value = 0; 
+            } else if (valor2 > valorNulo2) {
+                this.value = valorNulo2; 
+            }
+        });
+    });
 </script>
 
 
