@@ -14,6 +14,7 @@
                         <div class="linha"><div class="seta"></div><a class="botao" href="./perfil.php"><p>Perfil</p></a></div>
                         <div class="linha"><div class="seta"></div><a class="botao" href="./alterarsenha.php"><p>Trocar Senha</p></a></div>
                         <div class="linha"><div class="seta"></div><a class="botao" href="./estoque.php"><p>Estoque</p></a></div>
+                        <div class="linha"><div class="seta"></div><a class="botao" href="./feedback.php"><p>Feedbacks</p></a></div>
 
                     </div>
                     <div id="sair"><a href="../config/logout.php"><img src="../assets/imgs/icons/logoutbranco.svg"><p>Sair</p></a></div>

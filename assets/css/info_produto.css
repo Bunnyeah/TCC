@@ -50,11 +50,19 @@ body {
 }
 
 .estrelas label:before{
-    color: #428390;
+    color: #ffde4a;
 }
 
 .estrelas input[type=radio]:checked~label:before{
     color: #c7c7c7;
+}
+
+.estrela-preenchida{
+    color: #ffde4a;
+}
+
+.estrela-vazia{
+    color: #c7c7c7;;
 }
 
 /* Estoque e Descrição */

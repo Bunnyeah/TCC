@@ -26,11 +26,11 @@ if (!empty($_POST['estrela'])) {
     // Acessa o IF quando cadastrar corretamente
     if ($cad_avaliacao->execute()) {
 
-        $_SESSION['msg'] = "<p style='color: green;'>Avaliação cadastrar com sucesso.</p>";
+        $_SESSION['msg'] = "<p style='color: green;'>Avaliação feita com sucesso.</p>";
         header("Location: ../info_produto.php?id=" . $idproduto);
     } else {
 
-        $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Avaliação não cadastrar.</p>";
+        $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Não foi possível avaliar.</p>";
         header("Location: ../info_produto.php?id=" . $idproduto);
     }
 } else {
