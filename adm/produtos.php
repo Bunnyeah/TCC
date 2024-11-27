@@ -76,6 +76,8 @@ ON
                     <div class="centralizar">
                         <p><?=$produtos->Nome_produto?></p>
                         <input class="form-control" type="number" name="produto_ID" value="<?=$produtos->produto_ID?>" style="display: none"; readonly>
+                        <input class="form-control" type="text" name="imagem" value="<?=$produtos->imagem?>" style="display: none"; readonly>
+
                     </div>
                         <div id="all_info">
                             <div id="txt2"><p>Categoria: <?=$produtos->Nome_categoria?></p></div>
@@ -155,7 +157,9 @@ ON
             <button type="button" id="inputFileEdit" class="d-none">Escolher imagem</button>
         </div>
         <div class="inputs">
-        <input class="form-control d-none" type="number" id="id_produto_edit" name="produto_ID" placeholder="ID" required><br>
+        <input class="form-control d-none" type="number" id="id_produto_edit" name="produto_ID" placeholder="ID" required>
+        <input class="form-control d-none" type="text" id="imagemproduto" name="imagem" placeholder="ID" required>
+
             <label for="nome_produto_edit">Nome do Produto</label>
             <input class="form-control" type="text" id="nome_produto_edit" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off">
 
