@@ -22,7 +22,7 @@ if (!empty($query)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Resultados da Pesquisa</title>
-   
+
 </head>
 <?php include "header.php"; ?>
 
@@ -34,15 +34,14 @@ if (!empty($query)) {
         <?php if (!empty($produtos)): ?>
             <?php foreach ($produtos as $produto): ?>
                 <div class="produto-card">
-                    <img src="assets/imgs/produtos/<?= htmlspecialchars($produto['imagem']); ?>" 
-                         alt="<?= htmlspecialchars($produto['Nome_produto']); ?>">
+                    <img src="assets/imgs/produtos/<?= htmlspecialchars($produto['imagem']); ?>" alt="<?= htmlspecialchars($produto['Nome_produto']); ?>">
                     <div class="produto-detalhes">
                         <p class="produto-preco">
                             R$<?= number_format($produto['Preco_Und'], 2, ',', '.'); ?>
                         </p>
                         <p class="produto-nome"><?= htmlspecialchars($produto['Nome_produto']); ?></p>
                     </div>
-                    <a href="./info_produto.php?id=<?= $produto['produto_ID']; ?>" class="btn-comprar">Comprar</a>
+                    <a href="./info_produto.php?id=<?= $produto['produto_ID']; ?>" class="btn-comprar2">Comprar</a>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>

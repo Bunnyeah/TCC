@@ -202,6 +202,20 @@ body {
     border: none;
 }
 
+.btn-comprar2 {
+    background-color: #2C7669;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    width: 90%;
+    padding: 1vh 0;
+    border: none;
+    margin-left: 1vw;
+}
+
 .btn-comprar:hover {
     background-color: #235e56;
 }

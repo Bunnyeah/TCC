@@ -161,7 +161,7 @@ ON
 
             
             <label for="preco_und_edit">Preço Unitário</label>
-            <input class="form-control" type="number" id="preco_und_edit" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required>
+            <input class="form-control" type="text" id="preco_und_edit" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required>
             
             <label for="qtd_stock_edit">Quantidade em Estoque</label>
             <input class="form-control" type="number" id="qtd_stock_edit" name="Qtd_stock" minlength="0" placeholder="Quantidade em estoque" required>
@@ -191,9 +191,39 @@ ON
 </div>
 <script>
     $(document).ready(function () {
-            $('#preco_und_add').mask('000.000.000.000.000,00', {reverse: true});
+            $('#preco_und_add').mask('#.##0,00', {reverse: true});
+            $('#preco_und_edit').mask('#.##0,00', {reverse: true});
         });
         
+        document.addEventListener('DOMContentLoaded', function() {
+        const valorInput = document.getElementById('qtd_stock_add');
+
+            valorInput.addEventListener('input', function() {
+            const valorNulo = parseInt(this.getAttribute('data-max'), 10);
+            const valor = parseInt(this.value, 10) || 0; 
+
+            if (valor < 0) {
+                this.value = 0; 
+            } else if (valor > valorNulo) {
+                this.value = valorNulo; 
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const valorInput2 = document.getElementById('qtd_stock_edit');
+
+            valorInput2.addEventListener('input', function() {
+            const valorNulo2 = parseInt(this.getAttribute('data-max'), 10);
+            const valor2 = parseInt(this.value, 10) || 0; 
+
+            if (valor2 < 0) {
+                this.value = 0; 
+            } else if (valor2 > valorNulo2) {
+                this.value = valorNulo2; 
+            }
+        });
+    });
 </script>
 
 
