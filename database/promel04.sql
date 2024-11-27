@@ -60,7 +60,6 @@ DROP TABLE IF EXISTS `categoria`;
 CREATE TABLE IF NOT EXISTS `categoria` (
   `categoria_ID` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(60) DEFAULT NULL,
-  `Cor_Caixa` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`categoria_ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -68,8 +67,8 @@ CREATE TABLE IF NOT EXISTS `categoria` (
 -- Extraindo dados da tabela `categoria`
 --
 
-INSERT INTO `categoria` (`categoria_ID`, `Nome`, `Cor_Caixa`) VALUES
-(4, 'Fitoterápicos', '');
+INSERT INTO `categoria` (`categoria_ID`, `Nome`) VALUES
+(4, 'Fitoterápicos');
 
 -- --------------------------------------------------------
 
@@ -85,10 +84,6 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `Nome` varchar(60) DEFAULT NULL,
   `Telefone` varchar(60) DEFAULT NULL,
   `Info` varchar(200) DEFAULT NULL,
-  `Rua` varchar(300) DEFAULT NULL,
-  `Cidade` varchar(100) DEFAULT NULL,
-  `Estado` varchar(100) DEFAULT NULL,
-  `endereco` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`cliente_ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -96,8 +91,8 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 -- Extraindo dados da tabela `cliente`
 --
 
-INSERT INTO `cliente` (`cliente_ID`, `Email`, `Senha`, `Nome`, `Telefone`, `Info`, `Rua`, `Cidade`, `Estado`, `endereco`) VALUES
-(1, 'adm@adm.com', '$2y$10$tQi2AEz5xyaSWdo1FO/D6.lK4WlwamqjIIelZia3LU4dPE8FXn8CW', 'Alguem', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `cliente` (`cliente_ID`, `Email`, `Senha`, `Nome`, `Telefone`, `Info`) VALUES
+(1, 'adm@adm.com', '$2y$10$tQi2AEz5xyaSWdo1FO/D6.lK4WlwamqjIIelZia3LU4dPE8FXn8CW', 'Alex', NULL, NULL);
 
 -- --------------------------------------------------------
 

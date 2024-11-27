@@ -13,10 +13,9 @@
 
     // INSERIR
     if($verificar->rowCount() === 0){ 
-        $sqlInsertCategoria = "INSERT INTO categoria VALUES(0,:Nome, :Cor_Caixa)";
+        $sqlInsertCategoria = "INSERT INTO categoria VALUES(0,:Nome)";
         $stmt = $conn->prepare($sqlInsertCategoria);
         $stmt->bindValue(":Nome", $Nome);
-        $stmt->bindValue(":Cor_Caixa", $Cor_Caixa);
         $stmt->execute();
 
         header("location: ../categorias.php")
