@@ -85,7 +85,7 @@ if (isset($_GET['id'])) { // Aqui eu pego o Fetch pra usar o select e colocar es
     $sql .= " WHERE produto_ID = :produto_ID";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bindValue(':produto_ID', htmlspecialchars($produto_ID)); // Sempre vincule o ID do produto
+    $stmt->bindValue(':produto_ID', htmlspecialchars($produto_ID));
     $stmt->bindValue(':Preco_Und', htmlspecialchars($Preco_Und));
     $stmt->bindValue(':Qtd_stock', htmlspecialchars($Qtd_stock));
     $stmt->bindValue(':Descricao', htmlspecialchars($Descricao));

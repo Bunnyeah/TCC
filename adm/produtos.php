@@ -173,7 +173,7 @@ ON
             <!-- SELECIONAR CATEGORIA -->
             <label for="selectcategoria">Categoria</label>
 <select class="form-control" id="selectcategoria" name="fk_categoria_ID">
-    <option value="">Selecionar Categoria</option>
+    <option id="selectoptioncategoria" value="">Selecionar Categoria</option>
     <?php
         $sql1 = 'SELECT * FROM categoria';
         $stmt = $conn->prepare($sql1);
