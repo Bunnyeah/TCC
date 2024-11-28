@@ -152,7 +152,6 @@ ON
             </label>
             <p type="text" onclick="deleteproduto(<?=$produtos->produto_ID?>)" id="delete" class="submit btn" style="color: red !important;" readonly>
                 <img src="../assets/imgs/icons/lixo.svg" id="lixo"><span class="txtbutton">Deletar Produto</span></p>
-
             <input type="file" id="editprodutoimg" name="editprodutoimg">
             <button type="button" id="inputFileEdit" class="d-none">Escolher imagem</button>
         </div>
@@ -172,7 +171,7 @@ ON
             
             <!-- SELECIONAR CATEGORIA -->
             <label for="selectcategoria">Categoria</label>
-<select class="form-control" id="selectcategoria" name="fk_categoria_ID">
+    <select class="form-control" id="selectcategoria" name="fk_categoria_ID">
     <option id="selectoptioncategoria" value="">Selecionar Categoria</option>
     <?php
         $sql1 = 'SELECT * FROM categoria';
