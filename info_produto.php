@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
         'nome' => $produto->Nome_produto,
         'preco' => $produto->Preco_Und,
         'quantidade' => $quantidade,
+        'estoque' => $produto->Qtd_stock,
         'imagem' => $produto->imagem
     ];
 

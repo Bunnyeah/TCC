@@ -61,7 +61,8 @@ function editproduto(produtoID) {
                 document.getElementById('preco_und_edit').value = data.Preco_Und;
                 document.getElementById('qtd_stock_edit').value = data.Qtd_stock;
                 document.getElementById('descricao_edit').value = data.Descricao;
-                document.getElementById('selectcategoria').value = data.fk_categoria_ID;
+                document.getElementById('selectoptioncategoria').value = data.fk_categoria_ID;
+                document.getElementById('selectoptioncategoria').innerHTML = data.categoria_nome;
                 document.getElementById('imagemproduto').value = data.imagem;
                 document.getElementById('delete').value = produtoID;
 
