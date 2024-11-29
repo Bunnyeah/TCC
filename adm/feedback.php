@@ -4,7 +4,7 @@ require_once '../connection/connection.php';
 // Excluir feedback
 if (isset($_POST['excluir_feedback'])) {
     $id = $_POST['id'];  
-    $sqlDelete = "DELETE FROM avaliacoes WHERE id_avaliacao = ?";
+    $sqlDelete = "DELETE FROM avaliacoes WHERE id_avaliacao = id_avaliacao";
     $stmtDelete = $pdo->prepare($sqlDelete);
     $stmtDelete->execute([$id]);
 }
@@ -41,9 +41,9 @@ $result_avaliacoes->execute();
         <?php while ($row_avaliacao = $result_avaliacoes->fetch(PDO::FETCH_ASSOC)) {
             extract($row_avaliacao);
         ?>
-        <div id="feedback_<?=$id_avaliacao?>" class="feedback-item">
+        <div id="feedback_<?=$id_avaliacao?>" class="feedback-item" style="position: relative; margin-bottom: 20px;">
             <p>Avaliação: <?=$id_avaliacao?></p>
-            <!-- Exibir estrelas -->
+            <!-- Exibir estrelas -->        
             <?php for ($i = 1; $i <= 5; $i++) {
                 if ($i <= $qtd_estrela) {
                     echo '<i class="estrela-preenchida fa-solid fa-star"></i>';
@@ -51,18 +51,14 @@ $result_avaliacoes->execute();
                     echo '<i class="estrela-vazia fa-solid fa-star"></i>';
                 }
             } ?>
-            <br><p id="coment">Mensagem: <?=$comentario?>
-    <button id="btn-excluir" class="btn btn-danger" data-id="<?=$id_avaliacao?>" style="margin-left: 40vw">
-        Excluir
-    </button>
-</p>
+            <p id="coment" style="margin: 0;">Mensagem: <?=$comentario?></p>
+            <button id="btn-excluir" class="fa-solid fa-trash text-danger fa-2x" data-id="<?=$id_avaliacao?>" style="position: absolute; right: 70px; bottom: 40px; background: none; border: none; cursor: pointer;"></button>
             <hr style='width:80vw;'>
         </div>
         <?php } ?>
     </div>
 </div>
 
-<!-- Script -->
 <script>
 document.querySelectorAll('#btn-excluir').forEach(function(button) {
     button.addEventListener('click', function() {
@@ -81,7 +77,6 @@ document.querySelectorAll('#btn-excluir').forEach(function(button) {
             })
             .then(response => response.text())
             .then(data => {
-                // Remover o feedback do DOM após exclusão
                 const feedbackItem = document.getElementById('feedback_' + feedbackId);
                 feedbackItem.remove();
                 alert('Avaliação excluída com sucesso!');
