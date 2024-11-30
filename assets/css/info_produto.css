@@ -303,3 +303,17 @@ body {
     }
 }
 
+.product-image {
+    transition: opacity 0.1s ease-in-out;
+    opacity: 1;
+}
+
+.product-image.fade-out {
+    opacity: 0;
+}
+
+#changeImageBtn{
+    margin-left: 11%;
+    width: 15vw;
+    text-align: center;
+}

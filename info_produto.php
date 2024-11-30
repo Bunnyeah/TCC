@@ -15,7 +15,8 @@ if ($produtoId) {
     produto.Qnt_vend,
     produto.Status_prdt,
     produto.Descricao,
-    produto.imagem
+    produto.imagem,
+    produto.imagem2
     FROM produto WHERE produto_ID = :id");
     $stmt->bindValue(':id', $produtoId, PDO::PARAM_INT);
     $stmt->execute();
@@ -59,15 +60,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
     <title>Informações do Produto</title>
 </head>
 
-
 <main class="container my-5">
     <?php if ($produtoId && $produto): ?>
         <div class="row">
             <!-- Coluna da Imagem do Produto -->
             <div class="col-md-6">
                 <div class="product-image-container">
-                    <img src="./assets/imgs/produtos/<?= htmlspecialchars($produto->imagem) ?>" alt="<?= htmlspecialchars($produto->Nome_produto) ?>" class="product-image">
+                    <!-- Imagem do produto -->
+                    <img id="productImage" src="./assets/imgs/produtos/<?= htmlspecialchars($produto->imagem) ?>" alt="<?= htmlspecialchars($produto->Nome_produto) ?>" class="product-image">
                 </div>
+                <!-- Botão para alternar a imagem -->
+                <?php if ($produto->imagem2): ?>
+                    <button id="changeImageBtn" class="btn btn-secondary mt-3" onclick="changeImage()">Tabela Nutricional</button>
+                <?php else: ?>
+                    <p>Esta imagem não possui uma segunda versão.</p>
+                <?php endif; ?>
             </div>
 
             <!-- Coluna de Informações do Produto -->
@@ -76,39 +83,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
                 <h1 class="product-title"><?= htmlspecialchars($produto->Nome_produto) ?></h1>
 
                 <!-- Avaliação estrela -->
-
                 <?php
                     // Imprimir a mensagem de erro ou sucesso salvo na sessão
-                    if(isset($_SESSION['msg'])){
+                    if (isset($_SESSION['msg'])) {
                         echo $_SESSION['msg'];
                         unset($_SESSION['msg']);
                     }
                 ?>
                 <form method="post" action="./config/processa.php">
-                <div class="estrelas">
+                    <div class="estrelas">
+                        <input type="radio" name="estrela" id="vazio" value="" checked>
+                        <label for="estrela-1" class="fa fa-star"></label> 
+                        <input type="radio" name="estrela" id="estrela-1" value="1">
+                        
+                        <label for="estrela-2" class="fa fa-star"></label>
+                        <input type="radio" name="estrela" id="estrela-2" value="2">
+                        
+                        <label for="estrela-3" class="fa fa-star"></label>
+                        <input type="radio" name="estrela" id="estrela-3" value="3">
+                        
+                        <label for="estrela-4" class="fa fa-star"></label>
+                        <input type="radio" name="estrela" id="estrela-4" value="4">
 
-                    <input type="radio" name="estrela" id="vazio" value="" checked>
-
-                    <label for="estrela-1" class="fa fa-star"></label> 
-                    <input type="radio" name="estrela" id="estrela-1" id="vazio" value="1">
-                    
-                    <label for="estrela-2" class="fa fa-star"></label>
-                    <input type="radio" name="estrela" id="estrela-2" id="vazio" value="2">
-                    
-                    <label for="estrela-3" class="fa fa-star"></label>
-                    <input type="radio" name="estrela" id="estrela-3" id="vazio" value="3">
-                    
-                    <label for="estrela-4" class="fa fa-star"></label>
-                    <input type="radio" name="estrela" id="estrela-4" id="vazio" value="4">
-
-                    <label for="estrela-5" class="fa fa-star"></label>
-                    <input type="radio" name="estrela" id="estrela-5" id="vazio" value="5">
-                    <input type="text" name="idproduto" value="<?=$produto->produto_ID?>" style="display:none">
-                    <!-- Avaliação comentário -->
-                    <br><textarea name="comentario" rows="4" cols="30" placeholder="Digite o seu comentário..." id="comentario"></textarea>
-                    <input type="submit" value="Enviar">
+                        <label for="estrela-5" class="fa fa-star"></label>
+                        <input type="radio" name="estrela" id="estrela-5" value="5">
+                        <input type="text" name="idproduto" value="<?=$produto->produto_ID?>" style="display:none">
+                        
+                        <br><textarea name="comentario" rows="4" cols="30" placeholder="Digite o seu comentário..." id="comentario"></textarea>
+                        <input type="submit" value="Enviar">
                     </div>
-                    </form>
+                </form>
 
                 <hr>
                 <p class="product-price">R$ <?= number_format($produto->Preco_Und, 2, ',', '.') ?></p>
@@ -129,13 +133,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
                         </div>
                     </div>
 
-                    <!-- função pop up -->
-                    <!-- <script>
-                        $("#botaocarrinho").click(function() {
-                            swal("Mensagem!");
-                        });
-                    </script> -->
-
                     <!-- Botões de Ação -->
                     <div class="action-buttons d-flex gap-3">
                         <button type="submit" name="adicionar_carrinho" class="buttoncoisa btn btn-primary flex-fill" id="botaocarrinho">
@@ -151,7 +148,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
             <hr>
             <p class="product-description mt-3"><?= nl2br(htmlspecialchars($produto->Descricao)) ?></p>
         </div>
-        </div>
+    </div>
 
     <?php else: ?>
         <p class="text-center">Nenhum produto encontrado.</p>
@@ -170,6 +167,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
             quantityInput.value = currentQuantity + amount;
         }
     }
+
+    function changeImage() {
+    // Obtém o ID da imagem atual
+    const imgElement = document.getElementById('productImage');
+    
+    // Obtém o botão de troca de imagem
+    const buttonElement = document.getElementById('changeImageBtn');
+    
+    // Adiciona a classe fade-out para fazer a imagem desaparecer
+    imgElement.classList.add('fade-out');
+    
+    // Após a animação de fade, troca a imagem
+    setTimeout(function() {
+        const currentImage = imgElement.src;
+
+        // Alterna entre as imagens
+        const newImage = currentImage.includes('<?= htmlspecialchars($produto->imagem) ?>') ?
+                        './assets/imgs/tabelasnutricionais/<?= htmlspecialchars($produto->imagem2) ?>' :
+                        './assets/imgs/produtos/<?= htmlspecialchars($produto->imagem) ?>';
+        
+        // Altera o src da imagem
+        imgElement.src = newImage;
+
+        // Remover a classe fade-out e reinicia a visibilidade
+        imgElement.classList.remove('fade-out');
+
+        // Alterna o texto do botão
+        const newButtonText = buttonElement.innerText === 'Tabela Nutricional' ? 'Produto' : 'Tabela Nutricional';
+        buttonElement.innerText = newButtonText;
+    }, 100);
+}
+
+
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
