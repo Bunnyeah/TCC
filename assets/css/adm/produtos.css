@@ -284,11 +284,11 @@ input, textarea{
     height: 36.5vh;
 }
 
-input[type=file]{
+#newprodutoimg{
     display: none;
 }
 
-#inputFile {
+#newprodutoimg {
     display: none;
     height: 5vh;
     width: 100%;
