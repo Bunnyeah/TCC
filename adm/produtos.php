@@ -96,19 +96,21 @@
             }
             ?>
             </div>
+        </div>
         <!-- Formulário de Adição -->
             <div id="addproduto">
             <a class="close" id="close">X</a>
             <form enctype="multipart/form-data" action="./functions_adm/cadproduto.php" id="formaddproduto" method="POST">
                 <div id="img_perfil" class="col-md-4 col-sm-12 mb-5 mt-4">
+                    <p class="text-muted" style="font-size: 14px;"><span class="txtbutton">Imagem do Produto</span></p>
                     <label for="newprodutoimg">
                         <img src="../assets/imgs/decorativo/arraste_img.png" id="imgperfilAdd">
-                    </label>
                     <input type="file" id="newprodutoimg" name="newprodutoimg">
                     <button type="button" id="inputFileAdd" class="d-none">Escolher imagem</button>
-                    <div class="custom-file-wrapper">
-                        <input type="file" class="custom-file" />
-                    </div>
+                    <p class="text-muted" style="font-size: 14px;"><span class="txtbutton">Tabela Nutricional</span></p>
+                    <input type="file" id="tabela_nutricional" name="tabela_nutricional" class="form-control">
+
+
                 </div>
                 <div class="inputs">
                     <label for="nome_produto_add">Nome do Produto</label>
@@ -127,9 +129,10 @@
                         $sql1 = 'SELECT * FROM categoria';
                         $stmt = $conn->prepare($sql1);
                         $stmt->execute();
-                        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                            echo '<option value="'.$row['categoria_ID'].'">'.$row['Nome'].'</option>';
+                        while($row = $stmt->fetch(PDO::FETCH_OBJ)) {
+                            echo '<option value="'.$row->categoria_ID.'">'.$row->Nome.'</option>';
                         }
+                        
                         ?>
                     </select>
 
@@ -147,42 +150,19 @@
             <form enctype="multipart/form-data" action="./functions_adm/editproduto.php" id="formaddproduto" method="POST">
                 <div id="img_perfil" class="col-md-4 col-sm-12 mb-5 mt-4">
                     <label for="editprodutoimg">
+                        <p class="text-muted" style="font-size: 14px;"><span class="txtbutton">Imagem do Produto</span></p>
                         <img src="../assets/imgs/decorativo/arraste_img.png" id="imgperfilEdit">
                     </label>
-                    <p type="text" onclick="deleteproduto(<?=$produtos->produto_ID?>)" id="delete" class="submit btn" style="color: red !important;" readonly>
-                        <img src="../assets/imgs/icons/lixo.svg" id="lixo"><span class="txtbutton">Deletar Produto</span></p>
                     <input type="file" id="editprodutoimg" name="editprodutoimg">
                     <button type="button" id="inputFileEdit" class="d-none">Escolher imagem</button>
+                    <p class="text-muted" style="font-size: 14px;"><span class="txtbutton">Tabela Nutricional</span></p>
+                    <input type="file" class="form-control" id="tabela_nutricional" name="tabela_nutricional">
+                    <p type="text" onclick="deleteproduto(<?=$produtos->produto_ID?>)" id="delete" class="submit btn" style="color: red !important;" readonly><img src="../assets/imgs/icons/lixo.svg" id="lixo"><span class="txtbutton">Deletar Produto</span></p>
                 </div>
                 <div class="inputs">
                     <input class="form-control d-none" type="number" id="id_produto_edit" name="produto_ID" placeholder="ID" required>
                     <input class="form-control d-none" type="text" id="imagemproduto" name="imagem" placeholder="ID" required>
 
-            <label for="nome_produto_edit">Nome do Produto</label>
-            <input class="form-control" type="text" id="nome_produto_edit" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off">
-
-            
-            <label for="preco_und_edit">Preço Unitário</label>
-            <input class="form-control" type="text" id="preco_und_edit" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required>
-            
-            <label for="qtd_stock_edit">Quantidade em Estoque</label>
-            <input class="form-control" type="number" id="qtd_stock_edit" name="Qtd_stock" minlength="0" placeholder="Quantidade em estoque" required>
-            
-            <!-- SELECIONAR CATEGORIA -->
-            <label for="selectcategoria">Categoria</label>
-    <select class="form-control" id="selectcategoria" name="fk_categoria_ID">
-    <option id="selectoptioncategoria" value="">Selecionar Categoria</option>
-    <?php
-        $sql1 = 'SELECT * FROM categoria';
-        $stmt = $conn->prepare($sql1);
-        $stmt->execute();
-        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-            // Verifica se a categoria do produto corresponde ao ID da categoria
-            $selected = ($row['categoria_ID'] == $produto->fk_categoria_ID) ? 'selected' : '';
-            echo '<option value="'.$row['categoria_ID'].'" '.$selected.'>'.$row['Nome'].'</option>';
-        }
-    ?>
-</select>
                     <label for="nome_produto_edit">Nome do Produto</label>
                     <input class="form-control" type="text" id="nome_produto_edit" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off">
                     
@@ -194,16 +174,15 @@
                     
                     <label for="selectcategoria">Categoria</label>
                     <select class="form-control" id="selectcategoria" name="fk_categoria_ID">
-                        <option value="">Selecionar Categoria</option>
+                        <option id="selectoptioncategoria" value="">Selecionar Categoria</option>
                         <?php
                         $sql1 = 'SELECT * FROM categoria';
                         $stmt = $conn->prepare($sql1);
                         $stmt->execute();
-                        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                            // Verifica se a categoria do produto corresponde ao ID da categoria
-                            $selected = ($row['categoria_ID'] == $produto->fk_categoria_ID) ? 'selected' : '';
-                            echo '<option value="'.$row['categoria_ID'].'" '.$selected.'>'.$row['Nome'].'</option>';
+                        while($row = $stmt->fetch(PDO::FETCH_OBJ)) {
+                            echo '<option value="'.$row->categoria_ID.'">'.$row->Nome.'</option>';
                         }
+
                         ?>
                     </select>
 
