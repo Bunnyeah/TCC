@@ -64,6 +64,7 @@ function editproduto(produtoID) {
                 document.getElementById('selectoptioncategoria').value = data.fk_categoria_ID;
                 document.getElementById('selectoptioncategoria').innerHTML = data.categoria_nome;
                 document.getElementById('imagemproduto').value = data.imagem;
+                document.getElementById('imagem2produto').value = data.imagem2;
                 document.getElementById('delete').value = produtoID;
 
                 // Atualizar a imagem se necessário

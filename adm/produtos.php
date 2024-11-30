@@ -156,12 +156,13 @@
                     <input type="file" id="editprodutoimg" name="editprodutoimg">
                     <button type="button" id="inputFileEdit" class="d-none">Escolher imagem</button>
                     <p class="text-muted" style="font-size: 14px;"><span class="txtbutton">Tabela Nutricional</span></p>
-                    <input type="file" class="form-control" id="tabela_nutricional" name="tabela_nutricional">
+                    <input type="file" id="tabela_nutricional" name="tabela_nutricional" class="form-control">
                     <p type="text" onclick="deleteproduto(<?=$produtos->produto_ID?>)" id="delete" class="submit btn" style="color: red !important;" readonly><img src="../assets/imgs/icons/lixo.svg" id="lixo"><span class="txtbutton">Deletar Produto</span></p>
                 </div>
                 <div class="inputs">
                     <input class="form-control d-none" type="number" id="id_produto_edit" name="produto_ID" placeholder="ID" required>
                     <input class="form-control d-none" type="text" id="imagemproduto" name="imagem" placeholder="ID" required>
+                    <input class="form-control d-none" type="text" id="imagem2produto" name="imagem2" placeholder="ID" required>
 
                     <label for="nome_produto_edit">Nome do Produto</label>
                     <input class="form-control" type="text" id="nome_produto_edit" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off">
