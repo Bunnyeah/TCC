@@ -139,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
                             <img src="./assets/imgs/icons/carrinhopreto.svg" id="carrinho">Adicionar ao Carrinho
                         </button>
                 </form>
-                <a href="https://wa.me/5515996810765?text=Olá, estou interessado no produto <?= urlencode($produto->Nome_produto) ?>" class="buttoncoisa btn btn-success flex-fill" target="_blank">
+                <a href="https://wa.me/5515996810765?text=Olá, estou interessado no produto <?= urlencode($produto->Nome_produto) ?>" class="buttoncoisa btn btn-success flex-fill" target="_blank" id="btncompraragora">
                     Comprar agora
                 </a>
             </div>
