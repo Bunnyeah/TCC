@@ -9,6 +9,8 @@
 
 body {
     font-family: "Comfortaa", sans-serif !important;
+    overflow-x: hidden;
+    word-wrap: break-word;
 }
 
 /* Conteiner da Imagem do Produto */

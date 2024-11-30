@@ -31,6 +31,8 @@ body {
     transform: translateX(0); /* Controle inicial de posição */
     transition: transform 0.5s ease-in-out; /* Animação suave */
     margin-bottom: 20px; /* Espaço entre categorias e próximos elementos */
+    flex-wrap: wrap; /* Permite a quebra para a próxima linha se necessário */
+
 }
 
 .categorias:not(.active) {
@@ -47,7 +49,9 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
     width: 27.5%;
-    height: 12.5vh;
+    height: fit-content;
+    margin-bottom: 20px; /* Espaço inferior entre as categorias */
+    box-sizing: border-box; /* Inclui o padding e border no cálculo da largura */
 }
 
 .categoria:hover {
@@ -143,27 +147,28 @@ body {
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
-    width: calc(20% - 1%);
-    height: 60vh;
+    width: 250px; /* Definido em pixels */
+    height: fit-content;
     max-height: 60vh;
     word-wrap: break-word;
-    margin: 0.5%;
+    margin: auto;
+    margin-bottom: 2vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Isso vai empurrar a div_botao para o fundo */
 }
 
 
+
 .produto-card img {
     width: 100%;
-    height: 60%;  /* Garante que as imagens ocupem 60% do card */
-    object-fit: cover;  /* Faz com que a imagem cubra o espaço do card sem distorção */
+    height: 30vh;  /* Tamanho fixo para todas as imagens de produtos */
+    object-fit: cover;  /* Garante que a imagem ocupe o espaço sem distorcer */
     object-position: center;  /* Centraliza a imagem dentro do espaço */
-    border-top-left-radius: 8px;  /* Bordas arredondadas */
-    border-top-right-radius: 8px;  /* Bordas arredondadas */
-    min-height: 150px;  /* Define uma altura mínima para a imagem */
-    max-height: 300px;  /* Limita a altura máxima para não exagerar */
+    border-top-left-radius: 8px;  
+    border-top-right-radius: 8px;  
 }
+
 
 
 .produto-card:hover {
@@ -181,6 +186,7 @@ body {
 }
 
 .produto-nome {
+    height: 7.5vh;
     font-size: 1rem;
     color: #5A5A5A;
 }
