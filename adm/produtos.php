@@ -158,6 +158,31 @@
                     <input class="form-control d-none" type="number" id="id_produto_edit" name="produto_ID" placeholder="ID" required>
                     <input class="form-control d-none" type="text" id="imagemproduto" name="imagem" placeholder="ID" required>
 
+            <label for="nome_produto_edit">Nome do Produto</label>
+            <input class="form-control" type="text" id="nome_produto_edit" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off">
+
+            
+            <label for="preco_und_edit">Preço Unitário</label>
+            <input class="form-control" type="text" id="preco_und_edit" name="Preco_Und" minlength="0" placeholder="Preço Unitário" required>
+            
+            <label for="qtd_stock_edit">Quantidade em Estoque</label>
+            <input class="form-control" type="number" id="qtd_stock_edit" name="Qtd_stock" minlength="0" placeholder="Quantidade em estoque" required>
+            
+            <!-- SELECIONAR CATEGORIA -->
+            <label for="selectcategoria">Categoria</label>
+    <select class="form-control" id="selectcategoria" name="fk_categoria_ID">
+    <option id="selectoptioncategoria" value="">Selecionar Categoria</option>
+    <?php
+        $sql1 = 'SELECT * FROM categoria';
+        $stmt = $conn->prepare($sql1);
+        $stmt->execute();
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            // Verifica se a categoria do produto corresponde ao ID da categoria
+            $selected = ($row['categoria_ID'] == $produto->fk_categoria_ID) ? 'selected' : '';
+            echo '<option value="'.$row['categoria_ID'].'" '.$selected.'>'.$row['Nome'].'</option>';
+        }
+    ?>
+</select>
                     <label for="nome_produto_edit">Nome do Produto</label>
                     <input class="form-control" type="text" id="nome_produto_edit" name="Nome_produto" placeholder="Nome do produto" required autocomplete="off">
                     
