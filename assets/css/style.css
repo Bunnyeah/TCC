@@ -79,16 +79,16 @@ body {
 
 /* Botão de navegação entre categorias */
 .navigation-buttons {
-    margin-left: 2.5vw;
+    width: 95vw;  /* Garantir que ocupe toda a largura da tela */
+    margin-left: 0;
     position: absolute;
-    top: 70%;
-    width: 95vw;
+    top: 35%;
+    left: 2.55vw;
+    transform: translateY(-50%);
     display: flex;
     justify-content: space-between;
-    transform: translateY(-50%);
     z-index: 10;
 }
-
 .arrow-prev, .arrow-next {
     border: none;
     border-radius: 50%;
@@ -115,6 +115,7 @@ body {
     cursor: not-allowed;
     visibility: hidden !important;
 }
+
 
 /* Produtos Populares */
 #produtos-populares {
@@ -307,9 +308,25 @@ body {
     max-height: none ;
 }
 
-/* Responsividade para telas pequenas */
-/* Responsividade para telas pequenas */
+.categorias-wrapper {
+    width: 100vw;
+    height: fit-content;
+    position: relative;
+    display: flex;
+}
+
 @media (max-width: 768px) {
+
+    .navigation-buttons {
+        width: 100vw;  /* Garantir que ocupe toda a largura da tela */
+        margin-left: 0;
+        position: absolute;
+        top: 35%;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+        z-index: 10;
+    }
 
     /* Ajustes para categorias */
     .categorias {
@@ -338,16 +355,7 @@ body {
     }
 
     /* Ajustes na navegação do carrossel */
-    .navigation-buttons {
-        width: 100vw;  /* Garantir que ocupe toda a largura da tela */
-        margin-left: 0;
-        position: absolute;
-        top: 39%;  /* Ajusta para ficar mais para baixo na tela */
-        transform: translateY(-50%);
-        display: flex;
-        justify-content: space-between;
-        z-index: 10;
-    }
+
 
     .arrow-prev, .arrow-next {
         width: 35px;  /* Reduz o tamanho dos botões */

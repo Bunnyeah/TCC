@@ -31,6 +31,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
     </div>
 
     <!-- Categorias -->
+    <div class="categorias-wrapper">
     <section class="categorias active">
         <?php 
         $sqlSelectCategorias = 'SELECT * FROM categoria';
@@ -44,17 +45,19 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
         </div>
         <?php }; ?>
     </section>
-    <!-- Setas -->
     <div class="navigation-buttons">
         <button class="arrow-prev"><img src="./assets/imgs/icons/setaesquerda"></button>
         <button class="arrow-next"><img src="./assets/imgs/icons/setadireita"></button>
     </div>
+</div>
 
+    <!-- Setas -->
 
-    <script>
-const items = document.querySelectorAll('.categoria');
+<script>
+    const items = document.querySelectorAll('.categoria');
 let bloco = [];
-let currentSection = document.querySelector('.categorias');
+let currentSection = document.querySelector('.categorias'); // Mantém a referência à primeira seção
+const wrapper = document.querySelector('.categorias-wrapper'); // Referência ao wrapper
 
 // Determina o número de categorias por linha com base no tamanho da tela
 function getItemsPerRow() {
@@ -71,7 +74,7 @@ items.forEach((item, index) => {
         currentSection = document.createElement('section');
         currentSection.className = 'categorias';
         currentSection.style.transform = 'translateX(100%)';
-        document.body.appendChild(currentSection);
+        wrapper.appendChild(currentSection); // Adiciona a nova seção dentro do wrapper
     }
 });
 

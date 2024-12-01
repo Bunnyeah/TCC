@@ -194,6 +194,45 @@ body {
 
 /* Responsividade */
 @media (max-width: 768px) {
+    #titlequantia {
+        font-size: 1rem; /* Texto menor em telas pequenas */
+        padding-right: 5px; /* Reduz o espaçamento lateral */
+    }
+
+    .quantity-container {
+        display: flex; /* Define o layout como flexível */
+        flex-direction: row; /* Alinha os itens horizontalmente */
+        align-items: center; /* Centraliza os itens verticalmente */
+        justify-content: flex-start; /* Alinha à esquerda, opcional */
+        gap: 10px; /* Espaçamento entre os elementos */
+        width: 100vw; /* Ajusta a largura automaticamente */
+        margin-left: 10vw;
+    }
+    
+    .quantidade {
+        display: flex; /* Define o layout como flexível */
+        align-items: center; /* Centraliza o conteúdo verticalmente */
+        justify-content: center; /* Alinha os itens no centro */
+        gap: 5px; /* Espaçamento entre botões e campo */
+    }
+    
+    .quantity {
+        width: 50px; /* Largura fixa do input */
+        text-align: center; /* Centraliza o texto dentro do input */
+        border-radius: 5px; /* Bordas arredondadas */
+        font-size: 1rem; /* Tamanho do texto */
+    }
+    
+    button.btn-outline-secondary {
+        width: 40px; /* Tamanho fixo para botões */
+        height: 40px; /* Tamanho fixo para botões */
+        text-align: center; /* Centraliza o texto no botão */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+    
     .product-title {
         font-size: 1.5rem;
     }
@@ -238,9 +277,5 @@ body {
         margin-left: 5%;
         margin-top: 0;
         margin-bottom: 2vh;
-    }
-    .quantity-container {
-        flex-direction: row;  /* Garante que os itens fiquem lado a lado */
-        justify-content: center; /* Alinha no centro */
     }
 }
