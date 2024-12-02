@@ -1,3 +1,11 @@
+<?php
+if (isset($_SESSION["adm"])) {
+} else {
+
+    header("Location: ../login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

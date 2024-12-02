@@ -91,6 +91,9 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 -- Extraindo dados da tabela `cliente`
 --
 
+ALTER TABLE cliente
+    ADD CONSTRAINT UC_Email UNIQUE (Email);
+
 INSERT INTO `cliente` (`cliente_ID`, `Email`, `Senha`, `Nome`, `Telefone`, `Info`) VALUES
 (1, 'adm@adm.com', '$2y$10$tQi2AEz5xyaSWdo1FO/D6.lK4WlwamqjIIelZia3LU4dPE8FXn8CW', 'Alex', NULL, NULL);
 
