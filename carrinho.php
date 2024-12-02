@@ -24,7 +24,6 @@ if (isset($_SESSION["loggedin"])) {
             $valorTotal += $item['preco'] * $item['quantidade'];
         }
     }
-    // var_dump($_SESSION['carrinho']);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -37,31 +36,32 @@ if (isset($_SESSION["loggedin"])) {
 </head>
 <body>
     <div class="container">
+        <h1>Seu Carrinho</h1>
         <table>
-            <tbody>
-                <tr class="thead">
+            <thead class="thead">
+                <tr>
                     <th>Produtos</th>
                     <th>Preço Unitário</th>
                     <th>Quantidade</th>
                     <th>Valor Total</th>
                     <th>Ações</th>
                 </tr>
-
+            </thead>
+            <tbody class="tbody">
                 <?php if (!empty($_SESSION['carrinho'])) : ?>
                     <?php foreach ($_SESSION['carrinho'] as $pp) : ?>
-                        <tr class="tbody">
-                            <td class="product" id="img_name">
-                                <img src="./assets/imgs/produtos/<?= $pp['imagem']; ?>" alt="<?= $pp['nome']; ?>"></img>
+                        <tr>
+                            <td class="product" data-label="Produto">
+                                <img src="./assets/imgs/produtos/<?= $pp['imagem']; ?>" alt="<?= $pp['nome']; ?>">
                                 <div class="product-details">
                                     <h5><?= $pp['nome'] ?></h5>
                                 </div>
                             </td>
-                            <td>R$ <?= number_format($pp['preco'], 2, ',', '.'); ?></td>
-                            <td><?= $pp['quantidade']; ?></td>
-                            <td>R$ <?= number_format($pp['preco'] * $pp['quantidade'], 2, ',', '.'); ?></td>
-                            <td>
-                                <!-- Botão para remover o item -->
-                                <form method="POST" style="display:inline;">
+                            <td data-label="Preço Unitário">R$ <?= number_format($pp['preco'], 2, ',', '.'); ?></td>
+                            <td data-label="Quantidade"><?= $pp['quantidade']; ?></td>
+                            <td data-label="Valor Total">R$ <?= number_format($pp['preco'] * $pp['quantidade'], 2, ',', '.'); ?></td>
+                            <td data-label="Ações">
+                                <form method="POST">
                                     <input type="hidden" name="id" value="<?= $pp['id']; ?>">
                                     <button type="submit" name="remover_item" class="btn btn-danger btn-sm">Remover</button>
                                 </form>

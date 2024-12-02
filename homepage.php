@@ -31,6 +31,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
     </div>
 
     <!-- Categorias -->
+    <div class="categorias-wrapper">
     <section class="categorias active">
         <?php 
         $sqlSelectCategorias = 'SELECT * FROM categoria';
@@ -44,75 +45,80 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
         </div>
         <?php }; ?>
     </section>
-    <!-- Setas -->
     <div class="navigation-buttons">
         <button class="arrow-prev"><img src="./assets/imgs/icons/setaesquerda"></button>
         <button class="arrow-next"><img src="./assets/imgs/icons/setadireita"></button>
     </div>
+</div>
 
+    <!-- Setas -->
 
-    <script>
-        const items = document.querySelectorAll('.categoria');
-        let bloco = [];
-        let currentSection = document.querySelector('.categorias');
+<script>
+    const items = document.querySelectorAll('.categoria');
+let bloco = [];
+let currentSection = document.querySelector('.categorias'); // Mantém a referência à primeira seção
+const wrapper = document.querySelector('.categorias-wrapper'); // Referência ao wrapper
 
-        // Adiciona seções dinamicamente
-        items.forEach((item, index) => {
-            bloco.push(item);
-            currentSection.appendChild(item);
+// Determina o número de categorias por linha com base no tamanho da tela
+function getItemsPerRow() {
+    return window.innerWidth < 768 ? 2 : 3; // 2 itens por linha em telas menores que 768px, 3 itens em telas maiores
+}
 
-            if ((index + 1) % 3 === 0) { // Quando atingir 3 elementos
-                bloco = [];
-                currentSection = document.createElement('section');
-                currentSection.className = 'categorias';
-                currentSection.style.transform = 'translateX(100%)';
-                document.body.appendChild(currentSection);
-            }
-        });
+// Adiciona seções dinamicamente
+items.forEach((item, index) => {
+    bloco.push(item);
+    currentSection.appendChild(item);
 
-        const sections = document.querySelectorAll('.categorias'); // Seleciona todas as seções
-        const prevButton = document.querySelector('.arrow-prev'); // Botão para trás
-        const nextButton = document.querySelector('.arrow-next'); // Botão para frente
-        let currentIndex = 0; // Índice da seção visível
+    if ((index + 1) % getItemsPerRow() === 0) { // Altera a verificação para o número dinâmico de itens por linha
+        bloco = [];
+        currentSection = document.createElement('section');
+        currentSection.className = 'categorias';
+        currentSection.style.transform = 'translateX(100%)';
+        wrapper.appendChild(currentSection); // Adiciona a nova seção dentro do wrapper
+    }
+});
 
-        function updateNavigationButtons() {
-            // Desabilita os botões se não houver mais seções para navegar
-            prevButton.disabled = currentIndex === 0;
-            nextButton.disabled = currentIndex === sections.length - 1;
-        }
+const sections = document.querySelectorAll('.categorias'); // Seleciona todas as seções
+const prevButton = document.querySelector('.arrow-prev'); // Botão para trás
+const nextButton = document.querySelector('.arrow-next'); // Botão para frente
+let currentIndex = 0; // Índice da seção visível
 
-        function navigateToSection(direction) {
-            // Remove a classe ativa da seção atual
-            sections[currentIndex].classList.remove('active');
+function updateNavigationButtons() {
+    // Desabilita os botões se não houver mais seções para navegar
+    prevButton.disabled = currentIndex === 0;
+    nextButton.disabled = currentIndex === sections.length - 1;
+}
+
+function navigateToSection(direction) {
+    // Remove a classe ativa da seção atual
+    sections[currentIndex].classList.remove('active');
 
     // Aplica a transformação para sair da tela
-        if (direction === 'next') {
-            sections[currentIndex].style.transform = 'translateX(-100%)'; // Sai para a esquerda
-            currentIndex++;
-            sections[currentIndex].style.transform = 'translateX(100%)'; // Prepara para entrar da direita
-        } else if (direction === 'prev') {
-            sections[currentIndex].style.transform = 'translateX(100%)'; // Sai para a direita
-            currentIndex--;
-            sections[currentIndex].style.transform = 'translateX(-100%)'; // Prepara para entrar da esquerda
-        }
+    if (direction === 'next') {
+        sections[currentIndex].style.transform = 'translateX(-100%)'; // Sai para a esquerda
+        currentIndex++;
+        sections[currentIndex].style.transform = 'translateX(100%)'; // Prepara para entrar da direita
+    } else if (direction === 'prev') {
+        sections[currentIndex].style.transform = 'translateX(100%)'; // Sai para a direita
+        currentIndex--;
+        sections[currentIndex].style.transform = 'translateX(-100%)'; // Prepara para entrar da esquerda
+    }
 
-        // Adiciona a classe ativa à nova seção
-        sections[currentIndex].classList.add('active');
-        sections[currentIndex].style.transform = 'translateX(0)'; // Entra no centro
+    // Adiciona a classe ativa à nova seção
+    sections[currentIndex].classList.add('active');
+    sections[currentIndex].style.transform = 'translateX(0)'; // Entra no centro
 
-        updateNavigationButtons(); // Atualiza os estados dos botões
-        }
+    updateNavigationButtons(); // Atualiza os estados dos botões
+}
 
-        // Inicialização
-        updateNavigationButtons();
+// Inicialização
+updateNavigationButtons();
 
-        // Eventos dos botões
-        nextButton.addEventListener('click', () => navigateToSection('next'));
-        prevButton.addEventListener('click', () => navigateToSection('prev'));
+// Eventos dos botões
+nextButton.addEventListener('click', () => navigateToSection('next'));
+prevButton.addEventListener('click', () => navigateToSection('prev'));
 
-
-
-        document.querySelectorAll('.categoria').forEach(botao => {
+document.querySelectorAll('.categoria').forEach(botao => {
     botao.addEventListener('click', () => {
         const categoria = botao.getAttribute('data-categoria');
 
@@ -129,6 +135,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_OBJ);
         .catch(error => console.error('Erro:', error));
     });
 });
+
     </script>
 
     <!-- Produtos Mais Populares -->

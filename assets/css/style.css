@@ -31,6 +31,8 @@ body {
     transform: translateX(0); /* Controle inicial de posição */
     transition: transform 0.5s ease-in-out; /* Animação suave */
     margin-bottom: 20px; /* Espaço entre categorias e próximos elementos */
+    flex-wrap: wrap; /* Permite a quebra para a próxima linha se necessário */
+
 }
 
 .categorias:not(.active) {
@@ -47,7 +49,9 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
     width: 27.5%;
-    height: 12.5vh;
+    height: fit-content;
+    margin-bottom: 20px; /* Espaço inferior entre as categorias */
+    box-sizing: border-box; /* Inclui o padding e border no cálculo da largura */
 }
 
 .categoria:hover {
@@ -75,16 +79,16 @@ body {
 
 /* Botão de navegação entre categorias */
 .navigation-buttons {
-    margin-left: 2.5vw;
+    width: 95vw;  /* Garantir que ocupe toda a largura da tela */
+    margin-left: 0;
     position: absolute;
-    top: 70%;
-    width: 95vw;
+    top: 35%;
+    left: 2.55vw;
+    transform: translateY(-50%);
     display: flex;
     justify-content: space-between;
-    transform: translateY(-50%);
     z-index: 10;
 }
-
 .arrow-prev, .arrow-next {
     border: none;
     border-radius: 50%;
@@ -112,6 +116,7 @@ body {
     visibility: hidden !important;
 }
 
+
 /* Produtos Populares */
 #produtos-populares {
     padding: 20px;
@@ -131,10 +136,10 @@ body {
 
 .lista-produtos {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;  /* Garante que os itens fiquem na mesma linha em telas grandes */
-    gap: 20px; /* Adiciona espaço entre os produtos */
-    max-width: 100vw;
+    justify-content: flex-start;  /* Alinha os itens à esquerda */
+    flex-wrap: wrap;  /* Permite que os itens quebrem de linha se necessário */
+    margin: 0;
+    padding: 0;
 }
 
 .produto-card {
@@ -143,23 +148,29 @@ body {
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
-    width: 18%;  /* Ajuste para garantir que os produtos caibam na tela */
-    height: 60vh;
+    width: 250px; /* Definido em pixels */
+    height: fit-content;
     max-height: 60vh;
     word-wrap: break-word;
-    margin: 1% 0%;
+    margin: auto;
+    margin-bottom: 2vh;
     display: flex;
     flex-direction: column;
+    justify-content: space-between; /* Isso vai empurrar a div_botao para o fundo */
 }
+
+
 
 .produto-card img {
     width: 100%;
-    height: 60%;
-    object-fit: cover;
-    object-position: center;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    height: 30vh;  /* Tamanho fixo para todas as imagens de produtos */
+    object-fit: cover;  /* Garante que a imagem ocupe o espaço sem distorcer */
+    object-position: center;  /* Centraliza a imagem dentro do espaço */
+    border-top-left-radius: 8px;  
+    border-top-right-radius: 8px;  
 }
+
+
 
 .produto-card:hover {
     transform: scale(1.02);
@@ -176,16 +187,17 @@ body {
 }
 
 .produto-nome {
+    height: 7.5vh;
     font-size: 1rem;
     color: #5A5A5A;
 }
 
-.div_botao{
+.div_botao {
     display: flex;
     align-items: center;
     justify-content: center;    
     height: 12%;    
-    margin-top: 0.5vh;
+    margin-top: auto; /* Garante que fique na parte inferior do card */
     margin-bottom: 0.5vh;
 }
 
@@ -296,18 +308,40 @@ body {
     max-height: none ;
 }
 
-/* Responsividade para telas pequenas */
+.categorias-wrapper {
+    width: 100vw;
+    height: fit-content;
+    position: relative;
+    display: flex;
+}
+
 @media (max-width: 768px) {
+
+    .navigation-buttons {
+        width: 100vw;  /* Garantir que ocupe toda a largura da tela */
+        margin-left: 0;
+        position: absolute;
+        top: 35%;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+        z-index: 10;
+    }
 
     /* Ajustes para categorias */
     .categorias {
         flex-wrap: wrap;
         gap: 10px;
-        padding: 0 5%;
+        padding: 0;
+        justify-content: center; /* Alinha as categorias no centro */
+    }
+
+    #produtos-populares{
+        padding: 2.5vw;
     }
 
     .categoria {
-        width: 30%;  /* Altera para 30% para 3 categorias por linha */
+        width: 45%;  /* Ajusta para 2 categorias por linha */
         height: auto;
         padding: 15px;
         font-size: 18px;
@@ -321,16 +355,7 @@ body {
     }
 
     /* Ajustes na navegação do carrossel */
-    .navigation-buttons {
-        width: 100vw;  /* Garantir que ocupe toda a largura da tela */
-        margin-left: 0;
-        position: absolute;
-        top: 39%;  /* Ajusta para ficar mais para baixo na tela */
-        transform: translateY(-50%);
-        display: flex;
-        justify-content: space-between;
-        z-index: 10;
-    }
+
 
     .arrow-prev, .arrow-next {
         width: 35px;  /* Reduz o tamanho dos botões */
@@ -345,15 +370,16 @@ body {
 
     /* Ajustes nos produtos */
     .produto-card {
-        width: 38vw;  /* 2 produtos por linha */
+        width: 45vw;  /* 2 produtos por linha */
         height: 50vh;
-        margin: 1% 0.5%; /* Margens reduzidas para telas pequenas */
+        margin-left: 2vw;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;  /* Certifique-se que o botão fique no final */
     }
 
     .produto-card img {
-        height: 55%; /* Ajusta o tamanho da imagem para proporcionalidade */
+        height: 55%; /* Ajusta a altura da imagem para proporcionalidade */
     }
 
     .produto-detalhes {
@@ -371,7 +397,7 @@ body {
 
     .div_botao {
         margin-top: auto;
-        margin-bottom: 0.2vh; /* Reduz as margens superiores e inferiores */
+        margin-bottom: 0.5vh; /* Reduz as margens superiores e inferiores */
     }
 
     .btn-comprar {
@@ -379,13 +405,19 @@ body {
         font-size: 0.9rem; /* Ajusta o tamanho do texto */
     }
 
-    /* Ocultar div de endereço em telas pequenas */
+    /* Ajustes na visibilidade do endereço em telas pequenas */
     .endereco-container {
         display: none;  /* Oculta a div */
     }
 
     .titulo-populares {
-        width: 45vw;
+        width: 45vw;  /* Ajusta o título para ocupar melhor o espaço */
         margin-bottom: 3.5vh;
     }
+
+    /* Ajustes para a imagem do local */
+    #local img {
+        width: 30px; /* Ajusta o tamanho da imagem */
+    }
 }
+
