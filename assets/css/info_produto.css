@@ -56,6 +56,21 @@ body {
 }
 
 /* Avaliação */
+
+.avaliacao{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.avaliacao form input{
+    color: #fff;
+    background-color: #428390;
+    border: none;
+    border-radius: 10px;
+    padding: 1vh 2vw;
+}
+
 .estrelas input[type=radio]{
     display: none;
 }

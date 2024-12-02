@@ -82,38 +82,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
                 <!-- Nome e Preço do Produto -->
                 <h1 class="product-title"><?= htmlspecialchars($produto->Nome_produto) ?></h1>
 
-                <!-- Avaliação estrela -->
-                <?php
-                    // Imprimir a mensagem de erro ou sucesso salvo na sessão
-                    if (isset($_SESSION['msg'])) {
-                        echo $_SESSION['msg'];
-                        unset($_SESSION['msg']);
-                    }
-                ?>
-                <form method="post" action="./config/processa.php">
-                    <div class="estrelas">
-                        <input type="radio" name="estrela" id="vazio" value="" checked>
-                        <label for="estrela-1" class="fa fa-star"></label> 
-                        <input type="radio" name="estrela" id="estrela-1" value="1">
-                        
-                        <label for="estrela-2" class="fa fa-star"></label>
-                        <input type="radio" name="estrela" id="estrela-2" value="2">
-                        
-                        <label for="estrela-3" class="fa fa-star"></label>
-                        <input type="radio" name="estrela" id="estrela-3" value="3">
-                        
-                        <label for="estrela-4" class="fa fa-star"></label>
-                        <input type="radio" name="estrela" id="estrela-4" value="4">
-
-                        <label for="estrela-5" class="fa fa-star"></label>
-                        <input type="radio" name="estrela" id="estrela-5" value="5">
-                        <input type="text" name="idproduto" value="<?=$produto->produto_ID?>" style="display:none">
-                        
-                        <br><textarea name="comentario" rows="4" cols="30" placeholder="Digite o seu comentário..." id="comentario"></textarea>
-                        <input type="submit" value="Enviar">
-                    </div>
-                </form>
-
                 <hr>
                 <p class="product-price">R$ <?= number_format($produto->Preco_Und, 2, ',', '.') ?></p>
 
@@ -148,6 +116,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
             <hr>
             <p class="product-description mt-3"><?= nl2br(htmlspecialchars($produto->Descricao)) ?></p>
         </div>
+    </div>
+    <hr>
+        <!-- Avaliação estrela -->
+    
+        <?php
+            // Imprimir a mensagem de erro ou sucesso salvo na sessão
+            if (isset($_SESSION['msg'])) {
+                echo $_SESSION['msg'];
+                unset($_SESSION['msg']);
+            }
+        ?>
+        <h4>Avalie nosso produto</h4>
+        <div class="avaliacao">
+        <form method="post" action="./config/processa.php">
+            <div class="estrelas">
+                <input type="radio" name="estrela" id="vazio" value="" checked>
+                <label for="estrela-1" class="fa fa-star"></label> 
+                <input type="radio" name="estrela" id="estrela-1" value="1">
+                        
+                <label for="estrela-2" class="fa fa-star"></label>
+                <input type="radio" name="estrela" id="estrela-2" value="2">
+                        
+                <label for="estrela-3" class="fa fa-star"></label>
+                <input type="radio" name="estrela" id="estrela-3" value="3">
+                        
+                <label for="estrela-4" class="fa fa-star"></label>
+                <input type="radio" name="estrela" id="estrela-4" value="4">
+
+                <label for="estrela-5" class="fa fa-star"></label>
+                <input type="radio" name="estrela" id="estrela-5" value="5">
+                <input type="text" name="idproduto" value="<?=$produto->produto_ID?>" style="display:none">
+                        
+                <br><textarea name="comentario" rows="4" cols="30" placeholder="Digite o seu comentário..." id="comentario"></textarea>
+            </div>                
+                <input type="submit" value="Enviar">
+        </form>
     </div>
 
     <?php else: ?>
@@ -198,8 +202,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar_carrinho'])
         buttonElement.innerText = newButtonText;
     }, 100);
 }
-
-
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
