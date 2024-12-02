@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Comfortaa", sans-serif;
+    font-size: 1rem;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#text_buscar {
+    margin: 4vh;
+    padding: 20px;
+    height: 8vh;
+    width: 70vw;
+    border: none;
+    font-size: 14px;
+    background-image: url("../../imgs/icons/pesquisa.svg");
+    background-repeat: no-repeat;
+    background-position: 98%;
+    background-size: 25px;
+}
+
+#containertotal {
+    position: absolute;
+    left: 22vw;
+    color: #1e1e1e;
+}
+
+#icon_btn_adm {
+    max-width: 100%;
+    height: 25px;
+    padding-right: 20px;
+}
+
+#botoes {
+    margin: 0 1vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button {
+    padding: 1vh 3vw;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    margin-left: 20px;
+    background-color: #dddddd;
+    transition: 0.2s ease-in-out;
+}
+
+.button:hover {
+    top: -4px;
+    box-shadow: 0 6px 9px #b4b4b4;
+}
+
+#btn1 {
+    background-color: #69C9D0;
+}
+
+#btn2 {
+    background-color: #428390;
+}
+
+#btn3 {
+    background-color: #5A3A3F;
+}
+
+#btn4 {
+    background-color: #E0A072;
+}
+
+#all_produts {
+    background-color: #EBEBEB;
+    padding: 2vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#produto {
+    max-width: 30vw;
+    width: 30vw;
+    background-color: #ffffff;
+    margin: 2vh 2vw;
+    box-shadow: 0 6px 9px #b4b4b4;
+    display: flex;
+}
+
+#img_prodt_div {
+    width: 30%;
+    padding: 1vh;
+    background-color: #ffffff;
+    text-align: center;
+    border: 1px solid #AFAFAF;
+}
+
+#img_prodt {
+    max-width: 100%;
+    height: 18vh;
+}
+
+#info_prodt {
+    width: 60%;
+    padding-right: 1vh;
+    background-color: #ffffff;
+}
+
+#info_prodt>#txt {
+    margin-top: 2vh;
+    padding-left: 3vh;
+}
+
+#estoque {
+    color: #ffffff;
+    margin-top: 4.5vh;
+    padding: 1.5vh;
+    background-color: #133A41;
+}
+
+.pagatual {
+    font-weight: bold;
+}
