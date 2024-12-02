@@ -1,4 +1,8 @@
 <?php
+session_start();
+if (isset($_SESSION["adm"])) {
+?>
+<?php
 require_once '../connection/connection.php';
 $sql = "SELECT * FROM categoria";
 $conn = $conn->query($sql);
@@ -115,5 +119,12 @@ $categorias = $conn->fetchAll(PDO::FETCH_OBJ);
     </script>
         <script src="../assets/js/mobileNavbar.js"></script>
 </body>
+<?php
+ }
+else {
 
+        header("Location: ../login.php");
+        exit();
+    }
+?>
 </html>
