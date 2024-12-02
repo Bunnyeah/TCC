@@ -1,12 +1,4 @@
 <?php
-if (isset($_SESSION["adm"])) {
-} else {
-
-    header("Location: ../login.php");
-    exit();
-}
-?>
-<?php
 require_once '../connection/connection.php';
 
 // Excluir feedback

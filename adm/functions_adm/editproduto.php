@@ -5,10 +5,10 @@ require_once '../../connection/connection.php';
 if (isset($_GET['id'])) { 
     $produto_id = $_GET['id'];
 
-    // Consulta para obter os detalhes do produto
+    // Prepara a consulta para obter os detalhes do produto
     $sql = 'SELECT * FROM produto WHERE produto_ID = :produto_ID';
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':produto_ID', $produto_id, PDO::PARAM_INT);
+    $stmt->bindParam(':produto_ID', $produto_id);
     $stmt->execute();
 
     if ($stmt->rowCount() > 0) {
@@ -20,7 +20,7 @@ if (isset($_GET['id'])) {
         // Consulta para obter os detalhes da categoria
         $sqlSelectcategoria = 'SELECT * FROM categoria WHERE categoria_ID = :categoria_ID';
         $stmtCategoria = $conn->prepare($sqlSelectcategoria);
-        $stmtCategoria->bindParam(':categoria_ID', $fk_categoria_ID, PDO::PARAM_INT);
+        $stmtCategoria->bindParam(':categoria_ID', $fk_categoria_ID);
         $stmtCategoria->execute();
 
         if ($stmtCategoria->rowCount() > 0) {
@@ -28,7 +28,7 @@ if (isset($_GET['id'])) {
             $produto->categoria_nome = $categoria->Nome;
         }
 
-        // Retorna os dados do produto com o nome da categoria
+        // Retorna os dados do produto, incluindo o nome da categoria
         echo json_encode($produto);
     } else {
         echo json_encode(['error' => 'Produto não encontrado']);
@@ -51,13 +51,17 @@ if (isset($_GET['id'])) {
         $nomearquivo = uniqid() . "." . $imageFileType;
         $target_file_produto = $target_dir_produto . $nomearquivo;
 
-        // Validações de imagem
+        // Verifica o tipo de arquivo
         if (!in_array($imageFileType, $allowed_types)) {
             throw new Exception("Apenas arquivos JPG, JPEG e PNG são permitidos.");
         }
+
+        // Verifica o tamanho do arquivo
         if ($_FILES["editprodutoimg"]["size"] > $file_size_limit) {
             throw new Exception("A imagem é muito grande.");
         }
+
+        // Verifica se o arquivo é uma imagem
         if (getimagesize($_FILES["editprodutoimg"]["tmp_name"]) === false) {
             throw new Exception("O arquivo não é uma imagem.");
         }
@@ -95,17 +99,13 @@ if (isset($_GET['id'])) {
         }
     }
 
-    // Converte preço para o formato correto
-    $Preco_Und = floatval(str_replace(',', '.', str_replace('.', '', $Preco_Und)));
-
-    
     // Atualização do produto
     $sql = "UPDATE produto 
-            SET Preco_Und = :Preco_Und, 
-                Qtd_stock = :Qtd_stock, 
-                Descricao = :Descricao, 
-                Nome_produto = :Nome_produto, 
-                fk_categoria_ID = :fk_categoria_ID";
+    SET Preco_Und = :Preco_Und, 
+        Qtd_stock = :Qtd_stock, 
+        Descricao = :Descricao, 
+        Nome_produto = :Nome_produto, 
+        fk_categoria_ID = :fk_categoria_ID";
 
     // Adiciona as imagens, se existirem
     if (isset($nomearquivo)) {

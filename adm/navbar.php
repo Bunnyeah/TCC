@@ -1,11 +1,3 @@
-<?php
-if (isset($_SESSION["adm"])) {
-} else {
-
-    header("Location: ../login.php");
-    exit();
-}
-?>
 <nav id="mobileNavbar">
                 <div class="toggle">
                     <span></span>
