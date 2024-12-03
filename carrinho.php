@@ -82,41 +82,20 @@ if (isset($_SESSION["loggedin"])) {
                         <?php
                         if (!empty($_SESSION['carrinho'])) {
                             try {
-                                $conn->beginTransaction();
-
-                                foreach ($_SESSION['carrinho'] as $pp) {
-                                    $novoEstoque = $pp['estoque'] - $pp['quantidade'];
-                                    if ($novoEstoque < 0) {
-                                        throw new Exception("Estoque insuficiente para o produto: " . $pp['nome']);
-                                    }
-
-                                    $sql = "UPDATE produto 
-                                            SET Qtd_stock = :new_stock 
-                                            WHERE produto_ID = :produto_ID";
-
-                                    $stmt = $conn->prepare($sql);
-                                    $stmt->execute([
-                                        ':new_stock' => $novoEstoque,
-                                        ':produto_ID' => $pp['id']
-                                    ]);
-                                }
-
-                                $conn->commit();
-
                                 // Gera o link do WhatsApp
                                 $mensagem = rawurlencode(
                                     "Olá! Aqui estão os detalhes do seu carrinho de compras:\n\n\n" .
                                     implode("\n", array_map(function ($pp) {
                                         return "Produto: {$pp['nome']}\n" .
-                                               "Preço: R$ " . number_format($pp['preco'], 2, ',', '.') . "\n" .
-                                               "Quantidade: {$pp['quantidade']}\n" .
+                                                "Preço: R$ " . number_format($pp['preco'], 2, ',', '.') . "\n" .
+                                                "Quantidade: {$pp['quantidade']}\n" .
                                                "Subtotal: R$ " . number_format($pp['preco'] * $pp['quantidade'], 2, ',', '.') . "\n";
                                     }, $_SESSION['carrinho'])) .
                                     "\n\nValor Total: R$ " . number_format($valorTotal, 2, ',', '.') .
                                     "\n\nCaso queira confirmar a compra ou adicionar mais itens, responda a esta mensagem!"
                                 );
 
-                                echo '<a href="https://wa.me/5515996810765?text=' . $mensagem . '" class="btn btn-success" target="_blank">
+                                echo '<a href="https://wa.me/5515997303512?text=' . $mensagem . '  class="btn btn-success" id="buttoncontinuar" target="_blank">
                                         Continuar
                                       </a>';
                             } catch (Exception $e) {

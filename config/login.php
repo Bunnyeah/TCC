@@ -16,7 +16,7 @@
                     $_SESSION["loggedin"] = true;
                     $_SESSION["usuario"] = htmlspecialchars($usuario->Nome);
                     $_SESSION["idusuario"] = $usuario->cliente_ID;
-                    if($email == "adm@adm.com"){
+                    if($email == "alexpromel@gmail.com"){
                         $_SESSION["adm"] = true;
                         header("Location: ../adm/perfil.php");
                         exit;

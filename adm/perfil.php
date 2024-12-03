@@ -48,10 +48,9 @@
                         </div>
                         <div class="mb-3">
                             <label for="telefone" class="form-label">Telefone</label>
-                            <input type="tel" onkeyup="handlePhone(event)" class="form-control" id="telefone" name="telefone" value="<?=$usuario->Telefone;?>" maxlength="11">
+                            <input type="tel" onkeyup="handlePhone(event)" class="form-control" id="telefone" name="telefone" value="<?=$usuario->Telefone;?>" maxlength="15">
                             <script>
                                 const handlePhone = (event) => {
-                                    let input = event.target
                                     input.value = phoneMask(input.value)
                                 }
 

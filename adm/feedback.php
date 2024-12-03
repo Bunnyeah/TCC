@@ -3,7 +3,7 @@ require_once '../connection/connection.php';
 
 // Excluir feedback
 if (isset($_POST['excluir_feedback'])) {
-    $id = $_POST['id'];  
+    $id = $_POST['id'];
     $sqlDelete = "DELETE FROM avaliacoes WHERE id_avaliacao = id_avaliacao";
     $stmtDelete = $pdo->prepare($sqlDelete);
     $stmtDelete->execute([$id]);
@@ -65,7 +65,7 @@ document.querySelectorAll('#btn-excluir').forEach(function(button) {
         const feedbackId = this.getAttribute('data-id');
         
         if (confirm('Tem certeza de que deseja excluir esta avaliação?')) {
-            fetch('excluir_feedback.php', {
+            fetch('feedback.php', {
                 method: 'POST',
                 body: new URLSearchParams({
                     'excluir_feedback': true,

@@ -88,7 +88,7 @@
                 <p class="footertitulo">Contatos</p>
                 <div id="contatos_lista">
                     <a href="https://www.instagram.com/promel_boituva/"><img src="./assets/imgs/icons/instagram.svg" alt="icone Instagram"> Instagram</a>
-                    <a href=""><img src="./assets/imgs/icons/whatsapp.svg" alt="icone Whatsapp"> Whatsapp</a>
+                    <a href="https://wa.me/5515996810765?"><img src="./assets/imgs/icons/whatsapp.svg" alt="icone Whatsapp">Whatsapp</a>
                     <a href="https://web.facebook.com/lojapromel/?_rdc=1&_rdr"><img src="./assets/imgs/icons/facebook.svg" alt="icone Facebook"> Facebook</a>
                 </div>
             </div>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 02/12/2024 às 01:47
--- Versão do servidor: 8.2.0
--- Versão do PHP: 7.4.33
+-- Tempo de geração: 03/12/2024 às 13:48
+-- Versão do servidor: 8.3.0
+-- Versão do PHP: 8.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `promel04`
 --
-CREATE DATABASE IF NOT EXISTS `promel04` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-USE `promel04`;
 
 -- --------------------------------------------------------
 
@@ -119,16 +117,17 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `Info` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`cliente_ID`),
   UNIQUE KEY `UC_Email` (`Email`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `cliente`
 --
 
 INSERT INTO `cliente` (`cliente_ID`, `Email`, `Senha`, `Nome`, `Telefone`, `Info`) VALUES
-(1, 'adm@adm.com', '$2y$10$tQi2AEz5xyaSWdo1FO/D6.lK4WlwamqjIIelZia3LU4dPE8FXn8CW', 'Alex', NULL, NULL),
+(1, 'alexpromel@gmail.com', '$2y$10$tQi2AEz5xyaSWdo1FO/D6.lK4WlwamqjIIelZia3LU4dPE8FXn8CW', 'Alex', NULL, NULL),
 (2, 'vitor3@gmail.com', '$2y$10$aYaY3owARm3WeF8HI4hVWuYczeoFbJP9C6nmoVBjUQxj69CrTaTt2', 'vitor', NULL, NULL),
-(4, 'JoaoM@gmail.com', '$2y$10$oNfB8zt3aiSpscPA3RWh0.Di4fuyMZIyTLhPMHC5JBcQPAuM4roz2', 'Joao Mendez', NULL, NULL);
+(4, 'JoaoM@gmail.com', '$2y$10$oNfB8zt3aiSpscPA3RWh0.Di4fuyMZIyTLhPMHC5JBcQPAuM4roz2', 'Joao Mendez', NULL, NULL),
+(5, 'cliente@gmail.com', '$2y$10$dQEn3MpelI3x.mL75VHxyeUgujl4UyXwRhx36xD.xPbivc9mXbR1u', 'Cliente', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -197,7 +196,7 @@ CREATE TABLE IF NOT EXISTS `produto` (
 
 INSERT INTO `produto` (`produto_ID`, `Preco_Und`, `Qtd_stock`, `Qnt_vend`, `Status_prdt`, `Descricao`, `Nome_produto`, `imagem`, `imagem2`, `fk_categoria_ID`) VALUES
 (10, 22, 5, NULL, NULL, 'Alcachofra com Berinjela', 'Alcachofra com Berinjela', '674d0ee544020.jpeg', '674d0ee54433c.jpg', 4),
-(11, 150, 15, NULL, NULL, 'Cura Tudo', 'Cura Tudo', '674d0f735c2b0.jpeg', '674d0f735d5a6.jpg', 4),
+(11, 150, 14, NULL, NULL, 'Cura Tudo', 'Cura Tudo', '674d0f735c2b0.jpeg', '674d0f735d5a6.jpg', 4),
 (12, 130, 12, NULL, NULL, 'Erva Baleeira', 'Erva Baleeira', '674d10fdb654d.jpeg', '674d10fdb6900.jpg', 4),
 (13, 100, 80, NULL, NULL, 'Extrato', 'Ansie', '674d118605dbc.png', '674d118606b62.jpg', 4);
 
