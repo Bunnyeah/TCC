@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (isset($_SESSION["adm"])) {
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,7 +15,6 @@
 </head>
 <body>
 <?php
-    session_start();
     require_once '../connection/connection.php';
     extract($_GET);
     if (isset($_SESSION["loggedin"])) {
@@ -181,5 +184,13 @@
         });
     });
 </script>
+<?php
+ }
+else {
+
+        header("Location: ../login.php");
+        exit();
+    }
+?>
 <script src="../assets/js/mobileNavbar.js"></script>
 </html>

@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (isset($_SESSION["adm"])) {
+?>
+<?php
 require_once '../connection/connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -125,4 +128,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </script>
     <script src="../assets/js/mobileNavbar.js"></script>
 </body>
+<?php
+ }
+else {
+
+        header("Location: ../login.php");
+        exit();
+    }
+?>
 </html>

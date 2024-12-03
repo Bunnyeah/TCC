@@ -1,4 +1,8 @@
 <?php
+session_start();
+if (isset($_SESSION["adm"])) {
+?>
+<?php
 require_once '../connection/connection.php';
 
 // Excluir feedback
@@ -89,6 +93,13 @@ document.querySelectorAll('#btn-excluir').forEach(function(button) {
     });
 });
 </script>
+<?php
+ }
+else {
 
+        header("Location: ../login.php");
+        exit();
+    }
+?>
 </body>
 </html>
