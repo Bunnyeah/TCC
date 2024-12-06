@@ -1,8 +1,0 @@
-- Responsividade
-- API Correios
-- Davi - Terminar o carrinho e insert categoria
-- Corrigir erros
-- Verificar máscaras do Vitor M
-- CSS Alterar senha
-- Adicionar "Categoria" no select produtos do "ADM - produtos"
-- Editar imagem - "ADM - produtos"
