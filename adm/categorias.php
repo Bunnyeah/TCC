@@ -47,7 +47,7 @@ $categorias = $conn->fetchAll(PDO::FETCH_OBJ);
             </div>
 
     <div class="paidocoisa">
-        <a href="#abrir" id="coisa"><button type="submit" class="botao_add"><img src="../assets/imgs/icons/plus.svg" id="icon_btn_adm"></button></a>
+        <a href="#abrir" id="coisa"><button type="submit" class="botao_add"><img src="../assets/imgs/icons/plus.svg" id="icon_btn_cat"></button></a>
     </div>
         <!-- TODAS AS CATEGORIAS -->
         <div class="all_categorias">
